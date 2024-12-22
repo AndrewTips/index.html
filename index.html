@@ -137,6 +137,55 @@
             width: 100px;
             height: auto;
         }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 3rem;
+            }
+            header p {
+                font-size: 1.2rem;
+            }
+            header a {
+                font-size: 1rem;
+                padding: 0.8rem 1.5rem;
+            }
+            nav {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+            .social-icons img {
+                width: 30px;
+                height: 30px;
+            }
+            .purchase-links a {
+                padding: 0.6rem 1rem;
+                font-size: 0.9rem;
+            }
+            section {
+                padding: 2rem 1rem;
+            }
+        }
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+            header p {
+                font-size: 1rem;
+            }
+            header a {
+                font-size: 0.9rem;
+                padding: 0.5rem 1rem;
+            }
+            .social-icons {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            .social-icons img {
+                width: 25px;
+                height: 25px;
+            }
+        }
     </style>
 </head>
 <body>
