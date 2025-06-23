@@ -3,7 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Breaths of Hope</title>
+    <title>Breaths of Hope: A Journey Through Survival and Faith - Official Website</title>
+    
+    <meta name="description" content="Explore 'Breaths of Hope' by J.S. Adam, a powerful true story of surviving a severe illness with faith, family, and resilience. Discover insights on health, financial wisdom, and the human spirit. Available on Amazon.">
+    
+    <meta name="keywords" content="Breaths of Hope, J.S. Adam, Andrew Tips, survival story, faith journey, health resilience, COVID-19 survival, family bonds, true friendship, financial wisdom, cryptocurrency insights, inspirational book, non-fiction memoir, overcoming adversity, hope, gratitude, compassionate healthcare">
+    
+    <meta property="og:title" content="Breaths of Hope: A Journey Through Survival and Faith">
+    <meta property="og:description" content="A powerful true story of resilience, faith, and the enduring power of human connection. Discover J.S. Adam's battle with severe illness and profound lessons learned.">
+    <meta property="og:type" content="book">
+    <meta property="og:url" content="https://www.andrewtips.com"> <meta property="og:image" content="https://github.com/AndrewTips/index.html/raw/main/book_cover.jpg"> <meta property="og:image:alt" content="Book cover for Breaths of Hope by J.S. Adam, featuring a poignant journey of survival.">
+    <meta property="book:author" content="J.S. Adam">
+    <meta property="book:isbn" content="9798345107393">
+
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -23,27 +35,36 @@
             align-items: center;
             text-align: center;
             position: relative;
+            /* Added overlay for better text readability */
+            background-blend-mode: overlay;
+            background-color: rgba(0, 0, 0, 0.4); /* Darker overlay */
         }
         header h1 {
             font-size: 4rem;
             margin: 0;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9); /* Stronger shadow */
+            line-height: 1.1; /* Adjust for better readability on multiple lines */
         }
         header p {
             font-size: 1.8rem;
             margin: 1.5rem 0;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
         }
-        header a {
+        header .cta-button { /* Changed to a class for more specific styling */
             background: #ff5722;
             color: white;
             text-decoration: none;
-            padding: 1rem 2rem;
+            padding: 1rem 2.5rem; /* Slightly larger padding */
             border-radius: 8px;
-            font-size: 1.5rem;
-            transition: background 0.3s;
+            font-size: 1.6rem; /* Slightly larger font */
+            font-weight: bold; /* Make it stand out */
+            transition: background 0.3s ease-in-out, transform 0.2s ease-in-out; /* Added transform for hover effect */
+            display: inline-block; /* Ensures padding and margin work correctly */
+            margin-top: 1rem; /* Space from tagline */
         }
-        header a:hover {
+        header .cta-button:hover {
             background: #e64a19;
+            transform: scale(1.05); /* Slight zoom on hover */
         }
         nav {
             background: #222;
@@ -54,88 +75,161 @@
             gap: 2rem;
             position: sticky;
             top: 0;
+            z-index: 1000; /* Ensures nav stays on top of other content */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Added subtle shadow */
         }
         nav a {
             color: white;
             text-decoration: none;
             font-size: 1.2rem;
+            padding: 0.5rem 0.8rem; /* Added padding for better click area */
+            transition: color 0.3s, background-color 0.3s;
+            border-radius: 5px;
+        }
+        nav a:hover, nav a.active {
+            color: #ff5722;
+            background-color: rgba(255, 255, 255, 0.1);
         }
         .social-icons {
             position: absolute;
-            bottom: 10%;
+            bottom: 5%; /* Moved slightly up to avoid being too close to bottom */
             display: flex;
             justify-content: center;
-            gap: 1rem;
+            gap: 1.2rem; /* Slightly more space */
+            padding: 1rem; /* Added padding to prevent cutoff on small screens */
         }
         .social-icons a {
             text-decoration: none;
+            display: inline-block; /* To make sure transform applies correctly */
         }
         .social-icons img {
-            width: 40px;
-            height: 40px;
-            transition: transform 0.3s;
+            width: 45px; /* Slightly larger icons */
+            height: 45px;
+            transition: transform 0.3s ease-in-out;
         }
         .social-icons img:hover {
-            transform: scale(1.2);
+            transform: scale(1.3); /* Stronger zoom */
         }
         section {
-            padding: 3rem 1rem;
+            padding: 4rem 1.5rem; /* Increased padding for more breathing room */
             max-width: 900px;
             margin: 0 auto;
             text-align: center;
+            line-height: 1.7; /* Improved readability for body text */
+            font-size: 1.1rem;
+        }
+        section h2 {
+            font-size: 2.5rem;
+            color: #444;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #ff5722; /* Subtle underline for section titles */
+            display: inline-block; /* Makes border-bottom fit content */
+            padding-bottom: 0.5rem;
         }
         .purchase-links {
             display: flex;
             justify-content: center;
-            gap: 1rem;
+            gap: 1.2rem;
             flex-wrap: wrap;
-            margin-top: 2rem;
+            margin-top: 2.5rem; /* More space from preceding text */
         }
         .purchase-links a {
             background: #0077cc;
             color: white;
             text-decoration: none;
-            padding: 0.8rem 1.2rem;
-            border-radius: 5px;
-            font-size: 1.1rem;
+            padding: 1rem 1.5rem; /* Consistent padding */
+            border-radius: 8px; /* Rounded corners for buttons */
+            font-size: 1.15rem; /* Slightly larger font */
+            transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Subtle shadow */
         }
-        footer {
-            background: #333;
-            color: white;
-            text-align: center;
-            padding: 1.5rem 1rem;
-            margin-top: 3rem;
+        .purchase-links a:hover {
+            background: #005f99;
+            transform: translateY(-3px); /* Lift effect on hover */
         }
-        footer a {
-            color: #ff5722;
-            text-decoration: none;
-        }
-        .embed-song {
-            margin: 2rem auto;
-        }
-        .languages {
-            margin: 2rem auto;
-            padding: 2rem;
-            background-color: #f3f3f3;
+
+        /* Styling for the audio player */
+        .audio-excerpt {
+            margin: 3rem auto;
+            padding: 2.5rem;
+            background-color: #e9ecef;
             border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            max-width: 700px;
+        }
+        .audio-excerpt h2 {
+            color: #343a40;
+            margin-bottom: 1.5rem;
+            font-size: 2.2rem;
+        }
+        .audio-excerpt audio {
+            width: 100%;
+            margin-top: 1.5rem;
+            border-radius: 5px;
+        }
+        .audio-excerpt p {
+            font-size: 1rem;
+            margin-top: 1rem;
+            color: #555;
+        }
+
+
+        .languages {
+            margin: 4rem auto; /* More vertical space */
+            padding: 3rem; /* Increased padding */
+            background-color: #f3f3f3;
+            border-radius: 15px; /* More rounded */
+            box-shadow: inset 0 0 15px rgba(0,0,0,0.05); /* Inner shadow */
         }
         .languages h2 {
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            color: #444;
         }
         .languages ul {
             list-style: none;
             padding: 0;
-            text-align: left;
+            text-align: center; /* Center list items for better aesthetics */
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.8rem 1.5rem; /* Gap between rows and columns */
         }
         .languages ul li {
-            margin: 0.5rem 0;
+            margin: 0.4rem 0;
+            font-size: 1.1rem;
+            color: #555;
+            background-color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 20px; /* Pill shape */
+            border: 1px solid #ddd;
+        }
+        .languages ul li strong {
+            color: #333;
         }
         .logo {
             position: absolute;
-            top: 10%;
+            top: 5%; /* Adjusted for better placement */
             left: 5%;
-            width: 100px;
+            width: 120px; /* Slightly larger logo */
             height: auto;
+            z-index: 1001; /* Ensure logo is on top */
+            filter: drop-shadow(2px 2px 3px rgba(0,0,0,0.5)); /* Added shadow for visibility */
+        }
+        footer {
+            background: #222; /* Darker footer */
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem; /* More padding */
+            margin-top: 4rem; /* More space */
+            font-size: 0.95rem;
+        }
+        footer a {
+            color: #ff5722;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        footer a:hover {
+            color: #e64a19;
         }
 
         /* Responsive Design */
@@ -144,46 +238,112 @@
                 font-size: 3rem;
             }
             header p {
-                font-size: 1.2rem;
+                font-size: 1.5rem;
             }
-            header a {
-                font-size: 1rem;
-                padding: 0.8rem 1.5rem;
+            header .cta-button {
+                font-size: 1.2rem;
+                padding: 0.8rem 1.8rem;
             }
             nav {
                 flex-wrap: wrap;
                 gap: 1rem;
             }
-            .social-icons img {
-                width: 30px;
-                height: 30px;
+            nav a {
+                font-size: 1rem;
+                padding: 0.4rem 0.6rem;
             }
-            .purchase-links a {
-                padding: 0.6rem 1rem;
-                font-size: 0.9rem;
+            .social-icons {
+                bottom: 3%;
+                gap: 1rem;
+            }
+            .social-icons img {
+                width: 35px;
+                height: 35px;
             }
             section {
-                padding: 2rem 1rem;
+                padding: 3rem 1rem;
+                font-size: 1rem;
+            }
+            section h2 {
+                font-size: 2rem;
+            }
+            .purchase-links a {
+                padding: 0.8rem 1.2rem;
+                font-size: 1rem;
+            }
+            .audio-excerpt {
+                padding: 1.5rem;
+            }
+            .audio-excerpt h2 {
+                font-size: 1.8rem;
+            }
+            .languages {
+                padding: 2rem;
+            }
+            .languages ul {
+                gap: 0.6rem 1rem;
+            }
+            .languages ul li {
+                font-size: 0.95rem;
+                padding: 0.5rem 1rem;
+            }
+            .logo {
+                width: 90px;
+                top: 3%;
+                left: 3%;
             }
         }
         @media (max-width: 480px) {
             header h1 {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
             }
             header p {
+                font-size: 1.1rem;
+            }
+            header .cta-button {
                 font-size: 1rem;
+                padding: 0.6rem 1.4rem;
             }
-            header a {
-                font-size: 0.9rem;
-                padding: 0.5rem 1rem;
-            }
-            .social-icons {
+            nav {
                 flex-direction: column;
                 gap: 0.5rem;
             }
+            nav a {
+                font-size: 0.9rem;
+                padding: 0.3rem 0.5rem;
+            }
+            .social-icons {
+                flex-direction: row; /* Keep row for very small screens if space allows */
+                gap: 0.8rem;
+                bottom: 2%;
+            }
             .social-icons img {
-                width: 25px;
-                height: 25px;
+                width: 30px;
+                height: 30px;
+            }
+            section {
+                padding: 2rem 0.8rem;
+                font-size: 0.95rem;
+            }
+            section h2 {
+                font-size: 1.8rem;
+            }
+            .purchase-links a {
+                font-size: 0.9rem;
+                padding: 0.7rem 1rem;
+            }
+            .audio-excerpt {
+                padding: 1rem;
+            }
+            .audio-excerpt h2 {
+                font-size: 1.5rem;
+            }
+            .languages ul li {
+                font-size: 0.85rem;
+                padding: 0.4rem 0.8rem;
+            }
+            .logo {
+                width: 70px;
             }
         }
     </style>
@@ -191,85 +351,144 @@
 <body>
 
 <header>
-    <img class="logo" src="https://github.com/AndrewTips/index.html/raw/refs/heads/main/Ad%20Tips%20logo" alt="Andrew Tips Logo">
+    <img class="logo" src="https://github.com/AndrewTips/index.html/raw/refs/heads/main/Ad%20Tips%20logo" alt="Andrew Tips Logo - Symbolizing guidance and hope">
     <h1>Breaths of Hope</h1>
-    <p>A Journey Through Survival & Faith</p>
-    <a href="#purchase">Order Now</a>
+    <p>A Journey Through Survival, Faith, and Reclaiming Life</p>
+    <a href="#purchase" class="cta-button">Get Your Copy Today</a>
 
     <div class="social-icons">
-        <a href="https://www.youtube.com/@andrewtips01" target="_blank">
-            <img src="https://img.icons8.com/color/48/000000/youtube-play.png" alt="YouTube">
+        <a href="YOUR_YOUTUBE_CHANNEL_URL" target="_blank" aria-label="Visit our YouTube channel for book content and insights">
+            <img src="https://img.icons8.com/color/48/000000/youtube-play.png" alt="YouTube icon">
         </a>
-        <a href="https://www.instagram.com/jsadam2024/?hl=en" target="_blank">
-            <img src="https://img.icons8.com/color/48/000000/instagram-new.png" alt="Instagram">
+        <a href="https://www.instagram.com/jsadam2024/?hl=en" target="_blank" aria-label="Follow J.S. Adam on Instagram for updates">
+            <img src="https://img.icons8.com/color/48/000000/instagram-new.png" alt="Instagram icon">
         </a>
-        <a href="https://www.amazon.com/dp/B0DM2K5GXV" target="_blank">
-            <img src="https://img.icons8.com/color/48/000000/amazon.png" alt="Amazon">
+        <a href="https://www.amazon.com/dp/B0DM2K5GXV" target="_blank" aria-label="Purchase Breaths of Hope on Amazon">
+            <img src="https://img.icons8.com/color/48/000000/amazon.png" alt="Amazon icon">
         </a>
     </div>
 </header>
 
 <nav>
     <a href="#about">About the Book</a>
-    <a href="#author">Author's Note</a>
-    <a href="#purchase">Purchase Links</a>
+    <a href="#themes">Key Themes</a>
+    <a href="#author">Author's Journey</a>
+    <a href="#audio">Listen to an Excerpt</a>
+    <a href="#purchase">Order Your Copy</a>
+    <a href="#translations">Translations</a>
     <a href="#contact">Contact</a>
 </nav>
 
-<section id="about">
-    <h2>About the Book</h2>
-    <p>"Breaths of Hope" tells the extraordinary true story of J.S. Adam, capturing his unwavering faith and resilience during his battle with COVID-19. From the challenges of isolation to moments of profound hope, this book is a testament to the unyielding power of the human spirit.</p>
-</section>
+<main>
+    <section id="about">
+        <h2>About "Breaths of Hope"</h2>
+        <p>"Breaths of Hope: A Journey Through Survival and Faith" by J.S. Adam is a profound non-fiction memoir chronicling the author's harrowing battle with a severe, life-threatening illness. More than just a survival story, it's an intimate exploration of the human spirit's capacity for resilience amidst isolation, pain, and fear. This book delves into the emotional toll of critical illness, the vital role of unwavering faith, and the surprising strength found in true human connections.</p>
+        <p>Experience a journey that challenges perceptions of modern healthcare, highlights the invaluable support of family and true friends, and offers deep reflections on gratitude and financial wisdom. "Breaths of Hope" is a testament to overcoming adversity and a powerful reminder of the preciousness of life's simplest gifts.</p>
+    </section>
 
-<section id="author">
-    <h2>Author's Note</h2>
-    <p>J.S. Adam shares his deeply personal journey, reflecting on the bonds of family, faith, and the will to survive. His message is one of hope and inspiration, inviting readers to find light even in the darkest moments.</p>
-</section>
+    <section id="themes">
+        <h2>Key Themes Explored</h2>
+        <p>This gripping memoir touches on universal themes that resonate deeply with readers:</p>
+        <ul>
+            <li><strong>Unwavering Resilience & Survival:</strong> Witness the author's indomitable spirit through intense physical and emotional trials, from struggling for every breath to reclaiming strength.</li>
+            <li><strong>The Power of Faith:</strong> Discover how deep faith served as a constant anchor, providing courage and solace in the darkest hours.</li>
+            <li><strong>The Priceless Value of True Friendship & Family:</strong> A heartfelt tribute to the selfless dedication of a brother and a loyal friend, contrasting it with fleeting acquaintances.</li>
+            <li><strong>Navigating Modern Healthcare Systems:</strong> An honest look at the challenges and indifference encountered in profit-driven medical environments, contrasting it with genuinely compassionate care.</li>
+            <li><strong>Financial Preparedness & Wisdom:</strong> Unique insights into the importance of financial stability, sound money principles, and managing wealth beyond mere accumulation.</li>
+            <li><strong>Rediscovering Life's Simple Gifts:</strong> A profound journey back to appreciating fundamental blessings like breath, movement, and the warmth of human connection.</li>
+            <li><strong>The Mind-Body Connection:</strong> Exploration of how psychological stress impacts physical well-being and the path to holistic healing.</li>
+        </ul>
+    </section>
 
-<section id="purchase">
-    <h2>Purchase Links</h2>
-    <p>Order "Breaths of Hope" from your local Amazon store:</p>
-    <div class="purchase-links">
-        <a href="https://www.amazon.com/dp/B0DM2K5GXV">Amazon US</a>
-        <a href="https://www.amazon.co.uk/dp/B0DM2K5GXV">Amazon UK</a>
-        <a href="https://www.amazon.de/dp/B0DM2K5GXV">Amazon DE</a>
-        <a href="https://www.amazon.fr/dp/B0DM2K5GXV">Amazon FR</a>
-    </div>
-</section>
+    <section id="author">
+        <h2>About the Author: Andrew Tips (J.S. Adam)</h2>
+        <p>Writing under the pseudonym J.S. Adam, Andrew Tips shares his extraordinary and deeply personal journey of survival. His decision to pen this memoir stems from a profound need to illuminate the challenges faced during severe illness and to highlight the often-overlooked aspects of human connection and compassion in a rapidly changing world.</p>
+        <p>Andrew, a physicist by profession, brings a unique blend of rational insight and profound emotional depth to his narrative. His experiences, including navigating complex financial landscapes and confronting the stark realities of healthcare systems, have shaped a message of resilience, strategic preparation, and unwavering gratitude. Through "Breaths of Hope," he invites readers to reflect on their own lives, cherish their relationships, and embrace the unpredictable journey with courage and faith.</p>
+    </section>
 
-<section class="embed-song">
-    <h2>Listen to the Theme Song</h2>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/hEnvQz8lgGI?autoplay=1&mute=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-    <p>Visit our <a href="https://www.youtube.com/channel/UCG0FvaCOBqX9inEIJSABh0g" target="_blank">YouTube Channel</a> for more content.</p>
-</section>
+    <section id="audio" class="audio-excerpt">
+        <h2>Listen to an Excerpt from "Breaths of Hope"</h2>
+        <p>Get a glimpse into the heartfelt narrative of "Breaths of Hope." This audio excerpt offers a moment of reflection, inviting you to experience the journey of resilience and faith that defines the book.</p>
+        <audio controls preload="metadata">
+            <source src="YOUR_BOOK_EXCERPT_AUDIO_URL.mp3" type="audio/mpeg">
+            <source src="YOUR_BOOK_EXCERPT_AUDIO_URL.ogg" type="audio/ogg">
+            Your browser does not support the audio element.
+        </audio>
+        <p>This excerpt features elements of the book's theme song as well, which you can listen to in full on our YouTube channel.</p>
+    </section>
 
-<section class="languages">
-    <h2>Future Translations</h2>
-    <p>"Breaths of Hope" will soon be available in the following languages, reflecting its universal appeal:</p>
-    <ul>
-        <li><strong>French</strong>: Renowned for elegance and sophistication in literature</li>
-        <li><strong>Spanish</strong>: Vast readership and expressive literary tradition</li>
-        <li><strong>German</strong>: Precise and impactful language for deep concepts</li>
-        <li><strong>Italian</strong>: Romantic and melodic, ideal for vivid storytelling</li>
-        <li><strong>Portuguese</strong>: Passionate and lyrical, resonating with Lusophone audiences</li>
-        <li><strong>Japanese</strong>: Minimalist yet profound, perfect for layered narratives</li>
-        <li><strong>Chinese (Mandarin)</strong>: A rapidly growing audience and diverse cultural heritage</li>
-        <li><strong>Russian</strong>: Rich in depth and nuance, excellent for philosophical themes</li>
-        <li><strong>Arabic</strong>: Classic and poetic, suitable for timeless and metaphorical works</li>
-        <li><strong>Hindi</strong>: Culturally rich, appealing to the vast Indian literary tradition</li>
-        <li><strong>Korean</strong>: Dynamic and modern, aligned with a global audience</li>
-        <li><strong>Polish</strong>: Celebrated for its rich history of poetic and narrative depth</li>
-    </ul>
-</section>
+    <section id="purchase">
+        <h2>Purchase "Breaths of Hope"</h2>
+        <p>Begin your journey of hope and inspiration today. "Breaths of Hope" is available in both Kindle and Paperback formats.</p>
+        <div class="purchase-links">
+            <a href="https://www.amazon.com/dp/B0DM2K5GXV" target="_blank">Buy on Amazon US</a>
+            <a href="https://www.amazon.co.uk/dp/B0DM2K5GXV" target="_blank">Buy on Amazon UK</a>
+            <a href="https://www.amazon.de/dp/B0DM2K5GXV" target="_blank">Buy on Amazon DE</a>
+            <a href="https://www.amazon.fr/dp/B0DM2K5GXV" target="_blank">Buy on Amazon FR</a>
+            </div>
+        <p style="margin-top: 1.5rem; font-style: italic; font-size: 0.9rem;">(As an Amazon Associate, I earn from qualifying purchases.)</p>
+    </section>
 
-<section id="contact">
-    <h2>Contact</h2>
-    <p>For inquiries, please reach out to <a href="mailto:andrewtipsio@gmail.com">andrewtipsio@gmail.com</a>.</p>
-</section>
+    <section class="embed-song">
+        <h2>"Breaths of Hope" Theme Song</h2>
+        <p>Experience the emotional depth of the book through its accompanying theme song. A poetic reflection on resilience, faith, and enduring human connection.</p>
+        <iframe width="560" height="315" src="YOUR_YOUTUBE_SONG_EMBED_URL" frameborder="0" allow="autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Breaths of Hope Official Theme Song"></iframe>
+        <p>Visit our <a href="YOUR_YOUTUBE_CHANNEL_URL" target="_blank" aria-label="Visit our YouTube Channel">YouTube Channel</a> for more content and musical reflections inspired by the book.</p>
+    </section>
+
+    <section id="translations" class="languages">
+        <h2>Future Translations & Global Reach</h2>
+        <p>"Breaths of Hope" aims to share its universal message of hope, resilience, and humanity across cultures. We are actively working on making the book available in multiple languages, with Arabic translation currently underway and more to follow:</p>
+        <ul>
+            <li><strong>Arabic:</strong> Classic and poetic, suitable for timeless and metaphorical works, with translation currently in progress to reach a vast new audience. </li>
+            <li><strong>French:</strong> Renowned for elegance and sophistication in literature.</li>
+            <li><strong>Spanish:</strong> Vast readership and expressive literary tradition.</li>
+            <li><strong>German:</strong> Precise and impactful language for deep concepts.</li>
+            <li><strong>Italian:</strong> Romantic and melodic, ideal for vivid storytelling.</li>
+            <li><strong>Portuguese:</strong> Passionate and lyrical, resonating with Lusophone audiences.</li>
+            <li><strong>Japanese:</strong> Minimalist yet profound, perfect for layered narratives.</li>
+            <li><strong>Chinese (Mandarin):</strong> A rapidly growing audience and diverse cultural heritage.</li>
+            <li><strong>Russian:</strong> Rich in depth and nuance, excellent for philosophical themes.</li>
+            <li><strong>Hindi:</strong> Culturally rich, appealing to the vast Indian literary tradition.</li>
+            <li><strong>Korean:</strong> Dynamic and modern, aligned with a global audience.</li>
+            <li><strong>Polish:</strong> Celebrated for its rich history of poetic and narrative depth.</li>
+        </ul>
+        <p>Stay tuned for updates on new language releases!</p>
+    </section>
+
+    <section id="contact">
+        <h2>Contact J.S. Adam / Andrew Tips</h2>
+        <p>We welcome your inquiries, feedback, and stories. For permissions, interviews, or general contact, please reach out to:</p>
+        <p><a href="mailto:andrewtipsio@gmail.com">andrewtipsio@gmail.com</a></p>
+        <p>You can also connect with Andrew Tips directly via the social media links provided.</p>
+    </section>
+</main>
 
 <footer>
-    <p>&copy; 2024 J.S. Adam. All Rights Reserved. | Website by Andrew Tips</p>
-</footer>
+    <p>&copy; 2024 J.S. Adam. All Rights Reserved. | <a href="https://www.andrewtips.com/" target="_blank">Website by Andrew Tips</a></p>
+    </footer>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Book",
+  "name": "Breaths of Hope: A Journey Through Survival and Faith",
+  "author": {
+    "@type": "Person",
+    "name": "J.S. Adam",
+    "url": "https://www.andrewtips.com/#author" },
+  "isbn": "9798345107393",
+  "bookFormat": "Paperback",
+  "inLanguage": "en",
+  "about": "A powerful true story of resilience, faith, and the enduring power of human connection, chronicling the author's battle with severe illness and profound lessons learned.",
+  "image": "https://github.com/AndrewTips/index.html/raw/main/book_cover.jpg", "url": "https://www.andrewtips.com/", "publisher": "Amazon Kindle Direct Publishing (KDP)",
+  "datePublished": "2024-01-01", "offers": {
+    "@type": "Offer",
+    "priceCurrency": "USD",
+    "price": "Your_Price_Here", "availability": "https://schema.org/InStock",
+    "url": "https://www.amazon.com/dp/B0DM2K5GXV" }
+}
+</script>
 
 </body>
 </html>
