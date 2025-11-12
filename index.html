@@ -1,500 +1,216 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Breaths of Hope: A Journey Through Survival and Faith - Official Website</title>
     
-    <meta name="description" content="Explore 'Breaths of Hope' by J.S. Adam, a powerful true story of surviving a severe illness with faith, family, and resilience. Discover insights on health, financial wisdom, and the human spirit. Available on Amazon.">
-    
-    <meta name="keywords" content="Breaths of Hope, J.S. Adam, Andrew Tips, survival story, faith journey, health resilience, COVID-19 survival, family bonds, true friendship, financial wisdom, cryptocurrency insights, inspirational book, non-fiction memoir, overcoming adversity, hope, gratitude, compassionate healthcare">
-    
-    <meta property="og:title" content="Breaths of Hope: A Journey Through Survival and Faith">
-    <meta property="og:description" content="A powerful true story of resilience, faith, and the enduring power of human connection. Discover J.S. Adam's battle with severe illness and profound lessons learned.">
-    <meta property="og:type" content="book">
-    <meta property="og:url" content="https://www.andrewtips.com"> <meta property="og:image" content="https://github.com/AndrewTips/index.html/raw/main/book_cover.jpg"> <meta property="og:image:alt" content="Book cover for Breaths of Hope by J.S. Adam, featuring a poignant journey of survival.">
-    <meta property="book:author" content="J.S. Adam">
-    <meta property="book:isbn" content="9798345107393">
+    <title>J.S. Adam - The Crypto Mentor | Official Author Site</title>
+    <meta name="description" content="The official author website of J.S. Adam. Get the 'Crypto Mentor' book series—a step-by-step guide to safely buying, securing, and profiting from crypto—and discover the true story of survival in 'Breaths of Hope'.">
+    <meta name="keywords" content="J.S. Adam, The Crypto Mentor, how to buy crypto safely, crypto for beginners, secure crypto wallet, iron fortress, crypto scams, Breaths of Hope, andrewtips">
 
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+    <meta property="og:title" content="J.S. Adam - The Crypto Mentor | Official Author Site">
+    <meta property="og:description" content="Discover 'The Crypto Mentor' book series, a guide to financial sovereignty, and the survival story 'Breaths of Hope' by J.S. Adam.">
+    <meta property="og:type" content="website">
+    
+    <meta property="og:url" content="https://www.jsadam.com"> 
+    
+    <meta property="og:image" content="https://placehold.co/1200x630/1A202C/FFFFFF/png?text=The+Crypto+Mentor+Cover">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Merriweather:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <script>
+      // Custom Tailwind Configuration to add 'Merriweather'
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              serif: ['Merriweather', 'serif'], // <-- Your preferred font
+              sans: ['Inter', 'sans-serif']     // <-- Clean font for buttons/UI
+            },
+            colors: {
+              'brand-gold': '#D4AF37', // A "digital gold" accent
+              'brand-dark': '#121212', // A deep, professional dark
+              'brand-gray': '#1a1a1a'  // A slightly lighter dark for cards
+            }
+          }
+        }
+      }
+    </script>
+
     <style>
-        body {
-            font-family: 'Merriweather', serif;
-            margin: 0;
-            padding: 0;
-            background: #fefaf4;
-            color: #333;
-        }
-        header {
-            background: url('https://github.com/AndrewTips/index.html/raw/main/Breaths%20of%20Hope%20website%20background%20GIF%20v2.gif') no-repeat center center/cover;
-            height: 100vh;
-            color: white;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            position: relative;
-            /* Added overlay for better text readability */
-            background-blend-mode: overlay;
-            background-color: rgba(0, 0, 0, 0.4); /* Darker overlay */
-        }
-        header h1 {
-            font-size: 4rem;
-            margin: 0;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9); /* Stronger shadow */
-            line-height: 1.1; /* Adjust for better readability on multiple lines */
-        }
-        header p {
-            font-size: 1.8rem;
-            margin: 1.5rem 0;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
-        }
-        header .cta-button { /* Changed to a class for more specific styling */
-            background: #ff5722;
-            color: white;
-            text-decoration: none;
-            padding: 1rem 2.5rem; /* Slightly larger padding */
-            border-radius: 8px;
-            font-size: 1.6rem; /* Slightly larger font */
-            font-weight: bold; /* Make it stand out */
-            transition: background 0.3s ease-in-out, transform 0.2s ease-in-out; /* Added transform for hover effect */
-            display: inline-block; /* Ensures padding and margin work correctly */
-            margin-top: 1rem; /* Space from tagline */
-        }
-        header .cta-button:hover {
-            background: #e64a19;
-            transform: scale(1.05); /* Slight zoom on hover */
-        }
-        nav {
-            background: #222;
-            color: white;
-            padding: 1rem;
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            position: sticky;
-            top: 0;
-            z-index: 1000; /* Ensures nav stays on top of other content */
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Added subtle shadow */
-        }
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.2rem;
-            padding: 0.5rem 0.8rem; /* Added padding for better click area */
-            transition: color 0.3s, background-color 0.3s;
-            border-radius: 5px;
-        }
-        nav a:hover, nav a.active {
-            color: #ff5722;
-            background-color: rgba(255, 255, 255, 0.1);
-        }
-        .social-icons {
-            position: absolute;
-            bottom: 5%; /* Moved slightly up to avoid being too close to bottom */
-            display: flex;
-            justify-content: center;
-            gap: 1.2rem; /* Slightly more space */
-            padding: 1rem; /* Added padding to prevent cutoff on small screens */
-        }
-        .social-icons a {
-            text-decoration: none;
-            display: inline-block; /* To make sure transform applies correctly */
-        }
-        .social-icons img {
-            width: 45px; /* Slightly larger icons */
-            height: 45px;
-            transition: transform 0.3s ease-in-out;
-        }
-        .social-icons img:hover {
-            transform: scale(1.3); /* Stronger zoom */
-        }
-        section {
-            padding: 4rem 1.5rem; /* Increased padding for more breathing room */
-            max-width: 900px;
-            margin: 0 auto;
-            text-align: center;
-            line-height: 1.7; /* Improved readability for body text */
-            font-size: 1.1rem;
-        }
-        section h2 {
-            font-size: 2.5rem;
-            color: #444;
-            margin-bottom: 1.5rem;
-            border-bottom: 2px solid #ff5722; /* Subtle underline for section titles */
-            display: inline-block; /* Makes border-bottom fit content */
-            padding-bottom: 0.5rem;
-        }
-        .purchase-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.2rem;
-            flex-wrap: wrap;
-            margin-top: 2.5rem; /* More space from preceding text */
-        }
-        .purchase-links a {
-            background: #0077cc;
-            color: white;
-            text-decoration: none;
-            padding: 1rem 1.5rem; /* Consistent padding */
-            border-radius: 8px; /* Rounded corners for buttons */
-            font-size: 1.15rem; /* Slightly larger font */
-            transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Subtle shadow */
-        }
-        .purchase-links a:hover {
-            background: #005f99;
-            transform: translateY(-3px); /* Lift effect on hover */
-        }
-
-        /* Styling for the audio player */
-        .audio-excerpt {
-            margin: 3rem auto;
-            padding: 2.5rem;
-            background-color: #e9ecef;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            max-width: 700px;
-        }
-        .audio-excerpt h2 {
-            color: #343a40;
-            margin-bottom: 1.5rem;
-            font-size: 2.2rem;
-        }
-        .audio-excerpt audio {
-            width: 100%;
-            margin-top: 1.5rem;
-            border-radius: 5px;
-        }
-        .audio-excerpt p {
-            font-size: 1rem;
-            margin-top: 1rem;
-            color: #555;
-        }
-
-
-        .languages {
-            margin: 4rem auto; /* More vertical space */
-            padding: 3rem; /* Increased padding */
-            background-color: #f3f3f3;
-            border-radius: 15px; /* More rounded */
-            box-shadow: inset 0 0 15px rgba(0,0,0,0.05); /* Inner shadow */
-        }
-        .languages h2 {
-            margin-bottom: 1.5rem;
-            color: #444;
-        }
-        .languages ul {
-            list-style: none;
-            padding: 0;
-            text-align: center; /* Center list items for better aesthetics */
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 0.8rem 1.5rem; /* Gap between rows and columns */
-        }
-        .languages ul li {
-            margin: 0.4rem 0;
-            font-size: 1.1rem;
-            color: #555;
-            background-color: white;
-            padding: 0.6rem 1.2rem;
-            border-radius: 20px; /* Pill shape */
-            border: 1px solid #ddd;
-        }
-        .languages ul li strong {
-            color: #333;
-        }
-        .logo {
-            position: absolute;
-            top: 5%; /* Adjusted for better placement */
-            left: 5%;
-            width: 120px; /* Slightly larger logo */
-            height: auto;
-            z-index: 1001; /* Ensure logo is on top */
-            filter: drop-shadow(2px 2px 3px rgba(0,0,0,0.5)); /* Added shadow for visibility */
-        }
-        footer {
-            background: #222; /* Darker footer */
-            color: white;
-            text-align: center;
-            padding: 2rem 1rem; /* More padding */
-            margin-top: 4rem; /* More space */
-            font-size: 0.95rem;
-        }
-        footer a {
-            color: #ff5722;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        footer a:hover {
-            color: #e64a19;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 3rem;
-            }
-            header p {
-                font-size: 1.5rem;
-            }
-            header .cta-button {
-                font-size: 1.2rem;
-                padding: 0.8rem 1.8rem;
-            }
-            nav {
-                flex-wrap: wrap;
-                gap: 1rem;
-            }
-            nav a {
-                font-size: 1rem;
-                padding: 0.4rem 0.6rem;
-            }
-            .social-icons {
-                bottom: 3%;
-                gap: 1rem;
-            }
-            .social-icons img {
-                width: 35px;
-                height: 35px;
-            }
-            section {
-                padding: 3rem 1rem;
-                font-size: 1rem;
-            }
-            section h2 {
-                font-size: 2rem;
-            }
-            .purchase-links a {
-                padding: 0.8rem 1.2rem;
-                font-size: 1rem;
-            }
-            .audio-excerpt {
-                padding: 1.5rem;
-            }
-            .audio-excerpt h2 {
-                font-size: 1.8rem;
-            }
-            .languages {
-                padding: 2rem;
-            }
-            .languages ul {
-                gap: 0.6rem 1rem;
-            }
-            .languages ul li {
-                font-size: 0.95rem;
-                padding: 0.5rem 1rem;
-            }
-            .logo {
-                width: 90px;
-                top: 3%;
-                left: 3%;
-            }
-        }
-        @media (max-width: 480px) {
-            header h1 {
-                font-size: 2.2rem;
-            }
-            header p {
-                font-size: 1.1rem;
-            }
-            header .cta-button {
-                font-size: 1rem;
-                padding: 0.6rem 1.4rem;
-            }
-            nav {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-            nav a {
-                font-size: 0.9rem;
-                padding: 0.3rem 0.5rem;
-            }
-            .social-icons {
-                flex-direction: row; /* Keep row for very small screens if space allows */
-                gap: 0.8rem;
-                bottom: 2%;
-            }
-            .social-icons img {
-                width: 30px;
-                height: 30px;
-            }
-            section {
-                padding: 2rem 0.8rem;
-                font-size: 0.95rem;
-            }
-            section h2 {
-                font-size: 1.8rem;
-            }
-            .purchase-links a {
-                font-size: 0.9rem;
-                padding: 0.7rem 1rem;
-            }
-            .audio-excerpt {
-                padding: 1rem;
-            }
-            .audio-excerpt h2 {
-                font-size: 1.5rem;
-            }
-            .languages ul li {
-                font-size: 0.85rem;
-                padding: 0.4rem 0.8rem;
-            }
-            .logo {
-                width: 70px;
-            }
-        }
+      /* PLACEHOLDER: This is the placeholder for your "digital gold" / "blockchain" theme.
+        The old 'Breaths of Hope' GIF was intentionally not used, per the new brief.
+      */
+      .hero-bg {
+        background-image: linear-gradient(rgba(18, 18, 18, 0.85), rgba(18, 18, 18, 0.85)), url('https://placehold.co/1920x1080/1a1a1a/333333/png?text=Abstract+Digital+Theme');
+        background-size: cover;
+        background-position: center;
+      }
     </style>
 </head>
-<body>
 
-<header>
-    <img class="logo" src="https://github.com/AndrewTips/index.html/raw/refs/heads/main/Ad%20Tips%20logo" alt="Andrew Tips Logo - Symbolizing guidance and hope">
-    <h1>Breaths of Hope</h1>
-    <p>A Journey Through Survival, Faith, and Reclaiming Life</p>
-    <a href="#purchase" class="cta-button">Get Your Copy Today</a>
+<body class="bg-brand-dark text-gray-200 font-serif antialiased">
 
-    <div class="social-icons">
-        <a href="https://www.youtube.com/channel/UCG0FvaCOBqX9inEIJSABh0g" target="_blank" aria-label="Visit our YouTube channel for book content and insights">
-            <img src="https://img.icons8.com/color/48/000000/youtube-play.png" alt="YouTube icon">
-        </a>
-        <a href="https://www.instagram.com/jsadam2024/?hl=en" target="_blank" aria-label="Follow J.S. Adam on Instagram for updates">
-            <img src="https://img.icons8.com/color/48/000000/instagram-new.png" alt="Instagram icon">
-        </a>
-        <a href="https://www.amazon.com/dp/B0DM2K5GXV" target="_blank" aria-label="Purchase Breaths of Hope on Amazon">
-            <img src="https://img.icons8.com/color/48/000000/amazon.png" alt="Amazon icon">
-        </a>
-    </div>
-</header>
-
-<nav>
-    <a href="#about">About the Book</a>
-    <a href="#themes">Key Themes</a>
-    <a href="#author">Author's Journey</a>
-    <a href="#audio">Listen to an Excerpt</a>
-    <a href="#purchase">Order Your Copy</a>
-    <a href="#translations">Translations</a>
-    <a href="#contact">Contact</a>
-</nav>
-
-<main>
-    <section id="about">
-        <h2>About "Breaths of Hope"</h2>
-        <p>"Breaths of Hope: A Journey Through Survival and Faith" by J.S. Adam is a profound non-fiction memoir chronicling the author's harrowing battle with a severe, life-threatening illness. More than just a survival story, it's an intimate exploration of the human spirit's capacity for resilience amidst isolation, pain, and fear. This book delves into the emotional toll of critical illness, the vital role of unwavering faith, and the surprising strength found in true human connections.</p>
-        <p>Experience a journey that challenges perceptions of modern healthcare, highlights the invaluable support of family and true friends, and offers deep reflections on gratitude and financial wisdom. "Breaths of Hope" is a testament to overcoming adversity and a powerful reminder of the preciousness of life's simplest gifts.</p>
-    </section>
-
-    <section id="themes">
-        <h2>Key Themes Explored</h2>
-        <p>This gripping memoir touches on universal themes that resonate deeply with readers:</p>
-        <ul>
-            <li><strong>Unwavering Resilience & Survival:</strong> Witness the author's indomitable spirit through intense physical and emotional trials, from struggling for every breath to reclaiming strength.</li>
-            <li><strong>The Power of Faith:</strong> Discover how deep faith served as a constant anchor, providing courage and solace in the darkest hours.</li>
-            <li><strong>The Priceless Value of True Friendship & Family:</strong> A heartfelt tribute to the selfless dedication of a brother and a loyal friend, contrasting it with fleeting acquaintances.</li>
-            <li><strong>Navigating Modern Healthcare Systems:</strong> An honest look at the challenges and indifference encountered in profit-driven medical environments, contrasting it with genuinely compassionate care.</li>
-            <li><strong>Financial Preparedness & Wisdom:</strong> Unique insights into the importance of financial stability, sound money principles, and managing wealth beyond mere accumulation.</li>
-            <li><strong>Rediscovering Life's Simple Gifts:</strong> A profound journey back to appreciating fundamental blessings like breath, movement, and the warmth of human connection.</li>
-            <li><strong>The Mind-Body Connection:</strong> Exploration of how psychological stress impacts physical well-being and the path to holistic healing.</li>
-        </ul>
-    </section>
-
-    <section id="author">
-        <h2>About the Author: Andrew Tips (J.S. Adam)</h2>
-        <p>Writing under the pseudonym J.S. Adam, Andrew Tips shares his extraordinary and deeply personal journey of survival. His decision to pen this memoir stems from a profound need to illuminate the challenges faced during severe illness and to highlight the often-overlooked aspects of human connection and compassion in a rapidly changing world.</p>
-        <p>Andrew, a physicist by profession, brings a unique blend of rational insight and profound emotional depth to his narrative. His experiences, including navigating complex financial landscapes and confronting the stark realities of healthcare systems, have shaped a message of resilience, strategic preparation, and unwavering gratitude. Through "Breaths of Hope," he invites readers to reflect on their own lives, cherish their relationships, and embrace the unpredictable journey with courage and faith.</p>
-    </section>
-
-    <section id="audio" class="audio-excerpt">
-        <h2>Listen to an Excerpt from "Breaths of Hope"</h2>
-        <p>Get a glimpse into the heartfelt narrative of "Breaths of Hope." This audio excerpt offers a moment of reflection, inviting you to experience the journey of resilience and faith that defines the book.</p>
-        <audio controls preload="metadata">
-            <source src="https://github.com/AndrewTips/index.html/raw/main/Breaths%20of%20Hope.mp3" type="audio/mpeg">
-            <source src="https://github.com/AndrewTips/index.html/raw/main/Breaths%20of%20Hope.ogg" type="audio/ogg">
-            Your browser does not support the audio element.
-        </audio>
-        <p>This excerpt features elements of the book's theme song as well, which you can listen to in full on our YouTube channel.</p>
-    </section>
-
-    <section id="purchase">
-        <h2>Purchase "Breaths of Hope"</h2>
-        <p>Begin your journey of hope and inspiration today. "Breaths of Hope" is available in both Kindle and Paperback formats.</p>
-        <div class="purchase-links">
-            <a href="https://www.amazon.com/dp/B0DM2K5GXV" target="_blank">Buy on Amazon US</a>
-            <a href="https://www.amazon.co.uk/dp/B0DM2K5GXV" target="_blank">Buy on Amazon UK</a>
-            <a href="https://www.amazon.de/dp/B0DM2K5GXV" target="_blank">Buy on Amazon DE</a>
-            <a href="https://www.amazon.fr/dp/B0DM2K5GXV" target="_blank">Buy on Amazon FR</a>
+    <header id="home" class="relative min-h-screen flex items-center justify-center text-center p-4 hero-bg">
+        <div class="relative z-10">
+            <h1 class="text-5xl md:text-7xl font-black uppercase text-brand-gold tracking-wider">
+                The Crypto Mentor
+            </h1>
+            <p class="text-xl md:text-2xl mt-4 text-gray-300 max-w-2xl mx-auto">
+                J.S. Adam's Guide to Financial Sovereignty
+            </p>
+            <a href="#crypto-mentor" class="mt-10 inline-block bg-brand-gold text-brand-dark font-sans font-bold py-3 px-10 rounded-lg uppercase tracking-wider text-lg transition-transform transform hover:scale-105">
+                Explore The Series
+            </a>
         </div>
-        <p style="margin-top: 1.5rem; font-style: italic; font-size: 0.9rem;">(As an Amazon Associate, I earn from qualifying purchases.)</p>
-    </section>
+    </header>
 
-    <section class="embed-song">
-        <h2>"Breaths of Hope" Theme Song</h2>
-        <p>Experience the emotional depth of the book through its accompanying theme song. A poetic reflection on resilience, faith, and enduring human connection.</p>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/hEnvQz8lgGI?autoplay=1&mute=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Breaths of Hope Official Theme Song"></iframe>
-        <p>Visit our <a href="https://www.youtube.com/channel/UCG0FvaCOBqX9inEIJSABh0g" target="_blank" aria-label="Visit our YouTube Channel">YouTube Channel</a> for more content and musical reflections inspired by the book.</p>
-    </section>
+    <nav class="sticky top-0 z-50 bg-brand-dark bg-opacity-90 backdrop-blur-md shadow-lg">
+        <div class="container mx-auto px-4 py-4 flex flex-wrap justify-center items-center gap-x-6 gap-y-2 md:gap-x-10">
+            <a href="#home" class="font-sans text-sm md:text-base font-medium text-gray-300 hover:text-brand-gold transition-colors">Home</a>
+            <a href="#crypto-mentor" class="font-sans text-sm md:text-base font-medium text-gray-300 hover:text-brand-gold transition-colors">The Crypto Mentor</a>
+            <a href="#breaths-of-hope" class="font-sans text-sm md:text-base font-medium text-gray-300 hover:text-brand-gold transition-colors">Breaths of Hope</a>
+            <a href="#about-author" class="font-sans text-sm md:text-base font-medium text-gray-300 hover:text-brand-gold transition-colors">About J.S. Adam</a>
+            <a href="#community" class="font-sans text-sm md:text-base font-medium text-gray-300 hover:text-brand-gold transition-colors">Community</a>
+        </div>
+    </nav>
 
-    <section id="translations" class="languages">
-        <h2>Future Translations & Global Reach</h2>
-        <p>"Breaths of Hope" aims to share its universal message of hope, resilience, and humanity across cultures. We are actively working on making the book available in multiple languages, with Arabic translation currently underway and more to follow:</p>
-        <ul>
-            <li><strong>Arabic:</strong> Classic and poetic, suitable for timeless and metaphorical works, with translation currently in progress to reach a vast new audience. </li>
-            <li><strong>French:</strong> Renowned for elegance and sophistication in literature.</li>
-            <li><strong>Spanish:</strong> Vast readership and expressive literary tradition.</li>
-            <li><strong>German:</strong> Precise and impactful language for deep concepts.</li>
-            <li><strong>Italian:</strong> Romantic and melodic, ideal for vivid storytelling.</li>
-            <li><strong>Portuguese:</strong> Passionate and lyrical, resonating with Lusophone audiences.</li>
-            <li><strong>Japanese:</strong> Minimalist yet profound, perfect for layered narratives.</li>
-            <li><strong>Chinese (Mandarin):</strong> A rapidly growing audience and diverse cultural heritage.</li>
-            <li><strong>Russian:</strong> Rich in depth and nuance, excellent for philosophical themes.</li>
-            <li><strong>Hindi:</strong> Culturally rich, appealing to the vast Indian literary tradition.</li>
-            <li><strong>Korean:</strong> Dynamic and modern, aligned with a global audience.</li>
-            <li><strong>Polish:</strong> Celebrated for its rich history of poetic and narrative depth.</li>
-        </ul>
-        <p>Stay tuned for updates on new language releases!</p>
-    </section>
+    <main>
 
-    <section id="contact">
-        <h2>Contact J.S. Adam / Andrew Tips</h2>
-        <p>We welcome your inquiries, feedback, and stories. For permissions, interviews, or general contact, please reach out to:</p>
-        <p><a href="mailto:andrewtipsio@gmail.com">andrewtipsio@gmail.com</a></p>
-        <p>You can also connect with Andrew Tips directly via the social media links provided.</p>
-    </section>
-</main>
+        <section id="crypto-mentor" class="py-20 md:py-28 bg-brand-gray">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl md:text-5xl font-black text-center mb-16">
+                    The Crypto Mentor Series
+                </h2>
 
-<footer>
-    <p>© 2024 J.S. Adam. All Rights Reserved. | <a href="https://www.andrewtips.com/" target="_blank">Website by Andrew Tips</a></p>
+                <div class="book-card max-w-5xl mx-auto bg-brand-dark rounded-xl shadow-2xl overflow-hidden md:flex">
+                    <div class="md:w-1/3">
+                        <img src="https://placehold.co/400x600/333333/FFFFFF/png?text=The+Crypto+Mentor+Cover" alt="The Crypto Mentor: Book 1 Cover" class="w-full h-auto object-cover">
+                    </div>
+                    <div class="md:w-2/3 p-6 md:p-10 flex flex-col">
+                        <h3 class="text-3xl font-bold text-brand-gold">THE CRYPTO MENTOR: Book 1</h3>
+                        <h4 class="text-xl font-semibold text-gray-300 mt-1">A Beginner's Guide to Safely Buying, Securing, and Profiting from Digital Gold</h4>
+                        
+                        <p class="mt-4 text-gray-300 leading-relaxed">
+                            ARE YOU CONFUSED, INTIMIDATED, OR OVERWHELMED by the world of cryptocurrency? This is the placeholder text for your back cover blurb. You can paste the full text here. This book is your step-by-step guide to navigating the digital gold rush safely and confidently...
+                        </p>
+
+                        <div class="mt-auto pt-6">
+                            <div class="mb-6">
+                                <h5 class="font-sans text-sm uppercase text-gray-400 tracking-wider mb-3">Available Formats</h5>
+                                <div class="flex flex-wrap gap-3">
+                                    <a href="#" class="font-sans font-semibold py-2 px-5 bg-gray-700 hover:bg-brand-gold hover:text-brand-dark rounded-md transition-colors">Paperback</a>
+                                    <a href="#" class="font-sans font-semibold py-2 px-5 bg-gray-700 hover:bg-brand-gold hover:text-brand-dark rounded-md transition-colors">eBook (Kindle)</a>
+                                    <a href="#" class="font-sans font-semibold py-2 px-5 bg-gray-800 text-gray-500 rounded-md cursor-not-allowed">Audiobook (Coming Soon)</a>
+                                </div>
+                            </div>
+
+                            <div>
+                                <h5 class="font-sans text-sm uppercase text-gray-400 tracking-wider mb-3">Translations</h5>
+                                <div class="flex flex-wrap gap-3">
+                                    <a href="#" class="font-sans font-semibold py-2 px-5 bg-brand-gold text-brand-dark rounded-md">English</a>
+                                    <a href="#" class="font-sans font-semibold py-2 px-5 bg-gray-800 text-gray-500 rounded-md cursor-not-allowed">Arabic (Coming Soon)</a>
+                                    <a href="#" class="font-sans font-semibold py-2 px-5 bg-gray-800 text-gray-500 rounded-md cursor-not-allowed">Polish (Coming Soon)</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+        </section>
+
+        <section id="breaths-of-hope" class="py-20 md:py-28 bg-brand-dark">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl md:text-5xl font-black text-center mb-16">
+                    The Origin Story: Breaths of Hope
+                </h2>
+
+                <div class="book-card max-w-5xl mx-auto bg-brand-gray rounded-xl shadow-2xl overflow-hidden md:flex">
+                    <div class="md:w-1/3">
+                        <img src="https://github.com/AndrewTips/index.html/raw/main/book_cover.jpg" alt="Breaths of Hope Cover" class="w-full h-auto object-cover">
+                    </div>
+                    <div class="md:w-2/3 p-6 md:p-10 flex flex-col">
+                        <h3 class="text-3xl font-bold text-gray-100">Breaths of Hope</h3>
+                        <h4 class="text-xl font-semibold text-gray-300 mt-1">A Journey of Survival and Resilience</h4>
+                        
+                        <p class="mt-4 text-gray-300 leading-relaxed">
+                            "Breaths of Hope: A Journey Through Survival and Faith" by J.S. Adam is a profound non-fiction memoir chronicling the author's harrowing battle with a severe, life-threatening illness. More than just a survival story, it's an intimate exploration of the human spirit's capacity for resilience amidst isolation, pain, and fear. This book delves into the emotional toll of critical illness, the vital role of unwavering faith, and the surprising strength found in true human connections.
+                        </p>
+                        <p class="mt-4 text-gray-300 leading-relaxed">
+                            Experience a journey that challenges perceptions of modern healthcare, highlights the invaluable support of family and true friends, and offers deep reflections on gratitude and financial wisdom. "Breaths of Hope" is a testament to overcoming adversity and a powerful reminder of the preciousness of life's simplest gifts.
+                        </p>
+
+                        <div class="mt-auto pt-6">
+                            <div class="mb-6">
+                                <h5 class="font-sans text-sm uppercase text-gray-400 tracking-wider mb-3">Available Formats</h5>
+                                <div class="flex flex-wrap gap-3">
+                                    <a href="https://www.amazon.com/dp/B0DM2K5GXV" target="_blank" class="font-sans font-semibold py-2 px-5 bg-gray-700 hover:bg-brand-gold hover:text-brand-dark rounded-md transition-colors">Paperback</a>
+                                    <a href="https://www.amazon.com/dp/B0DM2K5GXV" target="_blank" class="font-sans font-semibold py-2 px-5 bg-gray-700 hover:bg-brand-gold hover:text-brand-dark rounded-md transition-colors">eBook (Kindle)</a>
+                                    <a href="https://github.com/AndrewTips/index.html/raw/main/Breaths%20of%20Hope.mp3" target="_blank" class="font-sans font-semibold py-2 px-5 bg-gray-700 hover:bg-brand-gold hover:text-brand-dark rounded-md transition-colors">Audio (Excerpt)</a>
+                                    <a href="#" class="font-sans font-semibold py-2 px-5 bg-gray-800 text-gray-500 rounded-md cursor-not-allowed">Hardcover (Coming Soon)</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+        </section>
+
+        <section id="about-author" class="py-20 md:py-28 bg-brand-gray">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col md:flex-row items-center max-w-4xl mx-auto gap-10">
+                    <div class="md:w-1/3">
+                        <img src="https://placehold.co/400x400/333333/FFFFFF/png?text=J.S.+Adam" alt="J.S. Adam, author" class="rounded-full shadow-lg mx-auto w-64 h-64 md:w-full md:h-auto object-cover">
+                    </div>
+                    <div class="md:w-2/3 text-center md:text-left">
+                        <h2 class="text-4xl font-black mb-6">About J.S. Adam</h2>
+                        <div class="space-y-4 text-lg text-gray-300 leading-relaxed">
+                            <p>
+                                Writing under the pseudonym J.S. Adam, Andrew Tips shares his extraordinary and deeply personal journey of survival. His decision to pen this memoir stems from a profound need to illuminate the challenges faced during severe illness and to highlight the often-overlooked aspects of human connection and compassion in a rapidly changing world.
+                            </p>
+                            <p>
+                                Andrew, a physicist by profession, brings a unique blend of rational insight and profound emotional depth to his narrative. His experiences, including navigating complex financial landscapes and confronting the stark realities of healthcare systems, have shaped a message of resilience, strategic preparation, and unwavering gratitude. Through "Breaths of Hope," he invites readers to reflect on their own lives, cherish their relationships, and embrace the unpredictable journey with courage and faith.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer id="community" class="py-20 bg-brand-dark border-t border-gray-800">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-black mb-4">Join the Community</h2>
+            <p class="text-xl text-gray-300 max-w-2xl mx-auto mb-8">
+                Connect with J.S. Adam and fellow readers. Get updates, ask questions, and join the journey on YouTube.
+            </p>
+
+            <div class="flex justify-center gap-8 mb-12">
+                <a href="https://www.youtube.com/channel/UCG0FvaCOBqX9inEIJSABh0g" target="_blank" aria-label="J.S. Adam on YouTube" class="text-gray-400 hover:text-brand-gold transition-colors">
+                    <svg class="w-9 h-9" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.376.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.376-.505a3.016 3.016 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814ZM9.545 15.568V8.432L15.818 12l-6.273 3.568Z"></path></svg>
+                </a>
+                <a href="https://www.instagram.com/jsadam2024/?hl=en" target="_blank" aria-label="J.S. Adam on Instagram" class="text-gray-400 hover:text-brand-gold transition-colors">
+                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.07 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.225-.149-4.771-1.664-4.919-4.919-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.225 1.664-4.771 4.919-4.919 1.266-.058 1.644-.07 4.849-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-4.356.2-7.378 3.22-7.578 7.578-.058 1.28-.072 1.688-.072 4.947s.014 3.667.072 4.947c.2 4.356 3.22 7.378 7.578 7.578 1.28.058 1.688.072 4.947.072s3.667-.014 4.947-.072c4.356-.2 7.378-3.22 7.578-7.578.058-1.28.072-1.688.072-4.947s-.014-3.667-.072-4.947c-.2-4.356-3.22-7.378-7.578-7.578-1.28-.058-1.688-.072-4.947-.072zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zM12 16c-2.209 0-4-1.791-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4zm7.846-10.405c0-.795-.646-1.44-1.44-1.44s-1.44.645-1.44 1.44c0 .795.646 1.44 1.44 1.44s1.44-.645 1.44-1.44z"></path></svg>
+                </a>
+                <a href="https://www.amazon.com/dp/B0DM2K5GXV" target="_blank" aria-label="J.S. Adam on Amazon" class="text-gray-400 hover:text-brand-gold transition-colors">
+                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.922 19.389c-3.138 0-4.32-.865-4.32-2.868 0-1.88.94-2.617 2.76-3.033.2-.046.48-.12.716-.182 1.48-.415 1.956-.91 1.956-1.88 0-.91-.716-1.51-1.774-1.51-1.38 0-2.07.67-2.07 1.95V12H7.042c0-3.08 2.37-4.66 5.678-4.66 3.033 0 5.152 1.51 5.152 4.136 0 2.18-.94 3.264-3.138 3.82.2.046.436.09.57.137 1.144.415 2.18.91 2.18 2.43 0 1.464-.94 2.567-2.76 2.567-1.48 0-2.693-.956-2.78-2.383v-.046h-3.138v.046c.137 2.476 1.956 3.774 4.888 3.774 3.08 0 5.86-1.556 5.86-4.52 0-2.336-1.66-3.684-4.228-4.366-.57-.182-1.23-.365-1.23-.365s-.387-.137-.665-.228c-1.19-.415-1.615-.82-1.615-1.69 0-.82.62-1.278 1.436-1.278.986 0 1.66.502 1.66 1.69v.502h3.138v-.502c0-2.047-1.706-3.355-4.797-3.355-2.87 0-4.887 1.42-4.887 3.866 0 2.047 1.23 3.08 3.32 3.638.62.182 1.55.415 1.55.415s.387.137.665.228c1.19.415 1.615.82 1.615 1.69 0 .82-.62 1.278-1.436 1.278-.986 0-1.66-.502-1.66-1.69v-.502H12.92v.046c.092 1.42 1.208 2.383 2.78 2.383zM21.75 21.336S21.75 24 18.065 24H5.935C2.25 24 2.25 21.336 2.25 21.336V2.664S2.25 0 5.935 0h12.13C21.75 0 21.75 2.664 21.75 2.664z"></path></svg>
+                </a>
+            </div>
+
+            <p class="text-gray-400 font-sans mb-8">
+                For press or speaking inquiries, please email <a href="mailto:contact@jsadam.com" class="text-brand-gold hover:underline">contact@jsadam.com</a>
+            </p>
+
+            <p class="text-sm text-gray-500 font-sans">
+                &copy; <script>document.write(new Date().getFullYear())</script> J.S. Adam. All Rights Reserved.
+            </p>
+
+        </div>
     </footer>
-
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "Book",
-    "name": "Breaths of Hope: A Journey Through Survival and Faith",
-    "author": {
-        "@type": "Person",
-        "name": "J.S. Adam",
-        "url": "https://www.andrewtips.com/#author"
-    },
-    "isbn": "9798345107393",
-    "bookFormat": "Paperback",
-    "inLanguage": "en",
-    "about": "A powerful true story of resilience, faith, and the enduring power of human connection, chronicling the author's battle with severe illness and profound lessons learned.",
-    "image": "https://github.com/AndrewTips/index.html/raw/main/book_cover.jpg",
-    "url": "https://www.andrewtips.com/",
-    "publisher": "Amazon Kindle Direct Publishing (KDP)",
-    "datePublished": "2024-01-01",
-    "offers": {
-        "@type": "Offer",
-        "priceCurrency": "USD",
-        "price": "Your_Price_Here",
-        "availability": "https://schema.org/InStock",
-        "url": "https://www.amazon.com/dp/B0DM2K5GXV"
-    }
-}
-</script>
 
 </body>
 </html>
