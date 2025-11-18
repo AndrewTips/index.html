@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-R">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Legacy Staking Initiative - Interactive Plan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Chosen Palette: Warm Neutral (Stone) & Professional Teal -->
+    <!-- Application Structure Plan: The application is designed as a single-page, top-down narrative, acting as an interactive pitch deck. This structure guides a potential partner or customer through a logical and persuasive story: 1) The 'Why' (The Problem with traditional finance), 2) The 'How' (Our 4-step Solution), 3) The 'What' (The Interactive Financial Model - the core of the app), 4) The 'Trust' (Our Commitment to transparency), and 5) The 'CTA'. This is more effective than a static report, as it involves the user (especially in the financial model) and directly addresses their key concerns (safety, legacy, impact). -->
+    <!-- Visualization & Content Choices:
+        - Report Info: Business Model & Financials (Operator Costs, Profit, Donations, Investor Returns, Price Appreciation). Goal: Allow a partner/investor to explore the model's viability and impact. Viz/Presentation: A comprehensive interactive calculator with sliders (Total Stake, Operator Margin, Charity Split) and text inputs (Future ADA Price, Investor's Stake). Outputs are displayed in dynamic text fields ("metric cards"). A Chart.js Donut chart visualizes the operator's profit split (Costs vs. Charity vs. Net Profit). Interaction: All inputs (sliders, text fields) trigger a single JS function `calculateModel()` which recalculates all 10+ output fields and updates the donut chart instantly. Justification: This dashboard is the "clever" and "efficient" solution the user requested. It interactively answers "what is the best percentage?" and clearly shows the dual-benefit of staking rewards + price appreciation. Library: Chart.js, Vanilla JS.
+        - Report Info: How it Works (Education, Self-Custody, Delegation, Donation). Goal: Simplify the complex concept. Viz/Presentation: A 4-step process flow diagram built with an HTML/Tailwind grid. Interaction: None. Justification: A clean, static visual diagram is the clearest way to explain a multi-step process. Library: HTML/Tailwind.
+        - Report Info: Differentiation, Costs, Legal Structure. Goal: Build trust and transparency. Viz/Presentation: Content is organized into clear "Commitment Cards" (HTML/Tailwind) that explicitly state the legal entity status, transparently declare server costs (~$400/mo), and explain the "Trustless Donation" smart contract mechanism. Justification: This directly answers the user's demand for transparency on costs and legal structure, building credibility. Library: HTML/Tailwind.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f7f6; /* Light warm neutral */
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 350px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        .nav-link {
+            @apply px-4 py-2 rounded-md text-sm font-medium text-stone-600 hover:bg-stone-200 hover:text-stone-900 transition-colors duration-150;
+        }
+        .hero-title {
+            @apply text-4xl font-bold tracking-tight text-stone-900 sm:text-6xl;
+        }
+        .hero-subtitle {
+            @apply mt-6 text-lg leading-8 text-stone-700;
+        }
+        .section-title {
+            @apply text-3xl font-bold tracking-tight text-stone-900 sm:text-4xl;
+        }
+        .section-subtitle {
+            @apply mt-4 text-lg text-stone-600 max-w-3xl mx-auto;
+        }
+        .metric-card {
+            @apply bg-white p-4 rounded-lg shadow-md border border-stone-200;
+        }
+        .metric-card-title {
+            @apply text-sm font-medium text-stone-500 uppercase tracking-wide;
+        }
+        .metric-card-value {
+            @apply text-2xl font-bold text-teal-700;
+        }
+        .input-label {
+            @apply block text-sm font-medium text-stone-700 mb-1;
+        }
+        .text-input {
+            @apply w-full p-2 border border-stone-300 rounded-md shadow-sm focus:ring-teal-500 focus:border-teal-500;
+        }
+        .slider {
+            @apply w-full h-2 bg-stone-200 rounded-lg appearance-none cursor-pointer;
+        }
+        .slider::-webkit-slider-thumb {
+            @apply w-5 h-5 bg-teal-600 rounded-full shadow appearance-none cursor-pointer;
+        }
+        .slider::-moz-range-thumb {
+            @apply w-5 h-5 bg-teal-600 rounded-full shadow border-0 cursor-pointer;
+        }
+    </style>
+</head>
+<body class="text-stone-800">
+
+    <!-- Header & Navigation -->
+    <header class="sticky top-0 bg-white/90 backdrop-blur-md shadow-sm z-50 border-b border-stone-200">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <h1 class="text-xl font-bold text-teal-700">Legacy Staking Initiative</h1>
+                </div>
+                <div class="hidden sm:block sm:ml-6">
+                    <div class="flex space-x-4">
+                        <a href="#problem" class="nav-link">The Problem</a>
+                        <a href="#solution" class="nav-link">Our Solution</a>
+                        <a href="#model" class="nav-link">Impact Model</a>
+                        <a href="#trust" class="nav-link">Our Commitment</a>
+                        <a href="#start" class="nav-link bg-teal-600 text-white hover:bg-teal-700 hover:text-white">Get Started</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+
+        <!-- Section 1: Hero -->
+        <section id="home" class="text-center py-20 md:py-32 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="hero-title">Build Your Legacy.</h2>
+                <h2 class="hero-title text-teal-700">Secure Your Future. Fund a Better World.</h2>
+                <p class="hero-subtitle max-w-2xl mx-auto">
+                    We teach you how to turn your savings into a secure, sovereign, and productive asset.
+                    Generate passive yield, protect your capital from inflation, and create a lasting impact
+                    for your loved ones and the world—all without donating a single dollar of your own.
+                </p>
+                <a href="#start" class="mt-10 inline-block bg-teal-600 text-white text-lg font-semibold px-8 py-3 rounded-md shadow-lg hover:bg-teal-700 transition-transform duration-150 hover:scale-105">
+                    Start Your Free Legacy Course
+                </a>
+            </div>
+        </section>
+
+        <!-- Section 2: The Problem -->
+        <section id="problem" class="py-16 md:py-24">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="section-title">The Problem with the Old System</h2>
+                <p class="section-subtitle">
+                    Today, your financial legacy is at risk. Money left in traditional banks is
+                    melting away from inflation, earning near-zero interest, and is vulnerable to
+                    systemic failures. You are forced to trust centralized institutions that
+                    may not have your best interests at heart.
+                </p>
+                <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto mt-12 text-center">
+                    <div class="bg-white p-6 rounded-xl shadow-lg border border-stone-200">
+                        <span class="text-5xl">🏦</span>
+                        <h3 class="text-xl font-semibold mt-4 mb-2">Centralized Risk</h3>
+                        <p class="text-stone-600">Bank failures, "bail-ins," and frozen accounts. You don't truly own your money.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-lg border border-stone-200">
+                        <span class="text-5xl">📉</span>
+                        <h3 class="text-xl font-semibold mt-4 mb-2">Value Erosion</h3>
+                        <p class="text-stone-600">Inflation silently eats your purchasing power, making retirement harder to reach.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-lg border border-stone-200">
+                        <span class="text-5xl">🔒</span>
+                        <h3 class="text-xl font-semibold mt-4 mb-2">Lack of Control</h3>
+                        <p class="text-stone-600">Your assets are a liability on someone else's balance sheet. You have no real sovereignty.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: The Solution -->
+        <section id="solution" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="section-title">Our Solution: The 4-Step Legacy Model</h2>
+                <p class="section-subtitle">
+                    We provide a clear, safe, and powerful alternative. We don't ask for your money.
+                    We teach you how to take control of it using the power of Cardano.
+                </p>
+                <div class="grid md:grid-cols-4 gap-6 max-w-6xl mx-auto mt-12 text-left">
+                    <div class="bg-stone-50 p-6 rounded-xl shadow-lg border border-stone-200">
+                        <span class="text-5xl">🎓</span>
+                        <h3 class="text-xl font-semibold mt-4 mb-2">1. You Learn</h3>
+                        <p class="text-stone-600">Our free "Crypto for Legacy" course teaches you everything you need: how to buy Cardano (ADA) safely and what "self-custody" means.</p>
+                    </div>
+                    <div class="bg-stone-50 p-6 rounded-xl shadow-lg border border-stone-200">
+                        <span class="text-5xl">🔒</span>
+                        <h3 class="text-xl font-semibold mt-4 mb-2">2. You Control</h3>
+                        <p class="text-stone-600">We show you how to secure your ADA in your own "cold wallet." You, and only you, hold the keys. It's your personal, digital vault.</p>
+                    </div>
+                    <div class="bg-stone-50 p-6 rounded-xl shadow-lg border border-stone-200">
+                        <span class="text-5xl">🔗</span>
+                        <h3 class="text-xl font-semibold mt-4 mb-2">3. You Delegate</h3>
+                        <p class="text-stone-600">You delegate your ADA's *staking rights* to our pool. Your ADA never leaves your wallet. This generates passive yield (~3-4% APY) for you.</p>
+                    </div>
+                    <div class="bg-stone-50 p-6 rounded-xl shadow-lg border border-stone-200">
+                        <span class="text-5xl">💖</span>
+                        <h3 class="text-xl font-semibold mt-4 mb-2">4. We Give</h3>
+                        <p class="text-stone-600">Our pool takes a small operator fee from the generated rewards. We pledge a large portion of *our fees* to charities like Children's Hospitals.</p>
+                    </div>
+                </div>
+                <p class="mt-12 text-lg text-stone-700 font-semibold max-w-3xl mx-auto">
+                    The result: You earn 100% of your staking rewards. Your capital is secure. And you automatically fund critical research and aid, creating a true legacy.
+                </p>
+            </div>
+        </section>
+
+        <!-- Section 4: The Interactive Impact Model -->
+        <section id="model" class="py-16 md:py-24">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="section-title">The Interactive Impact & Profitability Model</h2>
+                    <p class="section-subtitle">
+                        This is the engine of our initiative. Use the sliders to see how scale, fees, and donations interact.
+                        Discover how we can be both profitable and impactful, and see what your personal legacy could look like.
+                    </D>
+                </div>
+
+                <!-- Main Calculator Grid -->
+                <div class="grid lg:grid-cols-3 gap-8">
+                    
+                    <!-- Left Column: Inputs -->
+                    <div class="lg:col-span-1 bg-white p-6 rounded-xl shadow-lg border border-stone-200 space-y-6">
+                        <h3 class="text-xl font-semibold text-stone-800">1. Adjust the Model</h3>
+                        
+                        <div>
+                            <div class="flex justify-between items-center">
+                                <label for="stake-slider" class="input-label">Total Pool Stake (ADA)</label>
+                                <span class="font-bold text-teal-700"><span id="stake-slider-value">5,000,000</span> ₳</span>
+                            </div>
+                            <input id="stake-slider" type="range" min="1000000" max="68000000" value="5000000" step="1000000" class="slider">
+                            <p class="text-xs text-stone-500 mt-1">As we approach saturation (~68M ₳), we will launch a new pool ([LGY2]) to ensure optimal rewards.</p>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between items-center">
+                                <label for="margin-slider" class="input-label">Operator Fee Margin</label>
+                                <span class="font-bold text-teal-700"><span id="margin-slider-value">3.0</span>%</span>
+                            </div>
+                            <input id="margin-slider" type="range" min="1" max="5" value="3.0" step="0.1" class="slider">
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between items-center">
+                                <label for="donation-slider" class="input-label">Charity Donation (of Operator Profit)</label>
+                                <span class="font-bold text-teal-700"><span id="donation-slider-value">50</span>%</span>
+                            </div>
+                            <input id="donation-slider" type="range" min="10" max="90" value="50" step="1" class="slider">
+                        </div>
+                        
+                        <hr class="border-stone-200">
+                        <h3 class="text-xl font-semibold text-stone-800">2. Project Your Personal Legacy</h3>
+                        
+                        <div>
+                            <label for="investor-stake-input" class="input-label">Your Personal Stake (ADA)</label>
+                            <input id="investor-stake-input" type="number" value="50000" class="text-input">
+                        </div>
+                        
+                        <div>
+                            <label for="future-price-input" class="input-label">Future Assumed ADA Price (in 10 Yrs)</label>
+                            <input id="future-price-input" type="number" value="3.00" class="text-input">
+                        </div>
+                    </div>
+                    
+                    <!-- Right Column: Outputs -->
+                    <div class="lg:col-span-2 space-y-8">
+                        
+                        <!-- Operator Dashboard -->
+                        <div>
+                            <h3 class="text-2xl font-semibold text-stone-800 mb-4">Operator & Impact Dashboard (Annual)</h3>
+                            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                                <div class="metric-card">
+                                    <h4 class="metric-card-title">Total Operator Fees</h4>
+                                    <p class="metric-card-value">$<span id="metric-operator-fees-usd">0</span></p>
+                                </div>
+                                <div class="metric-card">
+                                    <h4 class="metric-card-title">Pool Costs (Fixed)</h4>
+                                    <p class="metric-card-value">$<span id="metric-pool-costs-usd">4,800</span></p>
+                                </div>
+                                <div class="metric-card">
+                                    <h4 class="metric-card-title">Profit (Before Donation)</h4>
+                                    <p class="metric-card-value">$<span id="metric-profit-before-donation">0</span></p>
+                                </div>
+                                <div class="metric-card col-span-1 sm:col-span-2 lg:col-span-1 bg-teal-50 border-teal-200">
+                                    <h4 class="metric-card-title text-teal-800">💖 Amount Donated</h4>
+                                    <p class="metric-card-value text-teal-600">$<span id="metric-amount-donated">0</span></p>
+                                </div>
+                                <div class="metric-card col-span-1 sm:col-span-2 lg:col-span-1">
+                                    <h4 class="metric-card-title">Net Operator Profit</h4>
+                                    <p class="metric-card-value">$<span id="metric-net-operator-profit">0</span></p>
+                                </div>
+                                <div class="chart-container sm:col-span-2 lg:col-span-1 p-4">
+                                    <canvas id="profitSplitChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Investor Dashboard -->
+                        <div>
+                            <h3 class="text-2xl font-semibold text-stone-800 mb-4">Your Personal Legacy Dashboard</h3>
+                            <div class="grid sm:grid-cols-3 gap-4">
+                                <div class="metric-card">
+                                    <h4 class="metric-card-title">Your Annual Rewards</h4>
+                                    <p class="metric-card-value"><span id="metric-investor-rewards-ada">0</span> ₳</p>
+                                </div>
+                                <div class="metric-card">
+                                    <h4 class="metric-card-title">Value (at $0.45)</h4>
+                                    <p class="metric-card-value">$<span id="metric-investor-rewards-usd">0</span></p>
+                                </div>
+                                <div class="metric-card col-span-3 sm:col-span-1 bg-teal-50 border-teal-200">
+                                    <h4 class="metric-card-title text-teal-800">Your 10-Year Legacy Value</h4>
+                                    <p class="metric-card-value text-teal-600">$<span id="metric-investor-legacy-value">0</span></p>
+                                </div>
+                            </div>
+                            <p class="text-sm text-stone-500 mt-3 text-center">
+                                *Legacy Value assumes your personal stake + compounded rewards (at 3.5% APY) x future assumed ADA price.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Our Commitment (Trust) -->
+        <section id="trust" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="section-title">Our Commitment: Radical Transparency</h2>
+                <p class="section-subtitle">
+                    Trust is not given, it's earned. Our entire business is built on transparency
+                    to ensure you are a partner, not just a customer.
+                </p>
+                <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mt-12 text-left">
+                    <div class="bg-stone-50 p-6 rounded-xl shadow-lg border border-stone-200">
+                        <h3 class="text-xl font-semibold mb-3">1. Legal & Professional Entity</h3>
+                        <p class="text-stone-600">We are operating as a registered company ([Your_Company_Name]), not an anonymous hobbyist. This ensures long-term professional management, allows us to have official media channels (YouTube, X/Twitter), and provides legal accountability.</p>
+                    </div>
+                    <div class="bg-stone-50 p-6 rounded-xl shadow-lg border border-stone-200">
+                        <h3 class="text-xl font-semibold mb-3">2. Transparent Costs</h3>
+                        <p class="text-stone-600">Running a high-performance, redundant stake pool is not free. Our operational costs for robust servers and monitoring are approximately <span class="font-bold">$400 USD per month ($4,800 per year)</span>. This fixed cost is covered first, as shown in the model, before any profit or donations are calculated.</p>
+                    </div>
+                    <div class="bg-stone-50 p-6 rounded-xl shadow-lg border border-stone-200">
+                        <h3 class="text-xl font-semibold mb-3">3. "Trustless" Donations</h3>
+                        <p class="text-stone-600">To remove ourselves as the middleman, we are building a Plutus smart contract. This contract will *automatically* receive all operator fees and split them—sending the charity's portion directly to their verified wallet and our portion to ours. All on-chain and verifiable by you.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section 6: Our Difference -->
+        <section id="difference" class="py-16 md:py-24">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="section-title">Why We're Different</h2>
+                <p class="section-subtitle">
+                    There are thousands of stake pools. We don't just ask for your delegation.
+                    We exist to empower you.
+                </p>
+                <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mt-12 text-left">
+                    <div class="bg-white p-6 rounded-xl shadow-lg border border-stone-200">
+                        <h3 class="text-xl font-semibold mb-3">Education First</h3>
+                        <p class="text-stone-600">Our primary goal is to educate. Our free "Crypto for Legacy" course is our main product. A well-informed, sovereign investor is our ideal partner, even if they choose another pool. We believe this focus on empowerment will build a stronger, more loyal community than any marketing gimmick.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-lg border border-stone-200">
+                        <h3 class="text-xl font-semibold mb-3">A Mission-Driven Brand</h3>
+                        <p class="text-stone-600">Our mission *is* our brand. We are for legacy-builders, for the sovereign individual, and for tangible impact. By delegating to us, you are making a statement. You are part of a community that is actively building a better, more decentralized, and more charitable future.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 7: Call to Action -->
+        <section id="start" class="py-20 md:py-32 bg-teal-700 text-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">Start Your Legacy Journey Today</h2>
+                <p class="mt-6 text-lg leading-8 text-teal-100 max-w-2xl mx-auto">
+                    You don't need to invest a dollar to begin. Join the waitlist for our
+                    free "Crypto for Legacy" course and learn the simple, powerful steps
+                    to secure your financial future.
+                </p>
+                <a href="#" class="mt-10 inline-block bg-white text-teal-700 text-lg font-semibold px-8 py-3 rounded-md shadow-lg hover:bg-stone-100 transition-transform duration-150 hover:scale-105">
+                    Join the Free Course Waitlist
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center p-8 mt-16 border-t border-stone-200 text-stone-500">
+        <p class="text-sm">The Legacy Staking Initiative | A [Your_Company_Name] Project</p>
+        <p class="text-xs mt-2">Disclaimer: This is not financial advice. All investments, including cryptocurrency, carry risk. Please do your own research.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // --- CONSTANTS ---
+            const EPOCHS_PER_YEAR = 73;
+            const POOL_FIXED_COST_ADA = 340;
+            const POOL_COSTS_USD_PER_YEAR = 4800;
+            const INVESTOR_REWARDS_APY_APPROX = 0.035;
+            const CURRENT_ADA_PRICE_USD = 0.45; // For calculating investor reward value
+
+            // --- DOM ELEMENTS (INPUTS) ---
+            const stakeSlider = document.getElementById('stake-slider');
+            const marginSlider = document.getElementById('margin-slider');
+            const donationSlider = document.getElementById('donation-slider');
+            const investorStakeInput = document.getElementById('investor-stake-input');
+            const futurePriceInput = document.getElementById('future-price-input');
+
+            // --- DOM ELEMENTS (INPUT LABELS) ---
+            const stakeSliderValue = document.getElementById('stake-slider-value');
+            const marginSliderValue = document.getElementById('margin-slider-value');
+            const donationSliderValue = document.getElementById('donation-slider-value');
+            
+            // --- DOM ELEMENTS (OPERATOR OUTPUTS) ---
+            const metricOperatorFeesUsd = document.getElementById('metric-operator-fees-usd');
+            const metricPoolCostsUsd = document.getElementById('metric-pool-costs-usd');
+            const metricProfitBeforeDonation = document.getElementById('metric-profit-before-donation');
+            const metricAmountDonated = document.getElementById('metric-amount-donated');
+            const metricNetOperatorProfit = document.getElementById('metric-net-operator-profit');
+
+            // --- DOM ELEMENTS (INVESTOR OUTPUTS) ---
+            const metricInvestorRewardsAda = document.getElementById('metric-investor-rewards-ada');
+            const metricInvestorRewardsUsd = document.getElementById('metric-investor-rewards-usd');
+            const metricInvestorLegacyValue = document.getElementById('metric-investor-legacy-value');
+
+            // --- CHART.JS ---
+            const chartCtx = document.getElementById('profitSplitChart').getContext('2d');
+            let profitSplitChart;
+
+            function formatNum(value) {
+                return value.toLocaleString('en-US', { maximumFractionDigits: 0 });
+            }
+            
+            function formatCurrency(value) {
+                 return value.toLocaleString('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
+            }
+
+            function calculateModel() {
+                // 1. Get all input values
+                const totalStake = parseFloat(stakeSlider.value);
+                const operatorMargin = parseFloat(marginSlider.value) / 100;
+                const charityDonationSplit = parseFloat(donationSlider.value) / 100;
+                const investorStake = parseFloat(investorStakeInput.value) || 0;
+                const futurePrice = parseFloat(futurePriceInput.value) || 0;
+
+                // 2. Update input labels
+                stakeSliderValue.innerText = formatNum(totalStake);
+                marginSliderValue.innerText = (operatorMargin * 100).toFixed(1);
+                donationSliderValue.innerText = formatNum(charityDonationSplit * 100);
+
+                // 3. --- OPERATOR & IMPACT CALCULATIONS ---
+                const totalAnnualRewards = totalStake * INVESTOR_REWARDS_APY_APPROX;
+                const totalAnnualFixedFees_ADA = POOL_FIXED_COST_ADA * EPOCHS_PER_YEAR;
+                
+                // Ensure margin fees aren't negative if fixed fees > total rewards
+                const rewardsAfterFixed = totalAnnualRewards - totalAnnualFixedFees_ADA;
+                const totalAnnualMarginFees_ADA = Math.max(0, rewardsAfterFixed) * operatorMargin;
+
+                const totalOperatorFees_ADA = totalAnnualFixedFees_ADA + totalAnnualMarginFees_ADA;
+                const totalOperatorFees_USD = totalOperatorFees_ADA * CURRENT_ADA_PRICE_USD;
+                
+                const profitBeforeDonation_USD = totalOperatorFees_USD - POOL_COSTS_USD_PER_YEAR;
+                
+                let amountDonated_USD = 0;
+                let netOperatorProfit_USD = 0;
+
+                if (profitBeforeDonation_USD > 0) {
+                    amountDonated_USD = profitBeforeDonation_USD * charityDonationSplit;
+                    netOperatorProfit_USD = profitBeforeDonation_USD - amountDonated_USD;
+                } else {
+                    // If no profit, no donations, and net profit is just the loss
+                    netOperatorProfit_USD = profitBeforeDonation_USD;
+                }
+                
+                // 4. Update Operator DOM
+                metricOperatorFeesUsd.innerText = formatNum(totalOperatorFees_USD);
+                metricPoolCostsUsd.innerText = formatNum(POOL_COSTS_USD_PER_YEAR);
+                metricProfitBeforeDonation.innerText = formatNum(profitBeforeDonation_USD);
+                metricAmountDonated.innerText = formatNum(amountDonated_USD);
+                metricNetOperatorProfit.innerText = formatNum(netOperatorProfit_USD);
+                
+                // 5. --- INVESTOR LEGACY CALCULATIONS ---
+                
+                // Calculate rewards based on their stake
+                // We use the full APY because the pool fees are already deducted from this network-wide average.
+                const investorAnnualRewards_ADA = investorStake * INVESTOR_REWARDS_APY_APPROX;
+                const investorAnnualRewards_USD = investorAnnualRewards_ADA * CURRENT_ADA_PRICE_USD;
+                
+                // Calculate 10-year compounded principal
+                const compoundedStake = investorStake * Math.pow((1 + INVESTOR_REWARDS_APY_APPROX), 10);
+                const investorTotalLegacyValue_USD = compoundedStake * futurePrice;
+
+                // 6. Update Investor DOM
+                metricInvestorRewardsAda.innerText = formatNum(investorAnnualRewards_ADA);
+                metricInvestorRewardsUsd.innerText = formatNum(investorAnnualRewards_USD);
+                metricInvestorLegacyValue.innerText = formatNum(investorTotalLegacyValue_USD);
+                
+                // 7. Update Chart
+                // Ensure chart data is non-negative for visualization
+                const chartCosts = Math.max(0, POOL_COSTS_USD_PER_YEAR);
+                const chartDonations = Math.max(0, amountDonated_USD);
+                const chartProfit = Math.max(0, netOperatorProfit_USD);
+                
+                updateChart([chartCosts, chartDonations, chartProfit]);
+            }
+
+            function updateChart(data) {
+                if (profitSplitChart) {
+                    profitSplitChart.data.datasets[0].data = data;
+                    profitSplitChart.update();
+                }
+            }
+
+            function initChart() {
+                profitSplitChart = new Chart(chartCtx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Pool Costs', 'Charity Donation', 'Net Operator Profit'],
+                        datasets: [{
+                            data: [1, 1, 1], // Initial data
+                            backgroundColor: [
+                                'rgb(168, 162, 158)', // stone-400
+                                'rgb(15, 118, 110)',  // teal-700
+                                'rgb(20, 184, 166)'   // teal-500
+                            ],
+                            borderColor: '#f8f7f6', // bg color
+                            borderWidth: 4
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        cutout: '60%',
+                        plugins: {
+                            legend: {
+                                position: 'bottom',
+                                labels: {
+                                    font: { size: 12, family: "'Inter', sans-serif" },
+                                    boxWidth: 12,
+                                    padding: 15
+                                }
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        let label = context.label || '';
+                                        if (label) {
+                                            label += ': ';
+                                        }
+                                        if (context.parsed !== null) {
+                                            label += formatCurrency(context.parsed);
+                                        }
+                                        return label;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // --- EVENT LISTENERS ---
+            [stakeSlider, marginSlider, donationSlider, investorStakeInput, futurePriceInput].forEach(el => {
+                el.addEventListener('input', calculateModel);
+            });
+
+            // --- INITIALIZE ---
+            initChart();
+            calculateModel(); // Run once on load to populate
+        });
+    </script>
+</body>
+</html>
