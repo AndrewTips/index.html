@@ -35,7 +35,7 @@
             color: var(--text-main);
             font-family: 'Merriweather', serif;
             line-height: 1.6;
-            overflow-x: hidden; /* Prevents horizontal scroll */
+            overflow-x: hidden;
         }
 
         /* 2. TYPOGRAPHY */
@@ -44,25 +44,25 @@
         h2 { font-size: 2rem; }
         p { margin-bottom: 1.5rem; font-size: 1.1rem; color: #d1d5db; }
         a { text-decoration: none; color: inherit; transition: 0.3s; }
+        strong { color: #fff; }
         
         /* Helper classes */
         .font-sans { font-family: 'Inter', sans-serif; }
         .text-gold { color: var(--brand-gold); }
         .text-center { text-align: center; }
         .uppercase { text-transform: uppercase; }
-        .bold { font-weight: 700; }
         
-        /* 3. LAYOUT & UTILITIES */
+        /* 3. LAYOUT */
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
         .section-padding { padding: 80px 0; }
         .bg-gray { background-color: var(--brand-gray); }
         
-        /* Grid/Flex System */
+        /* Flex System */
         .row { display: flex; flex-wrap: wrap; gap: 40px; align-items: center; }
-        .col-image { flex: 1 1 300px; text-align: center; } /* Image column */
-        .col-text { flex: 2 1 400px; } /* Text column */
+        .col-image { flex: 1 1 300px; text-align: center; }
+        .col-text { flex: 2 1 400px; }
         
-        /* Images - CRITICAL FIX FOR GIANT IMAGES */
+        /* Images */
         img { max-width: 100%; height: auto; display: block; border-radius: 8px; }
         .author-img { box-shadow: 0 10px 25px rgba(0,0,0,0.5); }
 
@@ -70,7 +70,7 @@
         .btn {
             display: inline-block;
             padding: 12px 24px;
-            background-color: #374151; /* Dark gray default */
+            background-color: #374151;
             color: #fff;
             font-family: 'Inter', sans-serif;
             font-weight: 600;
@@ -100,19 +100,20 @@
         }
         .btn-disabled:hover { background-color: #1f2937; color: #6b7280; }
 
-        /* 5. HEADER (HERO) */
+        /* 5. HEADER */
         header {
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            background: linear-gradient(rgba(18, 18, 18, 0.85), rgba(18, 18, 18, 0.85)); /* Default */
+            /* Fallback Gradient + Lazy Load GIF will target this ID */
+            background: linear-gradient(rgba(18, 18, 18, 0.85), rgba(18, 18, 18, 0.85));
             background-size: cover;
             background-position: center;
             padding: 20px;
         }
-        .hero-subtitle { font-size: 1.5rem; color: #e5e7eb; margin-top: 10px; max-width: 700px; margin-left: auto; margin-right: auto; }
+        .hero-subtitle { font-size: 1.5rem; color: #e5e7eb; margin-top: 10px; max-width: 700px; margin: 10px auto 0; }
 
         /* 6. NAVIGATION */
         nav {
@@ -152,9 +153,14 @@
         .formats-section { margin-top: auto; padding-top: 20px; border-top: 1px solid #333; }
         .format-label { font-family: 'Inter', sans-serif; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; color: #9ca3af; margin-bottom: 10px; }
 
-        /* 8. AUDIO PLAYER */
-        audio { width: 100%; margin-top: 15px; border-radius: 5px; }
-        figcaption { font-family: 'Inter', sans-serif; font-size: 0.9rem; color: #9ca3af; margin-top: 5px; font-style: italic; }
+        /* 8. SOUNDCLOUD PLAYER */
+        iframe.soundcloud-player {
+            width: 100%;
+            height: 166px;
+            margin-top: 20px;
+            border-radius: 12px;
+            border: 1px solid #333;
+        }
 
         /* 9. FORMS & FOOTER */
         input, textarea {
@@ -175,8 +181,11 @@
         .social-icons a:hover svg { fill: var(--brand-gold); }
 
         hr { border: 0; border-top: 1px solid #333; margin: 40px 0; }
+        
+        /* Status Message for Form */
+        #form-status { margin-top: 1rem; font-family: 'Inter', sans-serif; font-weight: 600; }
 
-        /* 10. MOBILE RESPONSIVENESS */
+        /* 10. RESPONSIVENESS */
         @media (max-width: 768px) {
             h1 { font-size: 2rem; }
             .nav-flex { flex-direction: column; }
@@ -186,7 +195,6 @@
             .book-image-container, .book-content { width: 100%; }
             .book-image-container img { max-height: 500px; }
             
-            /* Author section: Text first, Image second (Flex-Reverse) */
             .row-reverse-mobile { flex-direction: column-reverse; }
             .col-image, .col-text { flex: 1 1 100%; }
             .author-img { width: 80%; margin-top: 30px; }
@@ -264,7 +272,8 @@
                 <h2 class="text-center">The Origin Story: Breaths of Hope</h2>
                 <div style="height: 2px; width: 60px; background: var(--brand-gold); margin: 0 auto 50px;"></div>
 
-                <div class="book-card" style="background-color: #222;"> <div class="book-image-container">
+                <div class="book-card" style="background-color: #222;"> 
+                    <div class="book-image-container">
                         <img src="https://raw.githubusercontent.com/AndrewTips/index.html/main/Breaths%20of%20Hope.png" alt="Breaths of Hope Cover">
                     </div>
                     <div class="book-content">
@@ -275,14 +284,14 @@
                         
                         <p>This journey challenges perceptions of modern healthcare, highlights the invaluable support of family, and offers deep reflections on gratitude and financial wisdom. "Breaths of Hope" is a testament to overcoming adversity and a powerful reminder of the preciousness of life's simplest gifts.</p>
 
-                        <figure style="margin-bottom: 20px;">
-                            <audio controls preload="metadata">
-                              <source src="https://raw.githubusercontent.com/AndrewTips/index.html/main/Breaths%20of%20Hope.mp3" type="audio/mpeg">
-                              Your browser does not support the audio element.
-                              <a href="https://raw.githubusercontent.com/AndrewTips/index.html/main/Breaths%20of%20Hope.mp3" style="color: var(--brand-gold);">Download the audio</a>
-                            </audio>
-                            <figcaption>Listen to an excerpt from "Breaths of Hope"</figcaption>
-                        </figure>
+                        <iframe 
+                            class="soundcloud-player"
+                            scrolling="no" 
+                            frameborder="no" 
+                            allow="autoplay" 
+                            src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/andrewtips-com/breaths-of-hope-audiobook-sample&color=%23D4AF37&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=false">
+                        </iframe>
+                        <figcaption class="text-center">Listen to an excerpt on SoundCloud</figcaption>
 
                         <div class="formats-section">
                             <div class="format-label">Available Formats</div>
@@ -336,7 +345,7 @@
                     <svg viewBox="0 0 24 24"><path d="m21.426 11.095-17-8c-.339-.16-.721-.133-1.031.07C3.084 3.365 2.902 3.68 2.87 4.029c-.032.348.09 1.161.439 1.42l4.538 3.404 1.144 6.961c.089.546.524.965 1.075 1.01l.138.01c.49.0.93-.323 1.079-.79l1.875-5.972 5.334 3.557c.214.142.454.214.693.214.21 0 .42-.056.619-.169.33-.193.53-.532.53-.907v-1.655l2.418-1.38c.31-.177.5-.502.5-.863 0-.361-.19-.686-.5- .863Z"/></svg>
                 </a>
                 <a href="https://www.instagram.com/jsadam2024/?hl=en" target="_blank" aria-label="Instagram">
-                    <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.07 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.225-.149-4.771-1.664-4.919-4.919-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.225 1.664-4.771 4.919-4.919 1.266-.058 1.644-.07 4.849-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-4.356.2-7.378 3.22-7.578 7.578-.058 1.28-.072 1.688-.072 4.947s.014 3.667.072 4.947c.2 4.356 3.22 7.378 7.578 7.578 1.28.058 1.688.072 4.947.072s3.667-.014 4.947-.072c4.356-.2 7.378-3.22 7.578-7.578.058-1.28.072 1.688.072-4.947s-.014-3.667-.072-4.947c-.2-4.356-3.22-7.378-7.578-7.578-1.28-.058-1.688-.072-4.947-.072zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-2.759-6.162-6.162-2.759-6.162-6.162-2.759-6.162-6.162-2.759-6.162-6.162-2.759-6.162-6.162-2.759-6.162-6.162-2.759-6.162-6.162-2.759-6.162-6.162-2.759-6.162-6.162-2.759-6.162-6.162-2.759-6.162-6.162zM12 16c-2.209 0-4-1.791-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4zm7.846-10.405c0-.795-.646-1.44-1.44-1.44s-1.44.645-1.44 1.44c0 .795.646 1.44 1.44 1.44s1.44-.645 1.44-1.44z"/></svg>
+                    <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.07 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.225-.149-4.771-1.664-4.919-4.919-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.225 1.664-4.771 4.919-4.919 1.266-.058 1.644-.07 4.849-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-4.356.2-7.378 3.22-7.578 7.578-.058 1.28-.072 1.688-.072 4.947s.014 3.667.072 4.947c.2 4.356 3.22 7.378 7.578 7.578 1.28.058 1.688.072 4.947.072s3.667-.014 4.947-.072c4.356-.2 7.378-3.22 7.578-7.578.058-1.28.072 1.688.072-4.947s-.014-3.667-.072-4.947c-.2-4.356-3.22-7.378-7.578-7.578-1.28-.058-1.688-.072-4.947-.072zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-2.759-6.162-6.162-2.759-6.162-6.162-2.759-6.162-6.162-2.759-6.162-6.162-2.759-6.162-6.162-2.759-6.162-6.162-2.759-6.162-6.162-2.759-6.162-6.162zM12 16c-2.209 0-4-1.791-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4zm7.846-10.405c0-.795-.646-1.44-1.44-1.44s-1.44.645-1.44 1.44c0 .795.646 1.44 1.44 1.44s1.44-.645 1.44-1.44z"></path></svg>
                 </a>
                 <a href="https://www.amazon.com/author/j.s.adam" target="_blank" aria-label="Amazon">
                     <svg viewBox="0 0 24 24"><path d="M12.922 19.389c-3.138 0-4.32-.865-4.32-2.868 0-1.88.94-2.617 2.76-3.033.2-.046.48-.12.716-.182 1.48-.415 1.956-.91 1.956-1.88 0-.91-.716-1.51-1.774-1.51-1.38 0-2.07.67-2.07 1.95V12H7.042c0-3.08 2.37-4.66 5.678-4.66 3.033 0 5.152 1.51 5.152 4.136 0 2.18-.94 3.264-3.138 3.82.2.046.436.09.57.137 1.144.415 2.18.91 2.18 2.43 0 1.464-.94 2.567-2.76 2.567-1.48 0-2.693-.956-2.78-2.383v-.046h-3.138v.046c.137 2.476 1.956 3.774 4.888 3.774 3.08 0 5.86-1.556 5.86-4.52 0-2.336-1.66-3.684-4.228-4.366-.57-.182-1.23-.365-1.23-.365s-.387-.137-.665-.228c-1.19-.415-1.615-.82-1.615-1.69 0-.82.62-1.278 1.436-1.278.986 0 1.66.502 1.66 1.69v.502h3.138v-.502c0-2.047-1.706-3.355-4.797-3.355-2.87 0-4.887 1.42-4.887 3.866 0 2.047 1.23 3.08 3.32 3.638.62.182 1.55.415 1.55.415s.387.137.665.228c1.19.415 1.615.82 1.615 1.69 0 .82-.62 1.278-1.436-1.278-.986 0-1.66-.502-1.66-1.69v-.502H12.92v.046c.092 1.42 1.208 2.383 2.78 2.383zM21.75 21.336S21.75 24 18.065 24H5.935C2.25 24 2.25 21.336 2.25 21.336V2.664S2.25 0 5.935 0h12.13C21.75 0 21.75 2.664 21.75 2.664z"></path></svg>
@@ -372,7 +381,7 @@
     </footer>
 
     <script>
-        // 1. Handle Contact Form via AJAX (No Redirect)
+        // 1. Handle Contact Form via AJAX
         const form = document.getElementById('contact-form');
         const statusDiv = document.getElementById('form-status');
 
@@ -387,12 +396,12 @@
                 });
                 if (response.ok) {
                     statusDiv.innerHTML = "Thanks! Your message has been sent.";
-                    statusDiv.style.color = "#4ade80"; // Green
+                    statusDiv.style.color = "#4ade80";
                     form.reset();
                 } else {
                     const errorData = await response.json();
                     statusDiv.innerHTML = "Oops! There was a problem.";
-                    statusDiv.style.color = "#f87171"; // Red
+                    statusDiv.style.color = "#f87171";
                 }
             } catch (error) {
                 statusDiv.innerHTML = "Oops! Network error.";
@@ -401,7 +410,7 @@
         }
         form.addEventListener("submit", handleSubmit);
 
-        // 2. Lazy Load Hero GIF (Performance)
+        // 2. Lazy Load Hero GIF
         window.addEventListener('load', () => {
             const hero = document.getElementById('home');
             const gifUrl = 'https://raw.githubusercontent.com/AndrewTips/index.html/main/J%20S%20ADAM%20BOOKS%20GIF-min.gif';
