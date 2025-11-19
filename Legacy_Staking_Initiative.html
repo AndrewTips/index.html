@@ -86,37 +86,49 @@
         .details-summary {
             @apply font-semibold text-stone-700 cursor-pointer flex justify-between items-center transition-colors hover:text-teal-600;
         }
+        .mobile-nav-link {
+            @apply flex-shrink-0 px-4 py-2 text-xs font-medium text-stone-600 hover:bg-stone-100 rounded-lg whitespace-nowrap;
+        }
     </style>
 </head>
 <body class="text-stone-800">
 
-    <!-- Header & Navigation -->
+    <!-- Primary Header (Sticky, visible on all sizes) -->
     <header class="sticky top-0 bg-white/90 backdrop-blur-md shadow-sm z-50 border-b border-stone-200">
         <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
-                <!-- Title Adjustment: Adjusted font size on mobile to prevent overflow -->
+                <!-- Title (Mobile-optimized font size) -->
                 <div class="flex-shrink-0">
-                    <h1 class="text-lg sm:text-xl font-bold text-teal-700 whitespace-nowrap" id="nav-title">Legacy Staking Initiative</h1>
+                    <h1 class="text-lg sm:text-xl font-bold text-teal-700 whitespace-nowrap" id="nav-title" data-key="nav_title">Legacy Staking Initiative</h1>
                 </div>
-                <div class="flex items-center space-x-2 sm:space-x-4">
-                    <div class="hidden sm:flex space-x-4" id="nav-links-desktop">
-                        <a href="#problem" class="nav-link" data-key="nav_problem">The Problem</a>
-                        <a href="#solution" class="nav-link" data-key="nav_solution">Our Solution</a>
-                        <a href="#model" class="nav-link" data-key="nav_model">Impact Model</a>
-                        <a href="#trust" class="nav-link" data-key="nav_commitment">Our Commitment</a>
-                    </div>
-                    
+                
+                <!-- Desktop Nav Links (Hidden on mobile) -->
+                <div class="hidden sm:flex items-center space-x-4" id="nav-links-desktop">
+                    <a href="#problem" class="nav-link" data-key="nav_problem">The Problem</a>
+                    <a href="#solution" class="nav-link" data-key="nav_solution">Our Solution</a>
+                    <a href="#model" class="nav-link" data-key="nav_model">Impact Model</a>
+                    <a href="#trust" class="nav-link" data-key="nav_commitment">Our Commitment</a>
+                </div>
+                
+                <!-- Mobile/Desktop CTAs (Always Visible) -->
+                <div class="flex items-center space-x-2">
                     <!-- Language Toggle -->
-                    <button id="lang-toggle" class="nav-link bg-stone-100 text-teal-700 font-bold px-3 py-2 text-sm whitespace-nowrap">
+                    <button id="lang-toggle" class="nav-link bg-stone-100 text-teal-700 font-bold px-3 py-2 text-sm whitespace-nowrap" data-key="lang_button">
                         عربي
                     </button>
                     
                     <a href="#start" class="nav-link bg-teal-600 text-white hover:bg-teal-700 hover:text-white" id="nav-cta" data-key="nav_cta">Get Started</a>
                 </div>
-                <!-- Simple mobile nav trigger (Placeholder - functionality omitted for file constraint) -->
-                <button class="sm:hidden text-stone-600 hover:text-stone-900 focus:outline-none hidden">
-                    ☰
-                </button>
+            </div>
+        </nav>
+        
+        <!-- NEW: Secondary Mobile Navigation Bar (Visible only on mobile) -->
+        <nav class="sm:hidden bg-white border-t border-stone-100 shadow-inner overflow-x-auto whitespace-nowrap">
+            <div class="flex px-4 py-2 space-x-4">
+                <a href="#problem" class="mobile-nav-link" data-key="nav_problem">The Problem</a>
+                <a href="#solution" class="mobile-nav-link" data-key="nav_solution">Our Solution</a>
+                <a href="#model" class="mobile-nav-link" data-key="nav_model">Impact Model</a>
+                <a href="#trust" class="mobile-nav-link" data-key="nav_commitment">Our Commitment</a>
             </div>
         </nav>
     </header>
@@ -134,7 +146,7 @@
                     Generate passive yield, protect your capital from inflation, and create a lasting impact
                     for your loved ones and the world—all without donating a single dollar of your own.
                 </p>
-                <a href="#start" class="mt-10 inline-block bg-teal-600 text-white text-lg font-semibold px-8 py-3 rounded-md shadow-lg hover:bg-teal-700 transition-transform duration-150 hover:scale-105" id="hero-cta" data-key="hero_cta">
+                <a href="#start" class="mt-10 inline-block bg-teal-600 text-white text-lg font-semibold px-8 py-3 rounded-md shadow-lg hover:bg-teal-700 transition-transform duration-150 hover:scale-105" id="hero-cta-2" data-key="hero_cta">
                     Start Your Free Legacy Course
                 </a>
             </div>
@@ -182,12 +194,12 @@
                     <div class="bg-stone-50 p-6 rounded-xl shadow-lg border border-stone-200">
                         <span class="text-5xl">🎓</span>
                         <h3 class="text-xl font-semibold mt-4 mb-2" data-key="sec3_card1_title">1. You Learn</h3>
-                        <p class="text-stone-600" data-key="sec3_card1_text">Our free "Crypto for Legacy" course teaches you everything you need: how to buy Cardano (ADA) safely and what "self-custody" means.</p>
+                        <p class="text-stone-600" data-key="sec3_card1_text">Our free 'Crypto for Legacy' course teaches you everything you need: how to buy Cardano (ADA) safely and what 'self-custody' means.</p>
                     </div>
                     <div class="bg-stone-50 p-6 rounded-xl shadow-lg border border-stone-200">
                         <span class="text-5xl">🔒</span>
                         <h3 class="text-xl font-semibold mt-4 mb-2" data-key="sec3_card2_title">2. You Control</h3>
-                        <p class="text-stone-600" data-key="sec3_card2_text">We show you how to secure your ADA in your own "cold wallet." You, and only you, hold the keys. It's your personal, digital vault.</p>
+                        <p class="text-stone-600" data-key="sec3_card2_text">We show you how to secure your ADA in your own 'cold wallet.' You, and only you, hold the keys. It's your personal, digital vault.</p>
                     </div>
                     <div class="bg-stone-50 p-6 rounded-xl shadow-lg border border-stone-200">
                         <span class="text-5xl">🔗</span>
@@ -452,7 +464,7 @@
                     free "Crypto for Legacy" course and learn the simple, powerful steps
                     to secure your financial future.
                 </p>
-                <a href="#" class="mt-10 inline-block bg-white text-teal-700 text-lg font-semibold px-8 py-3 rounded-md shadow-lg hover:bg-stone-100 transition-transform duration-150 hover:scale-105" data-key="sec7_cta">
+                <a href="#" class="mt-10 inline-block bg-white text-teal-700 text-lg font-semibold px-8 py-3 rounded-md shadow-lg hover:bg-stone-100 transition-transform duration-150 hover:scale-105" id="sec7-cta-2" data-key="sec7_cta">
                     Join the Free Course Waitlist
                 </a>
             </div>
@@ -638,7 +650,7 @@
                 sec4_charity_li1: "يتلقى العقد رسوم المشغل فوراً.",
                 sec4_charity_li2: "يرسل حصة الجمعية الخيرية (على سبيل المثال، 50%) مباشرة إلى محفظتها الموثقة.",
                 sec4_charity_li3: "يرسل حصة المشغل (على سبيل المثال، 50%) إلى محفظتنا التشغيلية.",
-                sec4_charity_result: "**النتيجة:** التبرع قابل للتحقق بالكامل على سلسلة Cardano، مما يزيلنا تمامًا كوسيط ويقضي على مخاطر الطرف المقابل في العملية الخيرية.",
+                sec4_charity_result: "**النتيجة:** التبرع قابل للتحقق بالكامل على Cardano، مما يزيلنا تمامًا كوسيط ويقضي على مخاطر الطرف المقابل في العملية الخيرية.",
                 
                 // Section 5 (Model Inputs/Outputs)
                 sec5_title: "نموذج التأثير والربحية التفاعلي",
@@ -698,7 +710,7 @@
                 const key = el.getAttribute('data-key');
                 if (currentTranslation[key]) {
                     // Check if the content contains HTML (like the bolded cost or the <span> for the pen icon)
-                    if (key.includes('card2_text') || key.includes('sec5_input_current_price_label') || key.includes('sec4_charity_result')) {
+                    if (key.includes('card2_text') || key.includes('sec5_input_current_price_label') || key.includes('sec4_charity_result') || key.includes('sec6_card2_text')) {
                         el.innerHTML = currentTranslation[key];
                     } else {
                         // Regular text updates
@@ -709,8 +721,22 @@
 
             // Specific updates for non-data-key elements
             document.getElementById('nav-title').innerText = currentTranslation.nav_title;
-            document.getElementById('nav-cta').innerText = currentTranslation.nav_cta;
             document.getElementById('lang-toggle').innerText = currentTranslation.lang_button;
+            document.getElementById('nav-cta').innerText = currentTranslation.nav_cta;
+            
+             // Re-attach data keys to the mobile nav links after content update
+            document.querySelector('.sm\\:hidden .flex').children[0].setAttribute('data-key', 'nav_problem');
+            document.querySelector('.sm\\:hidden .flex').children[1].setAttribute('data-key', 'nav_solution');
+            document.querySelector('.sm\\:hidden .flex').children[2].setAttribute('data-key', 'nav_model');
+            document.querySelector('.sm\\:hidden .flex').children[3].setAttribute('data-key', 'nav_commitment');
+
+            // Apply new text to mobile nav links
+            if (lang === 'ar') {
+                document.querySelector('.sm\\:hidden .flex').children[0].innerText = currentTranslation.nav_problem;
+                document.querySelector('.sm\\:hidden .flex').children[1].innerText = currentTranslation.nav_solution;
+                document.querySelector('.sm\\:hidden .flex').children[2].innerText = currentTranslation.nav_model;
+                document.querySelector('.sm\\:hidden .flex').children[3].innerText = currentTranslation.nav_commitment;
+            }
         }
 
         function toggleLanguage() {
