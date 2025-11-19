@@ -20,6 +20,7 @@
         body {
             font-family: 'Inter', sans-serif;
             background-color: #f8f7f6; /* Light warm neutral */
+            transition: all 0.3s ease-in-out;
         }
         
         /* CRITICAL RESPONSIVE IMAGE FIX */
@@ -93,25 +94,27 @@
     <header class="sticky top-0 bg-white/90 backdrop-blur-md shadow-sm z-50 border-b border-stone-200">
         <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
-                <!-- Title Adjustment: Used font-base instead of font-xl on mobile to prevent overflow -->
+                <!-- Title Adjustment: Adjusted font size on mobile to prevent overflow -->
                 <div class="flex-shrink-0">
-                    <h1 class="text-lg sm:text-xl font-bold text-teal-700 whitespace-nowrap">Legacy Staking Initiative</h1>
+                    <h1 class="text-lg sm:text-xl font-bold text-teal-700 whitespace-nowrap" id="nav-title">Legacy Staking Initiative</h1>
                 </div>
-                <div class="hidden sm:flex sm:ml-6 items-center space-x-4">
-                    <a href="#problem" class="nav-link">The Problem</a>
-                    <a href="#solution" class="nav-link">Our Solution</a>
-                    <a href="#model" class="nav-link">Impact Model</a>
-                    <a href="#trust" class="nav-link">Our Commitment</a>
-                    
-                    <!-- Global Reach Indicator -->
-                    <div class="nav-link bg-stone-100 flex items-center text-teal-700">
-                        🌐 Global Reach
+                <div class="flex items-center space-x-2 sm:space-x-4">
+                    <div class="hidden sm:flex space-x-4" id="nav-links-desktop">
+                        <a href="#problem" class="nav-link" data-key="nav_problem">The Problem</a>
+                        <a href="#solution" class="nav-link" data-key="nav_solution">Our Solution</a>
+                        <a href="#model" class="nav-link" data-key="nav_model">Impact Model</a>
+                        <a href="#trust" class="nav-link" data-key="nav_commitment">Our Commitment</a>
                     </div>
                     
-                    <a href="#start" class="nav-link bg-teal-600 text-white hover:bg-teal-700 hover:text-white">Get Started</a>
+                    <!-- Language Toggle -->
+                    <button id="lang-toggle" class="nav-link bg-stone-100 text-teal-700 font-bold px-3 py-2 text-sm whitespace-nowrap">
+                        عربي
+                    </button>
+                    
+                    <a href="#start" class="nav-link bg-teal-600 text-white hover:bg-teal-700 hover:text-white" id="nav-cta" data-key="nav_cta">Get Started</a>
                 </div>
-                <!-- Simple mobile nav trigger (Placeholder) -->
-                <button class="sm:hidden text-stone-600 hover:text-stone-900 focus:outline-none">
+                <!-- Simple mobile nav trigger (Placeholder - functionality omitted for file constraint) -->
+                <button class="sm:hidden text-stone-600 hover:text-stone-900 focus:outline-none hidden">
                     ☰
                 </button>
             </div>
@@ -124,14 +127,14 @@
         <!-- Section 1: Hero -->
         <section id="home" class="text-center py-20 md:py-32 bg-white">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="hero-title">Build Your Legacy.</h2>
-                <h2 class="hero-title text-teal-700">Secure Your Future. Fund a Better World.</h2>
-                <p class="hero-subtitle max-w-2xl mx-auto">
+                <h2 class="hero-title" id="hero-title-1" data-key="hero_title_1">Build Your Legacy.</h2>
+                <h2 class="hero-title text-teal-700" id="hero-title-2" data-key="hero_title_2">Secure Your Future. Fund a Better World.</h2>
+                <p class="hero-subtitle max-w-2xl mx-auto" id="hero-subtitle" data-key="hero_subtitle">
                     We teach you how to turn your savings into a secure, sovereign, and productive asset.
                     Generate passive yield, protect your capital from inflation, and create a lasting impact
                     for your loved ones and the world—all without donating a single dollar of your own.
                 </p>
-                <a href="#start" class="mt-10 inline-block bg-teal-600 text-white text-lg font-semibold px-8 py-3 rounded-md shadow-lg hover:bg-teal-700 transition-transform duration-150 hover:scale-105">
+                <a href="#start" class="mt-10 inline-block bg-teal-600 text-white text-lg font-semibold px-8 py-3 rounded-md shadow-lg hover:bg-teal-700 transition-transform duration-150 hover:scale-105" id="hero-cta" data-key="hero_cta">
                     Start Your Free Legacy Course
                 </a>
             </div>
@@ -140,8 +143,8 @@
         <!-- Section 2: The Problem -->
         <section id="problem" class="py-16 md:py-24">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h2 class="section-title">The Problem with the Old System</h2>
-                <p class="section-subtitle">
+                <h2 class="section-title" data-key="sec2_title">The Problem with the Old System</h2>
+                <p class="section-subtitle" data-key="sec2_subtitle">
                     Today, your financial legacy is at risk. Money left in traditional banks is
                     melting away from inflation, earning near-zero interest, and is vulnerable to
                     systemic failures. You are forced to trust centralized institutions that
@@ -150,18 +153,18 @@
                 <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto mt-12 text-center">
                     <div class="bg-white p-6 rounded-xl shadow-lg border border-stone-200">
                         <span class="text-5xl">🏦</span>
-                        <h3 class="text-xl font-semibold mt-4 mb-2">Centralized Risk</h3>
-                        <p class="text-stone-600">Bank failures, "bail-ins," and frozen accounts. You don't truly own your money.</p>
+                        <h3 class="text-xl font-semibold mt-4 mb-2" data-key="sec2_card1_title">Centralized Risk</h3>
+                        <p class="text-stone-600" data-key="sec2_card1_text">Bank failures, "bail-ins," and frozen accounts. You don't truly own your money.</p>
                     </div>
                     <div class="bg-white p-6 rounded-xl shadow-lg border border-stone-200">
                         <span class="text-5xl">📉</span>
-                        <h3 class="text-xl font-semibold mt-4 mb-2">Value Erosion</h3>
-                        <p class="text-stone-600">Inflation silently eats your purchasing power, making retirement harder to reach.</p>
+                        <h3 class="text-xl font-semibold mt-4 mb-2" data-key="sec2_card2_title">Value Erosion</h3>
+                        <p class="text-stone-600" data-key="sec2_card2_text">Inflation silently eats your purchasing power, making retirement harder to reach.</p>
                     </div>
                     <div class="bg-white p-6 rounded-xl shadow-lg border border-stone-200">
                         <span class="text-5xl">🔒</span>
-                        <h3 class="text-xl font-semibold mt-4 mb-2">Lack of Control</h3>
-                        <p class="text-stone-600">Your assets are a liability on someone else's balance sheet. You have no real sovereignty.</p>
+                        <h3 class="text-xl font-semibold mt-4 mb-2" data-key="sec2_card3_title">Lack of Control</h3>
+                        <p class="text-stone-600" data-key="sec2_card3_text">Your assets are a liability on someone else's balance sheet. You have no real sovereignty.</p>
                     </div>
                 </div>
             </div>
@@ -170,31 +173,31 @@
         <!-- Section 3: The Solution -->
         <section id="solution" class="py-16 md:py-24 bg-white">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h2 class="section-title">Our Solution: The 4-Step Legacy Model</h2>
-                <p class="section-subtitle">
+                <h2 class="section-title" data-key="sec3_title">Our Solution: The 4-Step Legacy Model</h2>
+                <p class="section-subtitle" data-key="sec3_subtitle">
                     We provide a clear, safe, and powerful alternative. We don't ask for your money.
                     We teach you how to take control of it using the power of Cardano.
                 </p>
                 <div class="grid md:grid-cols-4 gap-6 max-w-6xl mx-auto mt-12 text-left">
                     <div class="bg-stone-50 p-6 rounded-xl shadow-lg border border-stone-200">
                         <span class="text-5xl">🎓</span>
-                        <h3 class="text-xl font-semibold mt-4 mb-2">1. You Learn</h3>
-                        <p class="text-stone-600">Our free "Crypto for Legacy" course teaches you everything you need: how to buy Cardano (ADA) safely and what "self-custody" means.</p>
+                        <h3 class="text-xl font-semibold mt-4 mb-2" data-key="sec3_card1_title">1. You Learn</h3>
+                        <p class="text-stone-600" data-key="sec3_card1_text">Our free "Crypto for Legacy" course teaches you everything you need: how to buy Cardano (ADA) safely and what "self-custody" means.</p>
                     </div>
                     <div class="bg-stone-50 p-6 rounded-xl shadow-lg border border-stone-200">
                         <span class="text-5xl">🔒</span>
-                        <h3 class="text-xl font-semibold mt-4 mb-2">2. You Control</h3>
-                        <p class="text-stone-600">We show you how to secure your ADA in your own "cold wallet." You, and only you, hold the keys. It's your personal, digital vault.</p>
+                        <h3 class="text-xl font-semibold mt-4 mb-2" data-key="sec3_card2_title">2. You Control</h3>
+                        <p class="text-stone-600" data-key="sec3_card2_text">We show you how to secure your ADA in your own "cold wallet." You, and only you, hold the keys. It's your personal, digital vault.</p>
                     </div>
                     <div class="bg-stone-50 p-6 rounded-xl shadow-lg border border-stone-200">
                         <span class="text-5xl">🔗</span>
-                        <h3 class="text-xl font-semibold mt-4 mb-2">3. You Delegate</h3>
-                        <p class="text-stone-600">You delegate your ADA's *staking rights* to our pool. Your ADA never leaves your wallet. This generates passive yield (~3-4% APY) for you.</p>
+                        <h3 class="text-xl font-semibold mt-4 mb-2" data-key="sec3_card3_title">3. You Delegate</h3>
+                        <p class="text-stone-600" data-key="sec3_card3_text">You delegate your ADA's *staking rights* to our pool. Your ADA never leaves your wallet. This generates passive yield (~3-4% APY) for you.</p>
                     </div>
                     <div class="bg-stone-50 p-6 rounded-xl shadow-lg border border-stone-200">
                         <span class="text-5xl">💖</span>
-                        <h3 class="text-xl font-semibold mt-4 mb-2">4. We Give</h3>
-                        <p class="text-stone-600">Our pool takes a small operator fee from the generated rewards. We pledge a large portion of *our fees* to charities like Children's Hospitals.</p>
+                        <h3 class="text-xl font-semibold mt-4 mb-2" data-key="sec3_card4_title">4. We Give</h3>
+                        <p class="text-stone-600" data-key="sec3_card4_text">Our pool takes a small operator fee from the generated rewards. We pledge a large portion of *our fees* to charities like Children's Hospitals.</p>
                     </div>
                 </div>
             </div>
@@ -204,8 +207,8 @@
         <section id="platform" class="my-16 md:my-24 pt-16 -mt-16">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-12">
-                    <h2 class="section-title">The Foundation: Why Cardano is Different</h2>
-                    <p class="section-subtitle">
+                    <h2 class="section-title" data-key="sec4_title">The Foundation: Why Cardano is Different</h2>
+                    <p class="section-subtitle" data-key="sec4_subtitle">
                         For legacy investors, **security and accessibility** are non-negotiable. Cardano's staking model offers critical advantages over other major proof-of-stake chains (like Ethereum or Polkadot), ensuring your principal is always safe and liquid.
                     </p>
                 </div>
@@ -215,16 +218,16 @@
                     <div class="space-y-4">
                         <details class="details-item group">
                             <summary class="details-summary">
-                                <span>1. Principal Protection: No Slashing Risk</span>
+                                <span data-key="sec4_diff1_title">1. Principal Protection: No Slashing Risk</span>
                                 <span>▼</span>
                             </summary>
                             <div class="mt-4 border-t border-stone-300 pt-3 text-sm">
-                                <h4 class="font-bold text-teal-700">Cardano (ADA)</h4>
-                                <p class="text-stone-600 mb-3">
+                                <h4 class="font-bold text-teal-700" data-key="sec4_diff1_cardano_title">Cardano (ADA)</h4>
+                                <p class="text-stone-600 mb-3" data-key="sec4_diff1_cardano_text">
                                     **Your capital is 100% safe.** Delegation is non-custodial and passive. If our pool makes a mistake or goes offline, the only penalty is a temporary loss of *potential rewards*. Your staked ADA is **never** taken away.
                                 </p>
-                                <h4 class="font-bold text-red-700">Competitors (e.g., ETH, DOT)</h4>
-                                <p class="text-stone-600">
+                                <h4 class="font-bold text-red-700" data-key="sec4_diff1_comp_title">Competitors (e.g., ETH, DOT)</h4>
+                                <p class="text-stone-600" data-key="sec4_diff1_comp_text">
                                     Operator errors or malicious behavior can lead to **slashing**, meaning the network can **destroy a portion of your delegated principal** (your original investment).
                                 </p>
                             </div>
@@ -232,16 +235,16 @@
                         
                         <details class="details-item group">
                             <summary class="details-summary">
-                                <span>2. True Liquidity: Instant Access (Liquid Staking)</span>
+                                <span data-key="sec4_diff2_title">2. True Liquidity: Instant Access (Liquid Staking)</span>
                                 <span>▼</span>
                             </summary>
                             <div class="mt-4 border-t border-stone-300 pt-3 text-sm">
-                                <h4 class="font-bold text-teal-700">Cardano (ADA)</h4>
-                                <p class="text-stone-600 mb-3">
+                                <h4 class="font-bold text-teal-700" data-key="sec4_diff2_cardano_title">Cardano (ADA)</h4>
+                                <p class="text-stone-600 mb-3" data-key="sec4_diff2_cardano_text">
                                     Your ADA is **always liquid**. It never leaves your wallet to delegate. You can move, sell, or use your ADA at any moment, without any locking, bonding, or unbonding periods.
                                 </p>
-                                <h4 class="font-bold text-red-700">Competitors (e.g., DOT, some ETH staking)</h4>
-                                <p class="text-stone-600">
+                                <h4 class="font-bold text-red-700" data-key="sec4_diff2_comp_title">Competitors (e.g., DOT, some ETH staking)</h4>
+                                <p class="text-stone-600" data-key="sec4_diff2_comp_text">
                                     Require your capital to be **locked** (bonded) into a smart contract for days, weeks, or even months. You face long unbonding periods if you decide to exit, restricting your financial flexibility.
                                 </p>
                             </div>
@@ -249,16 +252,16 @@
 
                         <details class="details-item group">
                             <summary class="details-summary">
-                                <span>3. Full Accessibility: Low Minimums</span>
+                                <span data-key="sec4_diff3_title">3. Full Accessibility: Low Minimums</span>
                                 <span>▼</span>
                             </summary>
                             <div class="mt-4 border-t border-stone-300 pt-3 text-sm">
-                                <h4 class="font-bold text-teal-700">Cardano (ADA)</h4>
-                                <p class="text-stone-600 mb-3">
+                                <h4 class="font-bold text-teal-700" data-key="sec4_diff3_cardano_title">Cardano (ADA)</h4>
+                                <p class="text-stone-600 mb-3" data-key="sec4_diff3_cardano_text">
                                     There is effectively **no minimum** stake required for delegation. This allows every investor, regardless of wealth, to participate in yield generation and our charitable mission equally.
                                 </p>
-                                <h4 class="font-bold text-red-700">Competitors (e.g., ETH)</h4>
-                                <p class="text-stone-600">
+                                <h4 class="font-bold text-red-700" data-key="sec4_diff3_comp_title">Competitors (e.g., ETH)</h4>
+                                <p class="text-stone-600" data-key="sec4_diff3_comp_text">
                                     Direct staking requires 32 ETH (a very high capital barrier). This forces most small investors into complex 'liquid staking derivatives' or centralized exchanges, adding counterparty risk.
                                 </p>
                             </div>
@@ -268,17 +271,17 @@
                     <!-- Right Column: Trustless Charity Summary -->
                     <div class="bg-white p-8 rounded-xl shadow-lg border border-stone-200 flex flex-col justify-between">
                         <div>
-                            <h3 class="text-2xl font-semibold text-stone-800 mb-4">The "Trustless Charity" Mechanism</h3>
-                            <p class="text-stone-600 mb-4">
+                            <h3 class="text-2xl font-semibold text-stone-800 mb-4" data-key="sec4_charity_title">The "Trustless Charity" Mechanism</h3>
+                            <p class="text-stone-600 mb-4" data-key="sec4_charity_subtitle">
                                 The operator's reward address is set to a secure **Plutus Smart Contract**. This contract is publicly verifiable and automatically enforces the donation split.
                             </p>
                             <ul class="list-disc list-inside space-y-3 text-stone-600 mb-6">
-                                <li>The contract instantly receives the operator fee.</li>
-                                <li>It sends the Charity's portion (e.g., 50%) directly to their verified wallet.</li>
-                                <li>It sends the Operator's portion (e.g., 50%) to our operational wallet.</li>
+                                <li data-key="sec4_charity_li1">The contract instantly receives the operator fee.</li>
+                                <li data-key="sec4_charity_li2">It sends the Charity's portion (e.g., 50%) directly to their verified wallet.</li>
+                                <li data-key="sec4_charity_li3">It sends the Operator's portion (e.g., 50%) to our operational wallet.</li>
                             </ul>
                         </div>
-                        <p class="text-stone-700 font-semibold mt-4 p-4 bg-teal-50 rounded-lg border border-teal-200">
+                        <p class="text-stone-700 font-semibold mt-4 p-4 bg-teal-50 rounded-lg border border-teal-200" data-key="sec4_charity_result">
                             **Result:** The donation is fully verifiable on the Cardano blockchain, removing us completely as the middleman and eliminating counterparty risk in the charitable process.
                         </p>
                     </div>
@@ -290,8 +293,8 @@
         <section id="model" class="py-16 md:py-24">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-12">
-                    <h2 class="section-title">The Interactive Impact & Profitability Model</h2>
-                    <p class="section-subtitle">
+                    <h2 class="section-title" data-key="sec5_title">The Interactive Impact & Profitability Model</h2>
+                    <p class="section-subtitle" data-key="sec5_subtitle">
                         This model is fully dynamic. Adjust the **Current Price** to see real-time profitability and
                         explore the long-term **Legacy Value** using the **Future Price** projection.
                     </D>
@@ -302,12 +305,12 @@
                     
                     <!-- Left Column: Inputs -->
                     <div class="lg:col-span-1 bg-white p-6 rounded-xl shadow-lg border border-stone-200 space-y-6">
-                        <h3 class="text-xl font-semibold text-stone-800">1. Core Model Inputs</h3>
+                        <h3 class="text-xl font-semibold text-stone-800" data-key="sec5_inputs1_title">1. Core Model Inputs</h3>
                         
-                        <!-- UPDATED CURRENT PRICE INPUT (More obvious interaction) -->
+                        <!-- CURRENT PRICE INPUT -->
                         <div>
                             <div class="flex justify-between items-center mb-1">
-                                <label for="current-price-input" class="input-label flex items-center">
+                                <label for="current-price-input" class="input-label flex items-center" data-key="sec5_input_current_price_label">
                                     Current ADA Price (USD) <span class="ml-2 text-lg text-teal-600">✏️</span>
                                 </label>
                                 <span class="font-bold text-teal-700">$<span id="current-price-label">0.45</span></span>
@@ -318,16 +321,16 @@
 
                         <div>
                             <div class="flex justify-between items-center">
-                                <label for="stake-slider" class="input-label">Total Pool Stake (ADA)</label>
+                                <label for="stake-slider" class="input-label" data-key="sec5_input_total_stake_label">Total Pool Stake (ADA)</label>
                                 <span class="font-bold text-teal-700"><span id="stake-slider-value">5,000,000</span> ₳</span>
                             </div>
                             <input id="stake-slider" type="range" min="1000000" max="68000000" value="5000000" step="1000000" class="slider">
-                            <p class="text-xs text-stone-500 mt-1">Pools saturate at **~68M ADA** (parameter `k` dependant). We actively manage our **multi-pool strategy** to ensure optimal rewards and expansion ([LGY2]).</p>
+                            <p class="text-xs text-stone-500 mt-1" data-key="sec5_input_total_stake_note">Pools saturate at **~68M ADA** (parameter `k` dependant). We actively manage our **multi-pool strategy** to ensure optimal rewards and expansion ([LGY2]).</p>
                         </div>
 
                         <div>
                             <div class="flex justify-between items-center">
-                                <label for="margin-slider" class="input-label">Operator Fee Margin</label>
+                                <label for="margin-slider" class="input-label" data-key="sec5_input_margin_label">Operator Fee Margin</label>
                                 <span class="font-bold text-teal-700"><span id="margin-slider-value">3.0</span>%</span>
                             </div>
                             <input id="margin-slider" type="range" min="1" max="5" value="3.0" step="0.1" class="slider">
@@ -335,24 +338,24 @@
 
                         <div>
                             <div class="flex justify-between items-center">
-                                <label for="donation-slider" class="input-label">Charity Donation (of Operator Profit)</label>
+                                <label for="donation-slider" class="input-label" data-key="sec5_input_donation_label">Charity Donation (of Operator Profit)</label>
                                 <span class="font-bold text-teal-700"><span id="donation-slider-value">50</span>%</span>
                             </div>
                             <input id="donation-slider" type="range" min="10" max="90" value="50" step="1" class="slider">
                         </div>
                         
                         <hr class="border-stone-200">
-                        <h3 class="text-xl font-semibold text-stone-800">2. Project Your Personal Legacy</h3>
+                        <h3 class="text-xl font-semibold text-stone-800" data-key="sec5_inputs2_title">2. Project Your Personal Legacy</h3>
                         
                         <div>
-                            <label for="investor-stake-input" class="input-label">Your Personal Stake (ADA)</label>
+                            <label for="investor-stake-input" class="input-label" data-key="sec5_input_personal_stake_label">Your Personal Stake (ADA)</label>
                             <input id="investor-stake-input" type="number" value="50000" class="text-input">
                         </div>
                         
                         <div>
-                            <label for="future-price-input" class="input-label">Future Assumed ADA Price (10 Yrs, USD)</label>
+                            <label for="future-price-input" class="input-label" data-key="sec5_input_future_price_label">Future Assumed ADA Price (10 Yrs, USD)</label>
                             <input id="future-price-input" type="number" min="0.01" max="100.00" value="3.00" step="0.01" class="text-input">
-                            <p class="text-xs text-stone-500 mt-1">Model potential appreciation up to $100 per ADA for long-term legacy planning.</p>
+                            <p class="text-xs text-stone-500 mt-1" data-key="sec5_input_future_price_note">Model potential appreciation up to $100 per ADA for long-term legacy planning.</p>
                         </div>
                     </div>
                     
@@ -361,26 +364,26 @@
                         
                         <!-- Operator Dashboard -->
                         <div>
-                            <h3 class="text-2xl font-semibold text-stone-800 mb-4">Operator & Impact Dashboard (Annual)</h3>
+                            <h3 class="text-2xl font-semibold text-stone-800 mb-4" data-key="sec5_dashboard1_title">Operator & Impact Dashboard (Annual)</h3>
                             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                                 <div class="metric-card">
-                                    <h4 class="metric-card-title">Total Operator Fees</h4>
+                                    <h4 class="metric-card-title" data-key="sec5_metric1_title">Total Operator Fees</h4>
                                     <p class="metric-card-value">$<span id="metric-operator-fees-usd">0</span></p>
                                 </div>
                                 <div class="metric-card">
-                                    <h4 class="metric-card-title">Pool Costs (Fixed)</h4>
+                                    <h4 class="metric-card-title" data-key="sec5_metric2_title">Pool Costs (Fixed)</h4>
                                     <p class="metric-card-value">$<span id="metric-pool-costs-usd">4,800</span></p>
                                 </div>
                                 <div class="metric-card">
-                                    <h4 class="metric-card-title">Profit (Before Donation)</h4>
+                                    <h4 class="metric-card-title" data-key="sec5_metric3_title">Profit (Before Donation)</h4>
                                     <p class="metric-card-value">$<span id="metric-profit-before-donation">0</span></p>
                                 </div>
                                 <div class="metric-card col-span-1 sm:col-span-2 lg:col-span-1 bg-teal-50 border-teal-200">
-                                    <h4 class="metric-card-title text-teal-800">💖 Amount Donated</h4>
+                                    <h4 class="metric-card-title text-teal-800" data-key="sec5_metric4_title">💖 Amount Donated</h4>
                                     <p class="metric-card-value text-teal-600">$<span id="metric-amount-donated">0</span></p>
                                 </div>
                                 <div class="metric-card col-span-1 sm:col-span-2 lg:col-span-1">
-                                    <h4 class="metric-card-title">Net Operator Profit</h4>
+                                    <h4 class="metric-card-title" data-key="sec5_metric5_title">Net Operator Profit</h4>
                                     <p class="metric-card-value">$<span id="metric-net-operator-profit">0</span></p>
                                 </div>
                                 <div class="chart-container sm:col-span-2 lg:col-span-1 p-4">
@@ -391,22 +394,22 @@
 
                         <!-- Investor Dashboard -->
                         <div>
-                            <h3 class="text-2xl font-semibold text-stone-800 mb-4">Your Personal Legacy Dashboard</h3>
+                            <h3 class="text-2xl font-semibold text-stone-800 mb-4" data-key="sec5_dashboard2_title">Your Personal Legacy Dashboard</h3>
                             <div class="grid sm:grid-cols-3 gap-4">
                                 <div class="metric-card">
-                                    <h4 class="metric-card-title">Your Annual Rewards</h4>
+                                    <h4 class="metric-card-title" data-key="sec5_investor_metric1_title">Your Annual Rewards</h4>
                                     <p class="metric-card-value"><span id="metric-investor-rewards-ada">0</span> ₳</p>
                                 </div>
                                 <div class="metric-card">
-                                    <h4 class="metric-card-title">Value (Today)</h4>
+                                    <h4 class="metric-card-title" data-key="sec5_investor_metric2_title">Value (Today)</h4>
                                     <p class="metric-card-value">$<span id="metric-investor-rewards-usd">0</span></p>
                                 </div>
                                 <div class="metric-card col-span-3 sm:col-span-1 bg-teal-50 border-teal-200">
-                                    <h4 class="metric-card-title text-teal-800">Your 10-Year Legacy Value</h4>
+                                    <h4 class="metric-card-title text-teal-800" data-key="sec5_investor_metric3_title">Your 10-Year Legacy Value</h4>
                                     <p class="metric-card-value text-teal-600">$<span id="metric-investor-legacy-value">0</span></p>
                                 </div>
                             </div>
-                            <p class="text-sm text-stone-500 mt-3 text-center">
+                            <p class="text-sm text-stone-500 mt-3 text-center" data-key="sec5_investor_note">
                                 *Legacy Value assumes your personal stake + compounded rewards (at 3.5% APY) x future assumed ADA price.
                             </p>
                         </div>
@@ -418,23 +421,23 @@
         <!-- Section 6: Our Commitment (Trust) -->
         <section id="trust" class="py-16 md:py-24 bg-white">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h2 class="section-title">Our Commitment: Radical Transparency</h2>
-                <p class="section-subtitle">
+                <h2 class="section-title" data-key="sec6_title">Our Commitment: Radical Transparency</h2>
+                <p class="section-subtitle" data-key="sec6_subtitle">
                     Trust is not given, it's earned. Our entire business is built on transparency
                     to ensure you are a partner, not just a customer.
                 </p>
                 <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mt-12 text-left">
                     <div class="bg-stone-50 p-6 rounded-xl shadow-lg border border-stone-200">
-                        <h3 class="text-xl font-semibold mb-3">1. Legal & Professional Entity</h3>
-                        <p class="text-stone-600">We are operating as a registered company ([Your_Company_Name]), not an anonymous hobbyist. This ensures long-term professional management, allows us to have official media channels (YouTube, X/Twitter), and provides legal accountability.</p>
+                        <h3 class="text-xl font-semibold mb-3" data-key="sec6_card1_title">1. Legal & Professional Entity</h3>
+                        <p class="text-stone-600" data-key="sec6_card1_text">We are operating as a registered company ([Your_Company_Name]), not an anonymous hobbyist. This ensures long-term professional management, allows us to have official media channels (YouTube, X/Twitter), and provides legal accountability.</p>
                     </div>
                     <div class="bg-stone-50 p-6 rounded-xl shadow-lg border border-stone-200">
-                        <h3 class="text-xl font-semibold mb-3">2. Transparent Costs</h3>
-                        <p class="text-stone-600">Running a high-performance, redundant stake pool is not free. Our operational costs for robust servers and monitoring are approximately <span class="font-bold">$400 USD per month ($4,800 per year)</span>. This fixed cost is covered first, as shown in the model, before any profit or donations are calculated.</p>
+                        <h3 class="text-xl font-semibold mb-3" data-key="sec6_card2_title">2. Transparent Costs</h3>
+                        <p class="text-stone-600" data-key="sec6_card2_text">Running a high-performance, redundant stake pool is not free. Our operational costs for robust servers and monitoring are approximately <span class="font-bold">$400 USD per month ($4,800 per year)</span>. This fixed cost is covered first, as shown in the model, before any profit or donations are calculated.</p>
                     </div>
                     <div class="bg-stone-50 p-6 rounded-xl shadow-lg border border-stone-200">
-                        <h3 class="text-xl font-semibold mb-3">3. Global Reach & Localization</h3>
-                        <p class="text-stone-600">To serve our global community, we are prioritizing content localization. Our future roadmap includes translating the "Crypto for Legacy" course and support materials into key languages like **Spanish, French, Arabic, and Hindi** to ensure accessibility worldwide.</p>
+                        <h3 class="text-xl font-semibold mb-3" data-key="sec6_card3_title">3. Global Reach & Localization</h3>
+                        <p class="text-stone-600" data-key="sec6_card3_text">To serve our global community, we are prioritizing content localization. Our future roadmap includes translating the "Crypto for Legacy" course and support materials into key languages like **Spanish, French, Arabic, and Hindi** to ensure accessibility worldwide.</p>
                     </div>
                 </div>
             </div>
@@ -443,13 +446,13 @@
         <!-- Section 7: Call to Action -->
         <section id="start" class="py-20 md:py-32 bg-teal-700 text-white">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">Start Your Legacy Journey Today</h2>
-                <p class="mt-6 text-lg leading-8 text-teal-100 max-w-2xl mx-auto">
+                <h2 class="text-3xl font-bold tracking-tight sm:text-4xl" data-key="sec7_title">Start Your Legacy Journey Today</h2>
+                <p class="mt-6 text-lg leading-8 text-teal-100 max-w-2xl mx-auto" data-key="sec7_subtitle">
                     You don't need to invest a dollar to begin. Join the waitlist for our
                     free "Crypto for Legacy" course and learn the simple, powerful steps
                     to secure your financial future.
                 </p>
-                <a href="#" class="mt-10 inline-block bg-white text-teal-700 text-lg font-semibold px-8 py-3 rounded-md shadow-lg hover:bg-stone-100 transition-transform duration-150 hover:scale-105">
+                <a href="#" class="mt-10 inline-block bg-white text-teal-700 text-lg font-semibold px-8 py-3 rounded-md shadow-lg hover:bg-stone-100 transition-transform duration-150 hover:scale-105" data-key="sec7_cta">
                     Join the Free Course Waitlist
                 </a>
             </div>
@@ -459,197 +462,453 @@
 
     <!-- Footer -->
     <footer class="text-center p-8 mt-16 border-t border-stone-200 text-stone-500">
-        <p class="text-sm">The Legacy Staking Initiative | A [Your_Company_Name] Project</p>
-        <p class="text-xs mt-2">Disclaimer: This is not financial advice. All investments, including cryptocurrency, carry risk. Please do your own research.</p>
+        <p class="text-sm" data-key="footer_line1">The Legacy Staking Initiative | A [Your_Company_Name] Project</p>
+        <p class="text-xs mt-2" data-key="footer_line2">Disclaimer: This is not financial advice. All investments, including cryptocurrency, carry risk. Please do your own research.</p>
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
+        let currentLang = 'en';
 
-            // --- CONSTANTS ---
-            const EPOCHS_PER_YEAR = 73;
-            const POOL_FIXED_COST_ADA = 340;
-            const POOL_COSTS_USD_PER_YEAR = 4800; // Fixed server cost
-            const INVESTOR_REWARDS_APY_APPROX = 0.035;
+        const translations = {
+            en: {
+                // Nav
+                nav_title: "Legacy Staking Initiative",
+                nav_problem: "The Problem",
+                nav_solution: "Our Solution",
+                nav_model: "Impact Model",
+                nav_commitment: "Our Commitment",
+                nav_cta: "Get Started",
+                lang_button: "عربي",
 
-            // --- DOM ELEMENTS (INPUTS) ---
-            const currentPriceInput = document.getElementById('current-price-input');
-            const stakeSlider = document.getElementById('stake-slider');
-            const marginSlider = document.getElementById('margin-slider');
-            const donationSlider = document.getElementById('donation-slider');
-            const investorStakeInput = document.getElementById('investor-stake-input');
-            const futurePriceInput = document.getElementById('future-price-input');
+                // Hero
+                hero_title_1: "Build Your Legacy.",
+                hero_title_2: "Secure Your Future. Fund a Better World.",
+                hero_subtitle: "We teach you how to turn your savings into a secure, sovereign, and productive asset. Generate passive yield, protect your capital from inflation, and create a lasting impact for your loved ones and the world—all without donating a single dollar of your own.",
+                hero_cta: "Start Your Free Legacy Course",
 
-            // --- DOM ELEMENTS (INPUT LABELS) ---
-            const currentPriceLabel = document.getElementById('current-price-label');
-            const stakeSliderValue = document.getElementById('stake-slider-value');
-            const marginSliderValue = document.getElementById('margin-slider-value');
-            const donationSliderValue = document.getElementById('donation-slider-value');
+                // Section 2 (The Problem)
+                sec2_title: "The Problem with the Old System",
+                sec2_subtitle: "Today, your financial legacy is at risk. Money left in traditional banks is melting away from inflation, earning near-zero interest, and is vulnerable to systemic failures. You are forced to trust centralized institutions that may not have your best interests at heart.",
+                sec2_card1_title: "Centralized Risk",
+                sec2_card1_text: "Bank failures, 'bail-ins,' and frozen accounts. You don't truly own your money.",
+                sec2_card2_title: "Value Erosion",
+                sec2_card2_text: "Inflation silently eats your purchasing power, making retirement harder to reach.",
+                sec2_card3_title: "Lack of Control",
+                sec2_card3_text: "Your assets are a liability on someone else's balance sheet. You have no real sovereignty.",
+                
+                // Section 3 (Solution)
+                sec3_title: "Our Solution: The 4-Step Legacy Model",
+                sec3_subtitle: "We provide a clear, safe, and powerful alternative. We don't ask for your money. We teach you how to take control of it using the power of Cardano.",
+                sec3_card1_title: "1. You Learn",
+                sec3_card1_text: "Our free 'Crypto for Legacy' course teaches you everything you need: how to buy Cardano (ADA) safely and what 'self-custody' means.",
+                sec3_card2_title: "2. You Control",
+                sec3_card2_text: "We show you how to secure your ADA in your own 'cold wallet.' You, and only you, hold the keys. It's your personal, digital vault.",
+                sec3_card3_title: "3. You Delegate",
+                sec3_card3_text: "You delegate your ADA's *staking rights* to our pool. Your ADA never leaves your wallet. This generates passive yield (~3-4% APY) for you.",
+                sec3_card4_title: "4. We Give",
+                sec3_card4_text: "Our pool takes a small operator fee from the generated rewards. We pledge a large portion of *our fees* to charities like Children's Hospitals.",
+                
+                // Section 4 (Platform)
+                sec4_title: "The Foundation: Why Cardano is Different",
+                sec4_subtitle: "For legacy investors, **security and accessibility** are non-negotiable. Cardano's staking model offers critical advantages over other major proof-of-stake chains (like Ethereum or Polkadot), ensuring your principal is always safe and liquid.",
+                sec4_diff1_title: "1. Principal Protection: No Slashing Risk",
+                sec4_diff1_cardano_title: "Cardano (ADA)",
+                sec4_diff1_cardano_text: "**Your capital is 100% safe.** Delegation is non-custodial and passive. If our pool makes a mistake or goes offline, the only penalty is a temporary loss of *potential rewards*. Your staked ADA is **never** taken away.",
+                sec4_diff1_comp_title: "Competitors (e.g., ETH, DOT)",
+                sec4_diff1_comp_text: "Operator errors or malicious behavior can lead to **slashing**, meaning the network can **destroy a portion of your delegated principal** (your original investment).",
+                sec4_diff2_title: "2. True Liquidity: Instant Access (Liquid Staking)",
+                sec4_diff2_cardano_title: "Cardano (ADA)",
+                sec4_diff2_cardano_text: "Your ADA is **always liquid**. It never leaves your wallet to delegate. You can move, sell, or use your ADA at any moment, without any locking, bonding, or unbonding periods.",
+                sec4_diff2_comp_title: "Competitors (e.g., DOT, some ETH staking)",
+                sec4_diff2_comp_text: "Require your capital to be **locked** (bonded) into a smart contract for days, weeks, or even months. You face long unbonding periods if you decide to exit, restricting your financial flexibility.",
+                sec4_diff3_title: "3. Full Accessibility: Low Minimums",
+                sec4_diff3_cardano_title: "Cardano (ADA)",
+                sec4_diff3_cardano_text: "There is effectively **no minimum** stake required for delegation. This allows every investor, regardless of wealth, to participate in yield generation and our charitable mission equally.",
+                sec4_diff3_comp_title: "Competitors (e.g., ETH)",
+                sec4_diff3_comp_text: "Direct staking requires 32 ETH (a very high capital barrier). This forces most small investors into complex 'liquid staking derivatives' or centralized exchanges, adding counterparty risk.",
+                sec4_charity_title: "The 'Trustless Charity' Mechanism",
+                sec4_charity_subtitle: "The operator's reward address is set to a secure **Plutus Smart Contract**. This contract is publicly verifiable and automatically enforces the donation split.",
+                sec4_charity_li1: "The contract instantly receives the operator fee.",
+                sec4_charity_li2: "It sends the Charity's portion (e.g., 50%) directly to their verified wallet.",
+                sec4_charity_li3: "It sends the Operator's portion (e.g., 50%) to our operational wallet.",
+                sec4_charity_result: "**Result:** The donation is fully verifiable on the Cardano blockchain, removing us completely as the middleman and eliminating counterparty risk in the charitable process.",
+                
+                // Section 5 (Model Inputs/Outputs)
+                sec5_title: "The Interactive Impact & Profitability Model",
+                sec5_subtitle: "This model is fully dynamic. Adjust the **Current Price** to see real-time profitability and explore the long-term **Legacy Value** using the **Future Price** projection.",
+                sec5_inputs1_title: "1. Core Model Inputs",
+                sec5_input_current_price_label: "Current ADA Price (USD) ✏️",
+                sec5_input_total_stake_label: "Total Pool Stake (ADA)",
+                sec5_input_total_stake_note: "Pools saturate at **~68M ADA** (parameter 'k' dependant). We actively manage our **multi-pool strategy** to ensure optimal rewards and expansion ([LGY2]).",
+                sec5_input_margin_label: "Operator Fee Margin",
+                sec5_input_donation_label: "Charity Donation (of Operator Profit)",
+                sec5_inputs2_title: "2. Project Your Personal Legacy",
+                sec5_input_personal_stake_label: "Your Personal Stake (ADA)",
+                sec5_input_future_price_label: "Future Assumed ADA Price (10 Yrs, USD)",
+                sec5_input_future_price_note: "Model potential appreciation up to $100 per ADA for long-term legacy planning.",
+                sec5_dashboard1_title: "Operator & Impact Dashboard (Annual)",
+                sec5_metric1_title: "Total Operator Fees",
+                sec5_metric2_title: "Pool Costs (Fixed)",
+                sec5_metric3_title: "Profit (Before Donation)",
+                sec5_metric4_title: "💖 Amount Donated",
+                sec5_metric5_title: "Net Operator Profit",
+                sec5_dashboard2_title: "Your Personal Legacy Dashboard",
+                sec5_investor_metric1_title: "Your Annual Rewards",
+                sec5_investor_metric2_title: "Value (Today)",
+                sec5_investor_metric3_title: "Your 10-Year Legacy Value",
+                sec5_investor_note: "*Legacy Value assumes your personal stake + compounded rewards (at 3.5% APY) x future assumed ADA price.",
+
+                // Section 6 (Commitment)
+                sec6_title: "Our Commitment: Radical Transparency",
+                sec6_subtitle: "Trust is not given, it's earned. Our entire business is built on transparency to ensure you are a partner, not just a customer.",
+                sec6_card1_title: "1. Legal & Professional Entity",
+                sec6_card1_text: "We are operating as a registered company ([Your_Company_Name]), not an anonymous hobbyist. This ensures long-term professional management, allows us to have official media channels (YouTube, X/Twitter), and provides legal accountability.",
+                sec6_card2_title: "2. Transparent Costs",
+                sec6_card2_text: "Running a high-performance, redundant stake pool is not free. Our operational costs for robust servers and monitoring are approximately <span class='font-bold'>$400 USD per month ($4,800 per year)</span>. This fixed cost is covered first, as shown in the model, before any profit or donations are calculated.",
+                sec6_card3_title: "3. Global Reach & Localization",
+                sec6_card3_text: "To serve our global community, we are prioritizing content localization. Our future roadmap includes translating the 'Crypto for Legacy' course and support materials into key languages like **Spanish, French, Arabic, and Hindi** to ensure accessibility worldwide.",
+                
+                // Section 7 (CTA)
+                sec7_title: "Start Your Legacy Journey Today",
+                sec7_subtitle: "You don't need to invest a dollar to begin. Join the waitlist for our free 'Crypto for Legacy' course and learn the simple, powerful steps to secure your financial future.",
+                sec7_cta: "Join the Free Course Waitlist",
+
+                // Footer
+                footer_line1: "The Legacy Staking Initiative | A [Your_Company_Name] Project",
+                footer_line2: "Disclaimer: This is not financial advice. All investments, including cryptocurrency, carry risk. Please do your own research."
+            },
+            ar: {
+                // Nav
+                nav_title: "مبادرة رهان الإرث",
+                nav_problem: "المشكلة",
+                nav_solution: "حلنا",
+                nav_model: "نموذج التأثير",
+                nav_commitment: "التزامنا",
+                nav_cta: "ابدأ الآن",
+                lang_button: "English",
+
+                // Hero
+                hero_title_1: "ابنِ إرثك.",
+                hero_title_2: "أَمِّن مستقبلك. ادعم عالمًا أفضل.",
+                hero_subtitle: "نحن نعلّمك كيف تحوّل مدخراتك إلى أصل آمن، سيادي ومنتج. احصل على عائد سلبي، واحمِ رأس مالك من التضخم، وخلق تأثيراً دائماً لأحبائك وللعالم—كل ذلك دون التبرع بدولار واحد من جيبك.",
+                hero_cta: "ابدأ دورتك التدريبية المجانية لبناء الإرث",
+
+                // Section 2 (The Problem)
+                sec2_title: "المشكلة في النظام القديم",
+                sec2_subtitle: "اليوم، إرثك المالي في خطر. الأموال المتروكة في البنوك التقليدية تذوب بفعل التضخم، وتكسب فائدة تقترب من الصفر، ومعرضة لفشل الأنظمة. أنت مُجبر على الوثوق بمؤسسات مركزية قد لا تضع مصالحك في الأولوية.",
+                sec2_card1_title: "مخاطر المركزية",
+                sec2_card1_text: "فشل البنوك، 'إنقاذ البنوك على حساب المودعين'، وتجميد الحسابات. أنت لا تملك أموالك حقًا.",
+                sec2_card2_title: "تآكل القيمة",
+                sec2_card2_text: "التضخم يلتهم قوتك الشرائية بصمت، مما يجعل التقاعد أكثر صعوبة.",
+                sec2_card3_title: "فقدان السيطرة",
+                sec2_card3_text: "أصولك هي التزام في ميزانية طرف آخر. ليس لديك سيادة حقيقية على أموالك.",
+                
+                // Section 3 (Solution)
+                sec3_title: "حلنا: نموذج الإرث المكون من 4 خطوات",
+                sec3_subtitle: "نحن نقدم بديلاً واضحًا وآمنًا وقويًا. لا نطلب أموالك. نحن نعلّمك كيفية السيطرة عليها باستخدام قوة Cardano.",
+                sec3_card1_title: "1. تتعلم",
+                sec3_card1_text: "دورتنا المجانية 'العملات المشفرة لبناء الإرث' تعلمك كل ما تحتاجه: كيفية شراء Cardano (ADA) بأمان وماذا تعني 'الوصاية الذاتية'.",
+                sec3_card2_title: "2. تسيطر",
+                sec3_card2_text: "نعرض لك كيفية تأمين عملاتك ADA في 'محفظة باردة' خاصة بك. أنت وحدك من يملك المفاتيح. إنها خزنتك الرقمية الشخصية.",
+                sec3_card3_title: "3. تفوّض",
+                sec3_card3_text: "أنت تفوض *حقوق رهان* عملاتك ADA إلى مجمعنا. عملاتك ADA لا تغادر محفظتك أبدًا. هذا يولد عائدًا سلبيًا (~3-4% سنويًا) لك.",
+                sec3_card4_title: "4. نتبرع",
+                sec3_card4_text: "يأخذ مجمعنا رسوم تشغيل صغيرة من العائدات المتولدة. نتعهد بتقديم جزء كبير من *رسومنا* للجمعيات الخيرية مثل مستشفيات الأطفال.",
+                
+                // Section 4 (Platform)
+                sec4_title: "الأساس: لماذا تختلف Cardano؟",
+                sec4_subtitle: "بالنسبة لمستثمري الإرث، فإن **الأمان وإمكانية الوصول** غير قابلة للتفاوض. يقدم نموذج رهان Cardano مزايا حاسمة على سلاسل إثبات الحصة الرئيسية الأخرى (مثل Ethereum أو Polkadot)، مما يضمن أن رأس مالك آمن وسائل دائمًا.",
+                sec4_diff1_title: "1. حماية رأس المال: لا يوجد خطر مصادرة",
+                sec4_diff1_cardano_title: "Cardano (ADA)",
+                sec4_diff1_cardano_text: "**رأس مالك آمن بنسبة 100%.** التفويض غير احتجازي وسلبي. إذا ارتكب مجمعنا خطأ أو توقف عن العمل، فإن العقوبة الوحيدة هي فقدان مؤقت لـ *العائدات المحتملة*. عملاتك المراهنة **لا يتم سحبها أبدًا**.",
+                sec4_diff1_comp_title: "المنافسون (على سبيل المثال، ETH، DOT)",
+                sec4_diff1_comp_text: "قد تؤدي أخطاء المشغل أو السلوك الخبيث إلى **المصادرة (slashing)**، مما يعني أن الشبكة يمكن أن **تُتلف جزءًا من رأس مالك المفوض** (استثمارك الأصلي).",
+                sec4_diff2_title: "2. سيولة حقيقية: وصول فوري (رهان سائل)",
+                sec4_diff2_cardano_title: "Cardano (ADA)",
+                sec4_diff2_cardano_text: "عملاتك ADA **سائلة دائمًا**. لا تغادر محفظتك أبدًا للتفويض. يمكنك تحريك أو بيع أو استخدام عملاتك في أي لحظة، دون أي فترات قفل أو إلغاء قفل.",
+                sec4_diff2_comp_title: "المنافسون (على سبيل المثال، DOT، بعض رهان ETH)",
+                sec4_diff2_comp_text: "تتطلب أن يكون رأس مالك **مقفلاً** (مربوطًا) في عقد ذكي لأيام أو أسابيع أو حتى أشهر. تواجه فترات طويلة لإلغاء القفل إذا قررت الخروج، مما يقيد مرونتك المالية.",
+                sec4_diff3_title: "3. إمكانية وصول كاملة: حدود دنيا منخفضة",
+                sec4_diff3_cardano_title: "Cardano (ADA)",
+                sec4_diff3_cardano_text: "لا توجد **حدود دنيا** مطلوبة للتفويض. هذا يسمح لكل مستثمر، بغض النظر عن ثروته، بالمشاركة في توليد العائدات ومهمتنا الخيرية بالتساوي.",
+                sec4_diff3_comp_title: "المنافسون (على سبيل المثال، ETH)",
+                sec4_diff3_comp_text: "يتطلب الرهان المباشر 32 ETH (حاجز رأسمالي مرتفع جدًا). هذا يجبر معظم المستثمرين الصغار على اللجوء إلى 'مشتقات الرهان السائل' المعقدة أو البورصات المركزية، مما يضيف مخاطر الطرف المقابل.",
+                sec4_charity_title: "آلية 'الصدقة غير الموثوقة'",
+                sec4_charity_subtitle: "يتم تعيين عنوان مكافأة المشغل على **عقد ذكي (Plutus)** آمن. هذا العقد قابل للتحقق علنًا ويفرض تقسيم التبرعات تلقائيًا.",
+                sec4_charity_li1: "يتلقى العقد رسوم المشغل فوراً.",
+                sec4_charity_li2: "يرسل حصة الجمعية الخيرية (على سبيل المثال، 50%) مباشرة إلى محفظتها الموثقة.",
+                sec4_charity_li3: "يرسل حصة المشغل (على سبيل المثال، 50%) إلى محفظتنا التشغيلية.",
+                sec4_charity_result: "**النتيجة:** التبرع قابل للتحقق بالكامل على سلسلة Cardano، مما يزيلنا تمامًا كوسيط ويقضي على مخاطر الطرف المقابل في العملية الخيرية.",
+                
+                // Section 5 (Model Inputs/Outputs)
+                sec5_title: "نموذج التأثير والربحية التفاعلي",
+                sec5_subtitle: "هذا النموذج ديناميكي بالكامل. اضبط **السعر الحالي** لترى الربحية في الوقت الفعلي واستكشف **قيمة الإرث** على المدى الطويل باستخدام إسقاط **السعر المستقبلي**.",
+                sec5_inputs1_title: "1. مدخلات النموذج الأساسية",
+                sec5_input_current_price_label: "السعر الحالي لـ ADA (بالدولار الأمريكي) ✏️",
+                sec5_input_total_stake_label: "إجمالي رهان المجمع (ADA)",
+                sec5_input_total_stake_note: "تصل المجمعات إلى مرحلة الإشباع عند **~68 مليون ADA** (يعتمد على معامل 'k'). نحن ندير **استراتيجية المجمعات المتعددة** بنشاط لضمان العائدات المثلى والتوسع ([LGY2]).",
+                sec5_input_margin_label: "هامش رسوم المشغل",
+                sec5_input_donation_label: "التبرع الخيري (من ربح المشغل)",
+                sec5_inputs2_title: "2. توقع إرثك الشخصي",
+                sec5_input_personal_stake_label: "رهانك الشخصي (ADA)",
+                sec5_input_future_price_label: "السعر المفترض المستقبلي لـ ADA (10 سنوات، بالدولار الأمريكي)",
+                sec5_input_future_price_note: "نمذجة التقدير المحتمل الذي يصل إلى 100 دولار لكل ADA لتخطيط الإرث على المدى الطويل.",
+                sec5_dashboard1_title: "لوحة تحكم المشغل والتأثير (سنويًا)",
+                sec5_metric1_title: "إجمالي رسوم المشغل",
+                sec5_metric2_title: "تكاليف المجمع (ثابتة)",
+                sec5_metric3_title: "الربح (قبل التبرع)",
+                sec5_metric4_title: "💖 المبلغ المُتبرع به",
+                sec5_metric5_title: "صافي ربح المشغل",
+                sec5_dashboard2_title: "لوحة تحكم إرثك الشخصي",
+                sec5_investor_metric1_title: "عائداتك السنوية",
+                sec5_investor_metric2_title: "القيمة (اليوم)",
+                sec5_investor_metric3_title: "قيمة إرثك بعد 10 سنوات",
+                sec5_investor_note: "*تفترض قيمة الإرث رهانك الشخصي + العائدات المتراكمة (بمعدل 3.5% سنويًا) × السعر المفترض المستقبلي لـ ADA.",
+
+                // Section 6 (Commitment)
+                sec6_title: "التزامنا: الشفافية المطلقة",
+                sec6_subtitle: "الثقة لا تُمنح، بل تُكتسب. تم بناء عملنا بالكامل على الشفافية لضمان أنك شريك، ولست مجرد عميل.",
+                sec6_card1_title: "1. كيان قانوني ومهني",
+                sec6_card1_text: "نحن نعمل كشركة مسجلة ([Your_Company_Name])، ولسنا مجرد هواة مجهولين. هذا يضمن إدارة مهنية طويلة الأجل، ويسمح لنا بامتلاك قنوات إعلامية رسمية (YouTube، X/Twitter)، ويوفر المساءلة القانونية.",
+                sec6_card2_title: "2. تكاليف شفافة",
+                sec6_card2_text: "تشغيل مجمع رهان عالي الأداء ومُحصن ليس مجانيًا. تبلغ تكاليف التشغيل لخوادمنا القوية والمراقبة حوالي <span class='font-bold'>400 دولار أمريكي شهريًا (4,800 دولار سنويًا)</span>. يتم تغطية هذه التكلفة الثابتة أولاً، كما هو موضح في النموذج، قبل حساب أي ربح أو تبرعات.",
+                sec6_card3_title: "3. الوصول العالمي والتوطين",
+                sec6_card3_text: "لخدمة مجتمعنا العالمي، نعطي الأولوية لترجمة المحتوى. تتضمن خريطة طريقنا المستقبلية ترجمة دورة 'العملات المشفرة لبناء الإرث' والمواد الداعمة إلى لغات رئيسية مثل **الإسبانية والفرنسية والعربية والهندية** لضمان إمكانية الوصول في جميع أنحاء العالم.",
+                
+                // Section 7 (CTA)
+                sec7_title: "ابدأ رحلة إرثك اليوم",
+                sec7_subtitle: "لا تحتاج إلى استثمار دولار واحد لتبدأ. انضم إلى قائمة انتظار دورتنا المجانية 'العملات المشفرة لبناء الإرث' وتعلّم الخطوات البسيطة والقوية لتأمين مستقبلك المالي.",
+                sec7_cta: "انضم إلى قائمة انتظار الدورة المجانية",
+
+                // Footer
+                footer_line1: "مبادرة رهان الإرث | مشروع لشركة [Your_Company_Name]",
+                footer_line2: "إخلاء مسؤولية: هذه ليست نصيحة مالية. جميع الاستثمارات، بما في ذلك العملات المشفرة، تحمل مخاطر. يرجى إجراء البحث الخاص بك."
+            }
+        };
+
+        function updateContent(lang) {
+            const currentTranslation = translations[lang];
             
-            // --- DOM ELEMENTS (OPERATOR OUTPUTS) ---
-            const metricOperatorFeesUsd = document.getElementById('metric-operator-fees-usd');
-            const metricPoolCostsUsd = document.getElementById('metric-pool-costs-usd');
-            const metricProfitBeforeDonation = document.getElementById('metric-profit-before-donation');
-            const metricAmountDonated = document.getElementById('metric-amount-donated');
-            const metricNetOperatorProfit = document.getElementById('metric-net-operator-profit');
+            // Set document direction
+            document.documentElement.lang = lang;
+            document.body.dir = lang === 'ar' ? 'rtl' : 'ltr';
 
-            // --- DOM ELEMENTS (INVESTOR OUTPUTS) ---
-            const metricInvestorRewardsAda = document.getElementById('metric-investor-rewards-ada');
-            const metricInvestorRewardsUsd = document.getElementById('metric-investor-rewards-usd');
-            const metricInvestorLegacyValue = document.getElementById('metric-investor-legacy-value');
+            // Update all elements with data-key attributes
+            document.querySelectorAll('[data-key]').forEach(el => {
+                const key = el.getAttribute('data-key');
+                if (currentTranslation[key]) {
+                    // Check if the content contains HTML (like the bolded cost or the <span> for the pen icon)
+                    if (key.includes('card2_text') || key.includes('sec5_input_current_price_label') || key.includes('sec4_charity_result')) {
+                        el.innerHTML = currentTranslation[key];
+                    } else {
+                        // Regular text updates
+                        el.innerText = currentTranslation[key];
+                    }
+                }
+            });
 
-            // --- CHART.JS ---
-            const chartCtx = document.getElementById('profitSplitChart').getContext('2d');
-            let profitSplitChart;
+            // Specific updates for non-data-key elements
+            document.getElementById('nav-title').innerText = currentTranslation.nav_title;
+            document.getElementById('nav-cta').innerText = currentTranslation.nav_cta;
+            document.getElementById('lang-toggle').innerText = currentTranslation.lang_button;
+        }
 
-            function formatNum(value) {
-                return value.toLocaleString('en-US', { maximumFractionDigits: 0 });
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'ar' : 'en';
+            updateContent(currentLang);
+            // After changing direction, we need to re-run the calculation to update the currency formatting for clarity
+            calculateModel();
+        }
+
+        document.getElementById('lang-toggle').addEventListener('click', toggleLanguage);
+
+
+        // --- FINANCIAL MODEL JAVASCRIPT ---
+
+        // --- CONSTANTS ---
+        const EPOCHS_PER_YEAR = 73;
+        const POOL_FIXED_COST_ADA = 340;
+        const POOL_COSTS_USD_PER_YEAR = 4800; // Fixed server cost
+        const INVESTOR_REWARDS_APY_APPROX = 0.035;
+
+        // --- DOM ELEMENTS (INPUTS) ---
+        const currentPriceInput = document.getElementById('current-price-input');
+        const stakeSlider = document.getElementById('stake-slider');
+        const marginSlider = document.getElementById('margin-slider');
+        const donationSlider = document.getElementById('donation-slider');
+        const investorStakeInput = document.getElementById('investor-stake-input');
+        const futurePriceInput = document.getElementById('future-price-input');
+
+        // --- DOM ELEMENTS (INPUT LABELS) ---
+        const currentPriceLabel = document.getElementById('current-price-label');
+        const stakeSliderValue = document.getElementById('stake-slider-value');
+        const marginSliderValue = document.getElementById('margin-slider-value');
+        const donationSliderValue = document.getElementById('donation-slider-value');
+        
+        // --- DOM ELEMENTS (OPERATOR OUTPUTS) ---
+        const metricOperatorFeesUsd = document.getElementById('metric-operator-fees-usd');
+        const metricPoolCostsUsd = document.getElementById('metric-pool-costs-usd');
+        const metricProfitBeforeDonation = document.getElementById('metric-profit-before-donation');
+        const metricAmountDonated = document.getElementById('metric-amount-donated');
+        const metricNetOperatorProfit = document.getElementById('metric-net-operator-profit');
+
+        // --- DOM ELEMENTS (INVESTOR OUTPUTS) ---
+        const metricInvestorRewardsAda = document.getElementById('metric-investor-rewards-ada');
+        const metricInvestorRewardsUsd = document.getElementById('metric-investor-rewards-usd');
+        const metricInvestorLegacyValue = document.getElementById('metric-investor-legacy-value');
+
+        // --- CHART.JS ---
+        const chartCtx = document.getElementById('profitSplitChart').getContext('2d');
+        let profitSplitChart;
+
+        function formatNum(value) {
+            return value.toLocaleString(currentLang === 'ar' ? 'ar-EG' : 'en-US', { maximumFractionDigits: 0 });
+        }
+        
+        function formatCurrency(value) {
+             return value.toLocaleString(currentLang === 'ar' ? 'ar-EG' : 'en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
+        }
+
+        function calculateModel() {
+            // 1. Get all input values (using default of 0.45 if current price input is empty or invalid)
+            const currentPriceUSD = parseFloat(currentPriceInput.value) || 0.45;
+            const totalStake = parseFloat(stakeSlider.value);
+            const operatorMargin = parseFloat(marginSlider.value) / 100;
+            const charityDonationSplit = parseFloat(donationSlider.value) / 100;
+            const investorStake = parseFloat(investorStakeInput.value) || 0;
+            const futurePrice = parseFloat(futurePriceInput.value) || 0;
+
+            // 2. Update input labels
+            currentPriceLabel.innerText = currentPriceUSD.toFixed(2);
+            stakeSliderValue.innerText = formatNum(totalStake);
+            marginSliderValue.innerText = (operatorMargin * 100).toFixed(1);
+            donationSliderValue.innerText = formatNum(charityDonationSplit * 100);
+
+            // 3. --- OPERATOR & IMPACT CALCULATIONS ---
+            const totalAnnualRewards = totalStake * INVESTOR_REWARDS_APY_APPROX;
+            const totalAnnualFixedFees_ADA = POOL_FIXED_COST_ADA * EPOCHS_PER_YEAR;
+            
+            // Ensure margin fees aren't negative if fixed fees > total rewards
+            const rewardsAfterFixed = totalAnnualRewards - totalAnnualFixedFees_ADA;
+            const totalAnnualMarginFees_ADA = Math.max(0, rewardsAfterFixed) * operatorMargin;
+
+            const totalOperatorFees_ADA = totalAnnualFixedFees_ADA + totalAnnualMarginFees_ADA;
+            
+            // Use the DYNAMIC Current ADA Price to calculate USD values for the pool
+            const totalOperatorFees_USD = totalOperatorFees_ADA * currentPriceUSD;
+            
+            const profitBeforeDonation_USD = totalOperatorFees_USD - POOL_COSTS_USD_PER_YEAR;
+            
+            let amountDonated_USD = 0;
+            let netOperatorProfit_USD = 0;
+
+            if (profitBeforeDonation_USD > 0) {
+                amountDonated_USD = profitBeforeDonation_USD * charityDonationSplit;
+                netOperatorProfit_USD = profitBeforeDonation_USD - amountDonated_USD;
+            } else {
+                // If no profit, no donations, and net profit is just the loss (negative)
+                netOperatorProfit_USD = profitBeforeDonation_USD;
             }
             
-            function formatCurrency(value) {
-                 return value.toLocaleString('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
+            // 4. Update Operator DOM
+            metricOperatorFeesUsd.innerText = formatNum(totalOperatorFees_USD);
+            metricPoolCostsUsd.innerText = formatNum(POOL_COSTS_USD_PER_YEAR);
+            metricProfitBeforeDonation.innerText = formatNum(profitBeforeDonation_USD);
+            metricAmountDonated.innerText = formatNum(amountDonated_USD);
+            metricNetOperatorProfit.innerText = formatNum(netOperatorProfit_USD);
+            
+            // 5. --- INVESTOR LEGACY CALCULATIONS ---
+            
+            // Investor Annual Rewards (ADA is fixed by APY)
+            const investorAnnualRewards_ADA = investorStake * INVESTOR_REWARDS_APY_APPROX;
+            
+            // Investor Annual Rewards USD (Uses DYNAMIC Current ADA Price)
+            const investorAnnualRewards_USD = investorAnnualRewards_ADA * currentPriceUSD;
+            
+            // Calculate 10-year compounded principal
+            const compoundedStake = investorStake * Math.pow((1 + INVESTOR_REWARDS_APY_APPROX), 10);
+            
+            // Investor Total Legacy Value USD (Uses DYNAMIC Future ADA Price)
+            const investorTotalLegacyValue_USD = compoundedStake * futurePrice;
+
+            // 6. Update Investor DOM
+            metricInvestorRewardsAda.innerText = formatNum(investorAnnualRewards_ADA);
+            metricInvestorRewardsUsd.innerText = formatNum(investorAnnualRewards_USD);
+            metricInvestorLegacyValue.innerText = formatNum(investorTotalLegacyValue_USD);
+            
+            // 7. Update Chart
+            // Ensure chart data is non-negative for visualization
+            const chartCosts = Math.max(0, POOL_COSTS_USD_PER_YEAR);
+            const chartDonations = Math.max(0, amountDonated_USD);
+            const chartProfit = Math.max(0, netOperatorProfit_USD);
+            
+            updateChart([chartCosts, chartDonations, chartProfit]);
+        }
+
+        function updateChart(data) {
+            if (profitSplitChart) {
+                profitSplitChart.data.datasets[0].data = data;
+                profitSplitChart.update();
             }
+        }
 
-            function calculateModel() {
-                // 1. Get all input values (using default of 0.45 if current price input is empty or invalid)
-                const currentPriceUSD = parseFloat(currentPriceInput.value) || 0.45;
-                const totalStake = parseFloat(stakeSlider.value);
-                const operatorMargin = parseFloat(marginSlider.value) / 100;
-                const charityDonationSplit = parseFloat(donationSlider.value) / 100;
-                const investorStake = parseFloat(investorStakeInput.value) || 0;
-                const futurePrice = parseFloat(futurePriceInput.value) || 0;
-
-                // 2. Update input labels
-                currentPriceLabel.innerText = currentPriceUSD.toFixed(2);
-                stakeSliderValue.innerText = formatNum(totalStake);
-                marginSliderValue.innerText = (operatorMargin * 100).toFixed(1);
-                donationSliderValue.innerText = formatNum(charityDonationSplit * 100);
-
-                // 3. --- OPERATOR & IMPACT CALCULATIONS ---
-                const totalAnnualRewards = totalStake * INVESTOR_REWARDS_APY_APPROX;
-                const totalAnnualFixedFees_ADA = POOL_FIXED_COST_ADA * EPOCHS_PER_YEAR;
-                
-                // Ensure margin fees aren't negative if fixed fees > total rewards
-                const rewardsAfterFixed = totalAnnualRewards - totalAnnualFixedFees_ADA;
-                const totalAnnualMarginFees_ADA = Math.max(0, rewardsAfterFixed) * operatorMargin;
-
-                const totalOperatorFees_ADA = totalAnnualFixedFees_ADA + totalAnnualMarginFees_ADA;
-                
-                // Use the DYNAMIC Current ADA Price to calculate USD values for the pool
-                const totalOperatorFees_USD = totalOperatorFees_ADA * currentPriceUSD;
-                
-                const profitBeforeDonation_USD = totalOperatorFees_USD - POOL_COSTS_USD_PER_YEAR;
-                
-                let amountDonated_USD = 0;
-                let netOperatorProfit_USD = 0;
-
-                if (profitBeforeDonation_USD > 0) {
-                    amountDonated_USD = profitBeforeDonation_USD * charityDonationSplit;
-                    netOperatorProfit_USD = profitBeforeDonation_USD - amountDonated_USD;
-                } else {
-                    // If no profit, no donations, and net profit is just the loss (negative)
-                    netOperatorProfit_USD = profitBeforeDonation_USD;
-                }
-                
-                // 4. Update Operator DOM
-                metricOperatorFeesUsd.innerText = formatNum(totalOperatorFees_USD);
-                metricPoolCostsUsd.innerText = formatNum(POOL_COSTS_USD_PER_YEAR);
-                metricProfitBeforeDonation.innerText = formatNum(profitBeforeDonation_USD);
-                metricAmountDonated.innerText = formatNum(amountDonated_USD);
-                metricNetOperatorProfit.innerText = formatNum(netOperatorProfit_USD);
-                
-                // 5. --- INVESTOR LEGACY CALCULATIONS ---
-                
-                // Investor Annual Rewards (ADA is fixed by APY)
-                const investorAnnualRewards_ADA = investorStake * INVESTOR_REWARDS_APY_APPROX;
-                
-                // Investor Annual Rewards USD (Uses DYNAMIC Current ADA Price)
-                const investorAnnualRewards_USD = investorAnnualRewards_ADA * currentPriceUSD;
-                
-                // Calculate 10-year compounded principal
-                const compoundedStake = investorStake * Math.pow((1 + INVESTOR_REWARDS_APY_APPROX), 10);
-                
-                // Investor Total Legacy Value USD (Uses DYNAMIC Future ADA Price)
-                const investorTotalLegacyValue_USD = compoundedStake * futurePrice;
-
-                // 6. Update Investor DOM
-                metricInvestorRewardsAda.innerText = formatNum(investorAnnualRewards_ADA);
-                metricInvestorRewardsUsd.innerText = formatNum(investorAnnualRewards_USD);
-                metricInvestorLegacyValue.innerText = formatNum(investorTotalLegacyValue_USD);
-                
-                // 7. Update Chart
-                // Ensure chart data is non-negative for visualization
-                const chartCosts = Math.max(0, POOL_COSTS_USD_PER_YEAR);
-                const chartDonations = Math.max(0, amountDonated_USD);
-                const chartProfit = Math.max(0, netOperatorProfit_USD);
-                
-                updateChart([chartCosts, chartDonations, chartProfit]);
-            }
-
-            function updateChart(data) {
-                if (profitSplitChart) {
-                    profitSplitChart.data.datasets[0].data = data;
-                    profitSplitChart.update();
-                }
-            }
-
-            function initChart() {
-                profitSplitChart = new Chart(chartCtx, {
-                    type: 'doughnut',
-                    data: {
-                        labels: ['Pool Costs', 'Charity Donation', 'Net Operator Profit'],
-                        datasets: [{
-                            data: [1, 1, 1], // Initial data
-                            backgroundColor: [
-                                'rgb(168, 162, 158)', // stone-400
-                                'rgb(15, 118, 110)',  // teal-700
-                                'rgb(20, 184, 166)'   // teal-500
-                            ],
-                            borderColor: '#f8f7f6', // bg color
-                            borderWidth: 4
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        cutout: '60%',
-                        plugins: {
-                            legend: {
-                                position: 'bottom',
-                                labels: {
-                                    font: { size: 12, family: "'Inter', sans-serif" },
-                                    boxWidth: 12,
-                                    padding: 15
-                                }
-                            },
-                            tooltip: {
-                                callbacks: {
-                                    label: function(context) {
-                                        let label = context.label || '';
-                                        if (label) {
-                                            label += ': ';
-                                        }
-                                        if (context.parsed !== null) {
-                                            label += formatCurrency(context.parsed);
-                                        }
-                                        return label;
+        function initChart() {
+            profitSplitChart = new Chart(chartCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Pool Costs', 'Charity Donation', 'Net Operator Profit'],
+                    datasets: [{
+                        data: [1, 1, 1], // Initial data
+                        backgroundColor: [
+                            'rgb(168, 162, 158)', // stone-400
+                            'rgb(15, 118, 110)',  // teal-700
+                            'rgb(20, 184, 166)'   // teal-500
+                        ],
+                        borderColor: '#f8f7f6', // bg color
+                        borderWidth: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '60%',
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                font: { size: 12, family: "'Inter', sans-serif" },
+                                boxWidth: 12,
+                                padding: 15
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.label || '';
+                                    if (label) {
+                                        label += ': ';
                                     }
+                                    if (context.parsed !== null) {
+                                        label += formatCurrency(context.parsed);
+                                    }
+                                    return label;
                                 }
                             }
                         }
                     }
-                });
-            }
-
-            // --- EVENT LISTENERS ---
-            [currentPriceInput, stakeSlider, marginSlider, donationSlider, investorStakeInput, futurePriceInput].forEach(el => {
-                el.addEventListener('input', calculateModel);
+                }
             });
+        }
 
-            // --- INITIALIZE ---
-            initChart();
-            calculateModel(); // Run once on load to populate
+        // --- EVENT LISTENERS ---
+        [currentPriceInput, stakeSlider, marginSlider, donationSlider, investorStakeInput, futurePriceInput].forEach(el => {
+            el.addEventListener('input', calculateModel);
         });
+
+        // --- INITIALIZE ---
+        initChart();
+        updateContent(currentLang);
+        calculateModel(); 
     </script>
 </body>
 </html>
