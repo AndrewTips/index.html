@@ -6,6 +6,7 @@
     <title>The Legacy Staking Initiative - Interactive Plan</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
     <!-- Chosen Palette: Warm Neutral (Stone) & Professional Teal -->
     <!-- Application Structure Plan: The application is designed as a single-page, top-down narrative, acting as an interactive pitch deck. This structure guides a potential partner or customer through a logical and persuasive story: 1) The 'Why' (The Problem with traditional finance), 2) The 'How' (Our 4-step Solution), 3) The 'What' (The Interactive Financial Model - the core of the app), 4) The 'Trust' (Our Commitment to transparency), and 5) The 'CTA'. This is more effective than a static report, as it involves the user (especially in the financial model) and directly addresses their key concerns (safety, legacy, impact). -->
     <!-- Visualization & Content Choices:
@@ -92,18 +93,27 @@
     <header class="sticky top-0 bg-white/90 backdrop-blur-md shadow-sm z-50 border-b border-stone-200">
         <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
+                <!-- Title Adjustment: Used font-base instead of font-xl on mobile to prevent overflow -->
                 <div class="flex-shrink-0">
-                    <h1 class="text-xl font-bold text-teal-700">Legacy Staking Initiative</h1>
+                    <h1 class="text-lg sm:text-xl font-bold text-teal-700 whitespace-nowrap">Legacy Staking Initiative</h1>
                 </div>
-                <div class="hidden sm:block sm:ml-6">
-                    <div class="flex space-x-4">
-                        <a href="#problem" class="nav-link">The Problem</a>
-                        <a href="#solution" class="nav-link">Our Solution</a>
-                        <a href="#model" class="nav-link">Impact Model</a>
-                        <a href="#trust" class="nav-link">Our Commitment</a>
-                        <a href="#start" class="nav-link bg-teal-600 text-white hover:bg-teal-700 hover:text-white">Get Started</a>
+                <div class="hidden sm:flex sm:ml-6 items-center space-x-4">
+                    <a href="#problem" class="nav-link">The Problem</a>
+                    <a href="#solution" class="nav-link">Our Solution</a>
+                    <a href="#model" class="nav-link">Impact Model</a>
+                    <a href="#trust" class="nav-link">Our Commitment</a>
+                    
+                    <!-- Global Reach Indicator -->
+                    <div class="nav-link bg-stone-100 flex items-center text-teal-700">
+                        🌐 Global Reach
                     </div>
+                    
+                    <a href="#start" class="nav-link bg-teal-600 text-white hover:bg-teal-700 hover:text-white">Get Started</a>
                 </div>
+                <!-- Simple mobile nav trigger (Placeholder) -->
+                <button class="sm:hidden text-stone-600 hover:text-stone-900 focus:outline-none">
+                    ☰
+                </button>
             </div>
         </nav>
     </header>
@@ -294,11 +304,11 @@
                     <div class="lg:col-span-1 bg-white p-6 rounded-xl shadow-lg border border-stone-200 space-y-6">
                         <h3 class="text-xl font-semibold text-stone-800">1. Core Model Inputs</h3>
                         
-                        <!-- UPDATED CURRENT PRICE INPUT -->
+                        <!-- UPDATED CURRENT PRICE INPUT (More obvious interaction) -->
                         <div>
                             <div class="flex justify-between items-center mb-1">
                                 <label for="current-price-input" class="input-label flex items-center">
-                                    Current ADA Price (USD) ✏️
+                                    Current ADA Price (USD) <span class="ml-2 text-lg text-teal-600">✏️</span>
                                 </label>
                                 <span class="font-bold text-teal-700">$<span id="current-price-label">0.45</span></span>
                             </div>
@@ -423,8 +433,8 @@
                         <p class="text-stone-600">Running a high-performance, redundant stake pool is not free. Our operational costs for robust servers and monitoring are approximately <span class="font-bold">$400 USD per month ($4,800 per year)</span>. This fixed cost is covered first, as shown in the model, before any profit or donations are calculated.</p>
                     </div>
                     <div class="bg-stone-50 p-6 rounded-xl shadow-lg border border-stone-200">
-                        <h3 class="text-xl font-semibold mb-3">3. Scalability & Decentralization</h3>
-                        <p class="text-stone-600">To maintain optimal rewards and support the Cardano ecosystem's decentralization, we will launch **multiple pools** (e.g., "Legacy Staking 2" [LGY2]) as any single pool approaches its saturation limit (currently ~68M ADA). This is a professional approach to managing success.</p>
+                        <h3 class="text-xl font-semibold mb-3">3. Global Reach & Localization</h3>
+                        <p class="text-stone-600">To serve our global community, we are prioritizing content localization. Our future roadmap includes translating the "Crypto for Legacy" course and support materials into key languages like **Spanish, French, Arabic, and Hindi** to ensure accessibility worldwide.</p>
                     </div>
                 </div>
             </div>
