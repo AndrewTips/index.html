@@ -79,7 +79,7 @@
         .cta-container {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 15px;
             flex-wrap: wrap;
             margin-top: 40px;
         }
@@ -87,24 +87,30 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 18px 30px;
+            padding: 16px 24px;
             border-radius: 8px;
             text-decoration: none;
             font-family: 'Inter', sans-serif;
             font-weight: 700;
-            font-size: 1.1rem;
+            font-size: 1rem;
             transition: transform 0.2s, opacity 0.2s;
             color: white;
-            min-width: 280px;
+            min-width: 260px; /* Slightly smaller width to fit 3 better */
+            border: 2px solid transparent;
         }
         .btn:hover { transform: translateY(-3px); opacity: 0.9; }
         
         .btn-google { background-color: var(--google-blue); }
+        
+        /* Specific style for eBook to differentiate slightly if needed, or keep uniform */
+        .btn-google-ebook { background-color: transparent; border: 2px solid var(--google-blue); color: var(--google-blue); }
+        .btn-google-ebook:hover { background-color: var(--google-blue); color: white; }
+
         .btn-amazon { background-color: var(--brand-gray); border: 2px solid #333; }
         .btn-amazon:hover { border-color: var(--brand-gold); }
 
         /* Icons for buttons */
-        .icon { width: 24px; height: 24px; margin-right: 12px; fill: white; }
+        .icon { width: 24px; height: 24px; margin-right: 12px; fill: currentColor; }
 
         /* 6. FOOTER */
         footer { padding: 40px 0; font-family: 'Inter', sans-serif; font-size: 0.9rem; color: #666; }
@@ -157,17 +163,23 @@
 
     <div class="section">
         <div class="container">
-            <h3>Start Listening Now</h3>
-            <p>Available now on Google Play Audiobooks and Amazon Paperback.</p>
+            <h3>Start Your Journey</h3>
+            <p>Available now in Audio, Digital, and Print formats.</p>
             
             <div class="cta-container">
                 <a href="https://play.google.com/store/audiobooks/details/J_S_Adam_Breaths_of_Hope?id=AQAAAEDq0U-RtM" target="_blank" class="btn btn-google">
                     <svg class="icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                    Get on Google Play
+                    Get Audiobook (Google)
+                </a>
+
+                <a href="https://play.google.com/store/books/details?id=uVKaEQAAQBAJ" target="_blank" class="btn btn-google-ebook">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg>
+                    Get eBook (Google)
                 </a>
 
                 <a href="https://www.amazon.com/dp/B0G2HPP356" target="_blank" class="btn btn-amazon">
-                    Get Paperback on Amazon
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zm0 9l2.5-1.25L12 8.5l-2.5 1.25L12 11zm0 2.5l-5-2.5-5 2.5 10 5 10-5-5-2.5-5 2.5z"/></svg>
+                    Get Paperback (Amazon)
                 </a>
             </div>
         </div>
