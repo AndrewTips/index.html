@@ -31,22 +31,54 @@
 
         /* 2. TYPOGRAPHY */
         h1 { font-size: 2.5rem; text-transform: uppercase; color: var(--brand-gold); margin-bottom: 10px; line-height: 1.2; }
-        h2 { font-size: 1.5rem; font-family: 'Inter', sans-serif; font-weight: 400; color: #9ca3af; margin-bottom: 30px; }
+        h2 { font-size: 1.5rem; font-family: 'Inter', sans-serif; font-weight: 400; color: #9ca3af; margin-bottom: 20px; }
         h3 { font-size: 1.2rem; color: #fff; margin-bottom: 20px; font-family: 'Inter', sans-serif; text-transform: uppercase; letter-spacing: 1px; }
         p { margin-bottom: 20px; font-size: 1.1rem; color: #d1d5db; max-width: 800px; margin-left: auto; margin-right: auto; }
 
-        /* 3. LAYOUT CONTAINERS */
+        /* 3. NAVIGATION */
+        nav {
+            background-color: rgba(18, 18, 18, 0.95);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+            border-bottom: 1px solid #333;
+            backdrop-filter: blur(10px);
+            text-align: left;
+        }
+        .nav-flex { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            flex-wrap: wrap; 
+            gap: 15px; 
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .nav-links a { 
+            font-family: 'Inter', sans-serif; 
+            margin-left: 25px; 
+            font-size: 0.95rem; 
+            color: #d1d5db;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .nav-links a:hover { color: var(--brand-gold); }
+        .logo img { height: 40px; width: auto; vertical-align: middle; }
+
+        /* 4. LAYOUT CONTAINERS */
         .container { max-width: 900px; margin: 0 auto; padding: 20px; }
         .section { padding: 60px 0; border-bottom: 1px solid #333; }
-        .hero-section { padding-top: 80px; padding-bottom: 40px; }
+        .hero-section { padding-top: 60px; padding-bottom: 60px; }
 
-        /* 4. MEDIA EMBEDS (Responsive) */
+        /* 5. MEDIA EMBEDS */
         .book-cover {
             max-width: 300px;
             width: 100%;
             box-shadow: 0 20px 40px rgba(0,0,0,0.6);
             border-radius: 8px;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
         }
 
         .video-container {
@@ -75,13 +107,13 @@
             margin-bottom: 20px;
         }
 
-        /* 5. CALL TO ACTION BUTTONS */
+        /* 6. CALL TO ACTION BUTTONS */
         .cta-container {
             display: flex;
             justify-content: center;
             gap: 15px;
             flex-wrap: wrap;
-            margin-top: 40px;
+            margin-top: 30px; /* Spacing from text */
         }
         .btn {
             display: flex;
@@ -95,37 +127,55 @@
             font-size: 1rem;
             transition: transform 0.2s, opacity 0.2s;
             color: white;
-            min-width: 260px; /* Slightly smaller width to fit 3 better */
+            min-width: 260px;
             border: 2px solid transparent;
         }
         .btn:hover { transform: translateY(-3px); opacity: 0.9; }
         
         .btn-google { background-color: var(--google-blue); }
-        
-        /* Specific style for eBook to differentiate slightly if needed, or keep uniform */
         .btn-google-ebook { background-color: transparent; border: 2px solid var(--google-blue); color: var(--google-blue); }
         .btn-google-ebook:hover { background-color: var(--google-blue); color: white; }
-
         .btn-amazon { background-color: var(--brand-gray); border: 2px solid #333; }
         .btn-amazon:hover { border-color: var(--brand-gold); }
 
-        /* Icons for buttons */
         .icon { width: 24px; height: 24px; margin-right: 12px; fill: currentColor; }
 
-        /* 6. FOOTER */
+        /* 7. FOOTER */
         footer { padding: 40px 0; font-family: 'Inter', sans-serif; font-size: 0.9rem; color: #666; }
         footer a { color: #888; text-decoration: none; }
 
         /* MOBILE FIXES */
-        @media (max-width: 600px) {
+        @media (max-width: 768px) {
             h1 { font-size: 2rem; }
             h2 { font-size: 1.2rem; }
+            
+            .nav-flex { flex-direction: column; }
+            .nav-links { margin-top: 15px; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+            .nav-links a { margin: 0 10px; }
+
             .cta-container { flex-direction: column; }
             .btn { width: 100%; }
         }
     </style>
 </head>
 <body>
+
+    <nav>
+        <div class="nav-flex">
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="https://github.com/AndrewTips/index.html/raw/refs/heads/main/Ad%20Tips%20logo" alt="J.S. Adam Author Logo">
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="../index.html#crypto-mentor">The Crypto Mentor</a>
+                <a href="../index.html#breaths-of-hope">Breaths of Hope</a>
+                <a href="../index.html#about-author">About J.S. Adam</a>
+                <a href="../index.html#community">Contact</a>
+            </div>
+        </div>
+    </nav>
 
     <div class="section hero-section">
         <div class="container">
@@ -135,37 +185,7 @@
             <h2>A Journey Through Survival and Faith</h2>
             
             <p>The true story of survival against all odds. J.S. Adam's profound memoir captures the pain, fear, and unwavering hope of one man's fight for life.</p>
-        </div>
-    </div>
 
-    <div class="section" style="background-color: var(--brand-gray);">
-        <div class="container">
-            <h3>Listen to the Story</h3>
-            
-            <div class="video-container">
-                <iframe 
-                    src="https://www.youtube.com/embed/YOUR_VIDEO_ID_HERE" 
-                    title="Breaths of Hope Audiobook Sample" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen>
-                </iframe>
-            </div>
-
-            <iframe 
-                class="soundcloud-player"
-                scrolling="no" 
-                frameborder="no" 
-                allow="autoplay" 
-                src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2214882116&color=%23D4AF37&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=false">
-            </iframe>
-        </div>
-    </div>
-
-    <div class="section">
-        <div class="container">
-            <h3>Start Your Journey</h3>
-            <p>Available now in Audio, Digital, and Print formats.</p>
-            
             <div class="cta-container">
                 <a href="https://play.google.com/store/audiobooks/details/J_S_Adam_Breaths_of_Hope?id=AQAAAEDq0U-RtM" target="_blank" class="btn btn-google">
                     <svg class="icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
@@ -185,7 +205,31 @@
         </div>
     </div>
 
-    <div class="section" style="background-color: var(--brand-gray); text-align: left;">
+    <div class="section" style="background-color: var(--brand-gray);">
+        <div class="container">
+            <h3>Preview the Book</h3>
+            <p style="font-size: 0.95rem; margin-bottom: 30px;">Not sure yet? Listen to the first 14 minutes or stream a sample below.</p>
+            
+            <div class="video-container">
+                <iframe 
+                    src="https://www.youtube.com/embed/sJoajQ2WMNU" 
+                    title="Breaths of Hope Audiobook Sample" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+            <iframe 
+                class="soundcloud-player"
+                scrolling="no" 
+                frameborder="no" 
+                allow="autoplay" 
+                src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2214882116&color=%23D4AF37&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=false">
+            </iframe>
+        </div>
+    </div>
+
+    <div class="section" style="background-color: var(--brand-dark); text-align: left; border-bottom: none;">
         <div class="container">
             <h3 style="text-align: center; color: var(--brand-gold);">About the Book</h3>
             <p>Step into the extraordinary true story of J.S. Adam as he confronts the limits of human endurance in his battle against COVID-19.</p>
@@ -197,7 +241,7 @@
     <footer>
         <div class="container">
             <p style="font-size: 0.9rem; margin-bottom: 10px;">&copy; 2025 J.S. Adam. All Rights Reserved.</p>
-            <a href="https://www.andrewtips.com">Back to Main Site</a>
+            <a href="../index.html">Back to Main Site</a>
         </div>
     </footer>
 
