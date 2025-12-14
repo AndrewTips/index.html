@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breaths of Hope | Official Audiobook</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Merriweather:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        /* 1. RESET & VARIABLES */
+        :root {
+            --brand-gold: #D4AF37;
+            --brand-dark: #121212;
+            --brand-gray: #1a1a1a;
+            --text-main: #e5e7eb;
+            --google-blue: #4285F4;
+            --amazon-orange: #FF9900;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            background-color: var(--brand-dark);
+            color: var(--text-main);
+            font-family: 'Merriweather', serif;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        /* 2. TYPOGRAPHY */
+        h1 { font-size: 2.5rem; text-transform: uppercase; color: var(--brand-gold); margin-bottom: 10px; line-height: 1.2; }
+        h2 { font-size: 1.5rem; font-family: 'Inter', sans-serif; font-weight: 400; color: #9ca3af; margin-bottom: 30px; }
+        h3 { font-size: 1.2rem; color: #fff; margin-bottom: 20px; font-family: 'Inter', sans-serif; text-transform: uppercase; letter-spacing: 1px; }
+        p { margin-bottom: 20px; font-size: 1.1rem; color: #d1d5db; max-width: 800px; margin-left: auto; margin-right: auto; }
+
+        /* 3. LAYOUT CONTAINERS */
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+        .section { padding: 60px 0; border-bottom: 1px solid #333; }
+        .hero-section { padding-top: 80px; padding-bottom: 40px; }
+
+        /* 4. MEDIA EMBEDS (Responsive) */
+        .book-cover {
+            max-width: 300px;
+            width: 100%;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+            border-radius: 8px;
+            margin-bottom: 40px;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            background: #000;
+            margin-bottom: 40px;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        iframe.soundcloud-player {
+            width: 100%;
+            height: 166px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        /* 5. CALL TO ACTION BUTTONS */
+        .cta-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 18px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: transform 0.2s, opacity 0.2s;
+            color: white;
+            min-width: 280px;
+        }
+        .btn:hover { transform: translateY(-3px); opacity: 0.9; }
+        
+        .btn-google { background-color: var(--google-blue); }
+        .btn-amazon { background-color: var(--brand-gray); border: 2px solid #333; }
+        .btn-amazon:hover { border-color: var(--brand-gold); }
+
+        /* Icons for buttons */
+        .icon { width: 24px; height: 24px; margin-right: 12px; fill: white; }
+
+        /* 6. FOOTER */
+        footer { padding: 40px 0; font-family: 'Inter', sans-serif; font-size: 0.9rem; color: #666; }
+        footer a { color: #888; text-decoration: none; }
+
+        /* MOBILE FIXES */
+        @media (max-width: 600px) {
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.2rem; }
+            .cta-container { flex-direction: column; }
+            .btn { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="section hero-section">
+        <div class="container">
+            <img src="https://raw.githubusercontent.com/AndrewTips/index.html/main/Breaths%20of%20Hope.png" alt="Breaths of Hope Book Cover" class="book-cover">
+            
+            <h1>Breaths of Hope</h1>
+            <h2>A Journey Through Survival and Faith</h2>
+            
+            <p>The true story of survival against all odds. J.S. Adam's profound memoir captures the pain, fear, and unwavering hope of one man's fight for life.</p>
+        </div>
+    </div>
+
+    <div class="section" style="background-color: var(--brand-gray);">
+        <div class="container">
+            <h3>Listen to the Story</h3>
+            
+            <div class="video-container">
+                <iframe 
+                    src="https://www.youtube.com/embed/YOUR_VIDEO_ID_HERE" 
+                    title="Breaths of Hope Audiobook Sample" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+            <iframe 
+                class="soundcloud-player"
+                scrolling="no" 
+                frameborder="no" 
+                allow="autoplay" 
+                src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2214882116&color=%23D4AF37&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=false">
+            </iframe>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="container">
+            <h3>Start Listening Now</h3>
+            <p>Available now on Google Play Audiobooks and Amazon Paperback.</p>
+            
+            <div class="cta-container">
+                <a href="https://play.google.com/store/audiobooks/details/J_S_Adam_Breaths_of_Hope?id=AQAAAEDq0U-RtM" target="_blank" class="btn btn-google">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    Get on Google Play
+                </a>
+
+                <a href="https://www.amazon.com/dp/B0G2HPP356" target="_blank" class="btn btn-amazon">
+                    Get Paperback on Amazon
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="section" style="background-color: var(--brand-gray); text-align: left;">
+        <div class="container">
+            <h3 style="text-align: center; color: var(--brand-gold);">About the Book</h3>
+            <p>Step into the extraordinary true story of J.S. Adam as he confronts the limits of human endurance in his battle against COVID-19.</p>
+            <p>"Breaths of Hope" is a profound memoir that captures the pain, fear, and unwavering hope of one man's fight for survival. Isolated in a hospital ward and facing a relentless struggle to breathe, Adam's story is one of resilience, faith, and the unbreakable bonds of family.</p>
+            <p>This journey challenges perceptions of modern healthcare, highlights the invaluable support of family, and offers deep reflections on gratitude and financial wisdom. It is a testament to overcoming adversity and a powerful reminder of the preciousness of life's simplest gifts.</p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p style="font-size: 0.9rem; margin-bottom: 10px;">&copy; 2025 J.S. Adam. All Rights Reserved.</p>
+            <a href="https://www.andrewtips.com">Back to Main Site</a>
+        </div>
+    </footer>
+
+</body>
+</html>
