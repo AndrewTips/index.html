@@ -443,30 +443,31 @@
         document.addEventListener('DOMContentLoaded', function() {
             
             // Helper function to send events safely
-            function track(id, eventName) {
+            function track(id, eventName, label) {
                 var btn = document.getElementById(id);
                 if(btn) {
                     btn.addEventListener('click', function() {
                         gtag('event', eventName, {
                             'event_category': 'conversion',
-                            'event_label': 'Homepage'
+                            'event_label': label // Differentiates Homepage vs Landing Page
                         });
-                        console.log('Event sent: ' + eventName); // For debugging
+                        // Debug log to console
+                        console.log('Event sent: ' + eventName + ' (' + label + ')');
                     });
                 }
             }
 
             // Crypto Mentor Buttons
-            track('btn-crypto-paperback', 'click_crypto_paperback_amazon');
-            track('btn-crypto-kindle', 'click_crypto_kindle_amazon');
-            track('btn-crypto-google', 'click_crypto_ebook_google');
+            track('btn-crypto-paperback', 'clicked_amazon_paperback', 'Homepage: Crypto');
+            track('btn-crypto-kindle', 'clicked_amazon_kindle', 'Homepage: Crypto');
+            track('btn-crypto-google', 'clicked_google_ebook', 'Homepage: Crypto');
 
             // Breaths of Hope Buttons
-            track('btn-boh-paperback', 'click_boh_paperback_amazon');
-            track('btn-boh-hardcover', 'click_boh_hardcover_amazon');
-            track('btn-boh-kindle', 'click_boh_kindle_amazon');
-            track('btn-boh-google-ebook', 'click_boh_ebook_google');
-            track('btn-boh-google-audio', 'click_boh_audio_google');
+            track('btn-boh-paperback', 'clicked_amazon_paperback', 'Homepage: BoH');
+            track('btn-boh-hardcover', 'clicked_amazon_hardcover', 'Homepage: BoH');
+            track('btn-boh-kindle', 'clicked_amazon_kindle', 'Homepage: BoH');
+            track('btn-boh-google-ebook', 'clicked_google_ebook', 'Homepage: BoH');
+            track('btn-boh-google-audio', 'clicked_google_audio', 'Homepage: BoH');
         });
     </script>
 
