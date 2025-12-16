@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-X7HVJWZRSZ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-X7HVJWZRSZ');
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Breaths of Hope | Official Audiobook</title>
@@ -30,10 +39,10 @@
         }
 
         /* 2. TYPOGRAPHY */
-        h1 { font-size: 2.5rem; text-transform: uppercase; color: var(--brand-gold); margin-bottom: 10px; line-height: 1.2; }
-        h2 { font-size: 1.5rem; font-family: 'Inter', sans-serif; font-weight: 400; color: #9ca3af; margin-bottom: 20px; }
+        h1 { font-size: 2.2rem; text-transform: uppercase; color: var(--brand-gold); margin-bottom: 10px; line-height: 1.2; }
+        h2 { font-size: 1.2rem; font-family: 'Inter', sans-serif; font-weight: 400; color: #9ca3af; margin-bottom: 20px; }
         h3 { font-size: 1.2rem; color: #fff; margin-bottom: 20px; font-family: 'Inter', sans-serif; text-transform: uppercase; letter-spacing: 1px; }
-        p { margin-bottom: 20px; font-size: 1.1rem; color: #d1d5db; max-width: 800px; margin-left: auto; margin-right: auto; }
+        p { margin-bottom: 20px; font-size: 1rem; color: #d1d5db; max-width: 800px; margin-left: auto; margin-right: auto; }
 
         /* 3. NAVIGATION */
         nav {
@@ -69,16 +78,25 @@
 
         /* 4. LAYOUT CONTAINERS */
         .container { max-width: 900px; margin: 0 auto; padding: 20px; }
-        .section { padding: 60px 0; border-bottom: 1px solid #333; }
-        .hero-section { padding-top: 60px; padding-bottom: 60px; }
+        .section { padding: 40px 0; border-bottom: 1px solid #333; }
+        
+        /* 5. HERO GRID (The "All-In-One" View) */
+        /* On desktop, this puts the Book/Text on Left, Media on Right */
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+            margin-top: 20px;
+            text-align: left;
+        }
 
-        /* 5. MEDIA EMBEDS */
         .book-cover {
-            max-width: 300px;
-            width: 100%;
+            max-width: 100%;
+            width: 100%; 
             box-shadow: 0 20px 40px rgba(0,0,0,0.6);
             border-radius: 8px;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
 
         .video-container {
@@ -89,7 +107,7 @@
             border-radius: 12px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
             background: #000;
-            margin-bottom: 40px;
+            margin-bottom: 20px;
         }
         .video-container iframe {
             position: absolute;
@@ -102,7 +120,7 @@
 
         iframe.soundcloud-player {
             width: 100%;
-            height: 166px;
+            height: 120px; /* Made slightly more compact */
             border-radius: 8px;
             margin-bottom: 20px;
         }
@@ -110,10 +128,9 @@
         /* 6. CALL TO ACTION BUTTONS */
         .cta-container {
             display: flex;
-            justify-content: center;
+            flex-direction: column; /* Stack buttons for impact */
             gap: 15px;
-            flex-wrap: wrap;
-            margin-top: 30px; /* Spacing from text */
+            margin-top: 20px;
         }
         .btn {
             display: flex;
@@ -127,8 +144,8 @@
             font-size: 1rem;
             transition: transform 0.2s, opacity 0.2s;
             color: white;
-            min-width: 260px;
             border: 2px solid transparent;
+            text-align: center;
         }
         .btn:hover { transform: translateY(-3px); opacity: 0.9; }
         
@@ -146,15 +163,19 @@
 
         /* MOBILE FIXES */
         @media (max-width: 768px) {
-            h1 { font-size: 2rem; }
-            h2 { font-size: 1.2rem; }
+            h1 { font-size: 1.8rem; text-align: center; }
+            h2 { font-size: 1.1rem; text-align: center; margin-bottom: 30px; }
             
             .nav-flex { flex-direction: column; }
             .nav-links { margin-top: 15px; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
             .nav-links a { margin: 0 10px; }
 
-            .cta-container { flex-direction: column; }
-            .btn { width: 100%; }
+            .hero-grid { 
+                grid-template-columns: 1fr; /* Stack vertically */
+                gap: 20px;
+                text-align: center;
+            }
+            .book-cover { max-width: 200px; margin: 0 auto 20px; display: block; }
         }
     </style>
 </head>
@@ -177,59 +198,61 @@
         </div>
     </nav>
 
-    <div class="section hero-section">
+    <div class="section">
         <div class="container">
-            <img src="https://raw.githubusercontent.com/AndrewTips/index.html/main/Breaths%20of%20Hope.png" alt="Breaths of Hope Book Cover" class="book-cover">
             
             <h1>Breaths of Hope</h1>
             <h2>A Journey Through Survival and Faith</h2>
-            
-            <p>The true story of survival against all odds. J.S. Adam's profound memoir captures the pain, fear, and unwavering hope of one man's fight for life.</p>
 
-            <div class="cta-container">
-                <a href="https://play.google.com/store/audiobooks/details/J_S_Adam_Breaths_of_Hope?id=AQAAAEDq0U-RtM" target="_blank" class="btn btn-google">
-                    <svg class="icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                    Get Audiobook (Google)
-                </a>
+            <div class="hero-grid">
+                
+                <div class="text-column">
+                    <img src="https://raw.githubusercontent.com/AndrewTips/index.html/main/Breaths%20of%20Hope.png" alt="Breaths of Hope Book Cover" class="book-cover">
+                    <p>The true story of survival against all odds. J.S. Adam's profound memoir captures the pain, fear, and unwavering hope of one man's fight for life.</p>
+                </div>
 
-                <a href="https://play.google.com/store/books/details?id=uVKaEQAAQBAJ" target="_blank" class="btn btn-google-ebook">
-                    <svg class="icon" viewBox="0 0 24 24"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg>
-                    Get eBook (Google)
-                </a>
+                <div class="media-column">
+                    
+                    <div class="video-container">
+                        <iframe 
+                            src="https://www.youtube.com/embed/sJoajQ2WMNU" 
+                            title="Breaths of Hope Audiobook Sample" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
 
-                <a href="https://www.amazon.com/dp/B0G2HPP356" target="_blank" class="btn btn-amazon">
-                    <svg class="icon" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zm0 9l2.5-1.25L12 8.5l-2.5 1.25L12 11zm0 2.5l-5-2.5-5 2.5 10 5 10-5-5-2.5-5 2.5z"/></svg>
-                    Get Paperback (Amazon)
-                </a>
+                    <iframe 
+                        class="soundcloud-player"
+                        scrolling="no" 
+                        frameborder="no" 
+                        allow="autoplay" 
+                        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2214882116&color=%23D4AF37&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=false">
+                    </iframe>
+
+                    <div class="cta-container">
+                        <a href="https://play.google.com/store/audiobooks/details/J_S_Adam_Breaths_of_Hope?id=AQAAAEDq0U-RtM" target="_blank" class="btn btn-google">
+                            <svg class="icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            Get Audiobook (Google)
+                        </a>
+
+                        <a href="https://play.google.com/store/books/details?id=uVKaEQAAQBAJ" target="_blank" class="btn btn-google-ebook">
+                            <svg class="icon" viewBox="0 0 24 24"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg>
+                            Get eBook (Google)
+                        </a>
+
+                        <a href="https://www.amazon.com/dp/B0G2HPP356" target="_blank" class="btn btn-amazon">
+                            <svg class="icon" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zm0 9l2.5-1.25L12 8.5l-2.5 1.25L12 11zm0 2.5l-5-2.5-5 2.5 10 5 10-5-5-2.5-5 2.5z"/></svg>
+                            Get Paperback (Amazon)
+                        </a>
+                    </div>
+
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="section" style="background-color: var(--brand-gray);">
-        <div class="container">
-            <h3>Preview the Book</h3>
-            <p style="font-size: 0.95rem; margin-bottom: 30px;">Not sure yet? Listen to the first 14 minutes or stream a sample below.</p>
-            
-            <div class="video-container">
-                <iframe 
-                    src="https://www.youtube.com/embed/sJoajQ2WMNU" 
-                    title="Breaths of Hope Audiobook Sample" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen>
-                </iframe>
-            </div>
-
-            <iframe 
-                class="soundcloud-player"
-                scrolling="no" 
-                frameborder="no" 
-                allow="autoplay" 
-                src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2214882116&color=%23D4AF37&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=false">
-            </iframe>
-        </div>
-    </div>
-
-    <div class="section" style="background-color: var(--brand-dark); text-align: left; border-bottom: none;">
+    <div class="section" style="background-color: var(--brand-gray); text-align: left;">
         <div class="container">
             <h3 style="text-align: center; color: var(--brand-gold);">About the Book</h3>
             <p>Step into the extraordinary true story of J.S. Adam as he confronts the limits of human endurance in his battle against COVID-19.</p>
