@@ -19,7 +19,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Merriweather:wght@400;700;900&display=swap" rel="stylesheet">
 
     <style>
-        /* 1. RESET & VARIABLES */
+        /* RESET & VARIABLES */
         :root {
             --brand-gold: #D4AF37;
             --brand-dark: #121212;
@@ -38,13 +38,13 @@
             text-align: center;
         }
 
-        /* 2. TYPOGRAPHY */
+        /* TYPOGRAPHY */
         h1 { font-size: 2.2rem; text-transform: uppercase; color: var(--brand-gold); margin-bottom: 10px; line-height: 1.2; }
         h2 { font-size: 1.2rem; font-family: 'Inter', sans-serif; font-weight: 400; color: #9ca3af; margin-bottom: 20px; }
         h3 { font-size: 1.2rem; color: #fff; margin-bottom: 20px; font-family: 'Inter', sans-serif; text-transform: uppercase; letter-spacing: 1px; }
         p { margin-bottom: 20px; font-size: 1rem; color: #d1d5db; max-width: 800px; margin-left: auto; margin-right: auto; }
 
-        /* 3. NAVIGATION */
+        /* NAVIGATION */
         nav {
             background-color: rgba(18, 18, 18, 0.95);
             position: sticky;
@@ -76,11 +76,11 @@
         .nav-links a:hover { color: var(--brand-gold); }
         .logo img { height: 40px; width: auto; vertical-align: middle; }
 
-        /* 4. LAYOUT CONTAINERS */
+        /* LAYOUT */
         .container { max-width: 900px; margin: 0 auto; padding: 20px; }
         .section { padding: 40px 0; border-bottom: 1px solid #333; }
         
-        /* 5. HERO GRID */
+        /* HERO GRID */
         .hero-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -124,7 +124,7 @@
             margin-bottom: 20px;
         }
 
-        /* 6. CALL TO ACTION BUTTONS */
+        /* BUTTONS */
         .cta-container {
             display: flex;
             flex-direction: column;
@@ -157,7 +157,7 @@
 
         .icon { width: 24px; height: 24px; margin-right: 12px; fill: currentColor; }
 
-        /* 7. FOOTER */
+        /* FOOTER */
         footer { padding: 40px 0; font-family: 'Inter', sans-serif; font-size: 0.9rem; color: #666; }
         footer a { color: #888; text-decoration: none; }
 
@@ -165,16 +165,10 @@
         @media (max-width: 768px) {
             h1 { font-size: 1.8rem; text-align: center; }
             h2 { font-size: 1.1rem; text-align: center; margin-bottom: 30px; }
-            
             .nav-flex { flex-direction: column; }
             .nav-links { margin-top: 15px; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
             .nav-links a { margin: 0 10px; }
-
-            .hero-grid { 
-                grid-template-columns: 1fr;
-                gap: 20px;
-                text-align: center;
-            }
+            .hero-grid { grid-template-columns: 1fr; gap: 20px; text-align: center; }
             .book-cover { max-width: 200px; margin: 0 auto 20px; display: block; }
         }
     </style>
@@ -205,14 +199,12 @@
             <h2>A Journey Through Survival and Faith</h2>
 
             <div class="hero-grid">
-                
                 <div class="text-column">
                     <img src="https://raw.githubusercontent.com/AndrewTips/index.html/main/Breaths%20of%20Hope.png" alt="Breaths of Hope Book Cover" class="book-cover">
                     <p>The true story of survival against all odds. J.S. Adam's profound memoir captures the pain, fear, and unwavering hope of one man's fight for life.</p>
                 </div>
 
                 <div class="media-column">
-                    
                     <div class="video-container">
                         <iframe 
                             src="https://www.youtube.com/embed/sJoajQ2WMNU" 
@@ -231,26 +223,17 @@
                     </iframe>
 
                     <div class="cta-container">
-                        <a href="https://play.google.com/store/audiobooks/details/J_S_Adam_Breaths_of_Hope?id=AQAAAEDq0U-RtM" 
-                           target="_blank" 
-                           class="btn btn-google"
-                           onclick="gtag('event', 'clicked_google_audio', {'event_category': 'conversion', 'event_label': 'Landing Page'});">
+                        <a href="https://play.google.com/store/audiobooks/details/J_S_Adam_Breaths_of_Hope?id=AQAAAEDq0U-RtM" target="_blank" id="track-audio-google" class="btn btn-google">
                             <svg class="icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                             Get Audiobook (Google)
                         </a>
 
-                        <a href="https://play.google.com/store/books/details?id=uVKaEQAAQBAJ" 
-                           target="_blank" 
-                           class="btn btn-google-ebook"
-                           onclick="gtag('event', 'clicked_google_ebook', {'event_category': 'conversion', 'event_label': 'Landing Page'});">
+                        <a href="https://play.google.com/store/books/details?id=uVKaEQAAQBAJ" target="_blank" id="track-ebook-google" class="btn btn-google-ebook">
                             <svg class="icon" viewBox="0 0 24 24"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg>
                             Get eBook (Google)
                         </a>
 
-                        <a href="https://www.amazon.com/dp/B0G2HPP356" 
-                           target="_blank" 
-                           class="btn btn-amazon"
-                           onclick="gtag('event', 'clicked_amazon_paperback', {'event_category': 'conversion', 'event_label': 'Landing Page'});">
+                        <a href="https://www.amazon.com/dp/B0G2HPP356" target="_blank" id="track-paperback-amazon" class="btn btn-amazon">
                             <svg class="icon" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zm0 9l2.5-1.25L12 8.5l-2.5 1.25L12 11zm0 2.5l-5-2.5-5 2.5 10 5 10-5-5-2.5-5 2.5z"/></svg>
                             Get Paperback (Amazon)
                         </a>
@@ -276,6 +259,31 @@
             <a href="../index.html">Back to Main Site</a>
         </div>
     </footer>
+
+    <script>
+        // This script runs after the page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // Helper function to send events safely
+            function sendTrackingEvent(id, eventName) {
+                var btn = document.getElementById(id);
+                if(btn) {
+                    btn.addEventListener('click', function() {
+                        gtag('event', eventName, {
+                            'event_category': 'conversion',
+                            'event_label': 'Landing Page'
+                        });
+                        console.log('Event sent: ' + eventName); // For debugging
+                    });
+                }
+            }
+
+            // Attach trackers to the specific buttons
+            sendTrackingEvent('track-audio-google', 'clicked_google_audio');
+            sendTrackingEvent('track-ebook-google', 'clicked_google_ebook');
+            sendTrackingEvent('track-paperback-amazon', 'clicked_amazon_paperback');
+        });
+    </script>
 
 </body>
 </html>
